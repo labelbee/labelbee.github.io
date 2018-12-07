@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值  123&amp;apos;a&amp;apos;&amp;lt; &amp;apos;b&amp;quot;  //true&amp;apos;abcdd&amp;apos;&amp;lt;&amp;apos;abcda&amp;apos; //false&amp;apos;2018-02-23&amp;apos;&amp;lt;&amp;apos;2018-11-11&amp;apos;">
-<meta name="keywords" content="javascript">
+<meta name="description" content="必补知识点一、CSS 样式 各种流的定义 + 内层元素如何挤压外层元素  float 会把指定元素变成块级元素 （inline-block？） 二、 JavaScript 基础知识 null == undefined  为何是true  三、浏览器 浏览器端渲染机制  四、网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="比较运算符">
-<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/05/比较运算符/index.html">
+<meta property="og:title" content="Javascript 知识点计划">
+<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/07/Javascript-知识点计划/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值  123&amp;apos;a&amp;apos;&amp;lt; &amp;apos;b&amp;quot;  //true&amp;apos;abcdd&amp;apos;&amp;lt;&amp;apos;abcda&amp;apos; //false&amp;apos;2018-02-23&amp;apos;&amp;lt;&amp;apos;2018-11-11&amp;apos;">
+<meta property="og:description" content="必补知识点一、CSS 样式 各种流的定义 + 内层元素如何挤压外层元素  float 会把指定元素变成块级元素 （inline-block？） 二、 JavaScript 基础知识 null == undefined  为何是true  三、浏览器 浏览器端渲染机制  四、网络">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-07T14:56:55.010Z">
+<meta property="og:updated_time" content="2018-12-07T14:48:36.803Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="比较运算符">
-<meta name="twitter:description" content="比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值  123&amp;apos;a&amp;apos;&amp;lt; &amp;apos;b&amp;quot;  //true&amp;apos;abcdd&amp;apos;&amp;lt;&amp;apos;abcda&amp;apos; //false&amp;apos;2018-02-23&amp;apos;&amp;lt;&amp;apos;2018-11-11&amp;apos;">
+<meta name="twitter:title" content="Javascript 知识点计划">
+<meta name="twitter:description" content="必补知识点一、CSS 样式 各种流的定义 + 内层元素如何挤压外层元素  float 会把指定元素变成块级元素 （inline-block？） 二、 JavaScript 基础知识 null == undefined  为何是true  三、浏览器 浏览器端渲染机制  四、网络">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
+  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/07/Javascript-知识点计划/">
 
 
 
 
 
-  <title>比较运算符 | zerlPark</title>
+  <title>Javascript 知识点计划 | zerlPark</title>
   
 
 
@@ -233,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/07/Javascript-知识点计划/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -250,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">比较运算符</h1>
+          <h1 class="post-title" itemprop="name headline">Javascript 知识点计划</h1>
         
 
         <div class="post-meta">
@@ -262,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T09:36:17+08:00">
+                2018-12-07
               </time>
             
 
@@ -300,14 +299,17 @@
       
 
       
-        <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
-<li>数字 跟 字符串 比较， 会将字符串转换成数字进行比较</li>
-<li>字符串 和 字符串 比较，会比较对应位置上的字符编码值</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;a&apos;&lt; &apos;b&quot;  //true</span><br><span class="line">&apos;abcdd&apos;&lt;&apos;abcda&apos; //false</span><br><span class="line">&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true</span><br></pre></td></tr></table></figure>
-<p>详细记录</p>
-<p><a href="https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/" target="_blank" rel="noopener">https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/</a></p>
-
+        <h2 id="必补知识点"><a href="#必补知识点" class="headerlink" title="必补知识点"></a>必补知识点</h2><h3 id="一、CSS-样式"><a href="#一、CSS-样式" class="headerlink" title="一、CSS 样式"></a>一、CSS 样式</h3><ol>
+<li>各种流的定义 + 内层元素如何挤压外层元素</li>
+</ol>
+<p>float 会把指定元素变成块级元素 （inline-block？）</p>
+<h3 id="二、-JavaScript-基础知识"><a href="#二、-JavaScript-基础知识" class="headerlink" title="二、 JavaScript 基础知识"></a>二、 JavaScript 基础知识</h3><ol>
+<li>null == undefined  为何是true</li>
+</ol>
+<h3 id="三、浏览器"><a href="#三、浏览器" class="headerlink" title="三、浏览器"></a>三、浏览器</h3><ol>
+<li>浏览器端渲染机制</li>
+</ol>
+<h3 id="四、网络"><a href="#四、网络" class="headerlink" title="四、网络"></a>四、网络</h3>
       
     </div>
     
@@ -322,12 +324,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
-          
-        </div>
-      
 
       
       
@@ -337,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/05/JavaScript字符串操作+ 929. Unique Email Addresses/" rel="next" title="JavaScript字符串操作+ 929. Unique Email Addresses">
-                <i class="fa fa-chevron-left"></i> JavaScript字符串操作+ 929. Unique Email Addresses
+              <a href="/2018/12/05/2. Add Two Numbers——medium/" rel="next" title="2. Add Two Numbers——medium">
+                <i class="fa fa-chevron-left"></i> 2. Add Two Numbers——medium
               </a>
             
           </div>
@@ -347,8 +343,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/05/概念：浅拷贝-深拷贝/" rel="prev" title="概念：浅拷贝-深拷贝">
-                概念：浅拷贝-深拷贝 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/07/认知/速读笔记/" rel="prev" title="速读笔记">
+                速读笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,7 +468,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符"><span class="nav-number">1.</span> <span class="nav-text">比较运算符</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#必补知识点"><span class="nav-number">1.</span> <span class="nav-text">必补知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、CSS-样式"><span class="nav-number">1.1.</span> <span class="nav-text">一、CSS 样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-JavaScript-基础知识"><span class="nav-number">1.2.</span> <span class="nav-text">二、 JavaScript 基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、浏览器"><span class="nav-number">1.3.</span> <span class="nav-text">三、浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、网络"><span class="nav-number">1.4.</span> <span class="nav-text">四、网络</span></a></li></ol></li></ol></div>
             
 
           </div>

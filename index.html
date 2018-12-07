@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,7 +93,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -229,6 +229,425 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/07/3-longest-Substring-Without-Repeating-Characters-Medium/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/07/3-longest-Substring-Without-Repeating-Characters-Medium/" itemprop="url">3. longest Substring Without Repeating Characters--Medium</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T23:59:13+08:00">
+                2018-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="3-longest-Substring-Without-Repeating-Characters–Medium"><a href="#3-longest-Substring-Without-Repeating-Characters–Medium" class="headerlink" title="3. longest Substring Without Repeating Characters–Medium"></a>3. longest Substring Without Repeating Characters–Medium</h2><p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;abcabcbb&quot;</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: The answer is &quot;abc&quot;, with the length of 3.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3. </span><br><span class="line">             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> maxlen = <span class="number">0</span>,p1 = <span class="number">0</span>,p2 = <span class="number">0</span>,len = s.length,hash =&#123;&#125;;</span><br><span class="line">    <span class="keyword">while</span>(p2&lt;len)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hash[s[p2]] !== <span class="literal">undefined</span>)&#123;</span><br><span class="line">            p1 = <span class="built_in">Math</span>.max(hash[s[p2]]+<span class="number">1</span>,p1);</span><br><span class="line">        &#125;</span><br><span class="line">        maxlen = <span class="built_in">Math</span>.max(maxlen,p2-p1+<span class="number">1</span>);</span><br><span class="line">        hash[s[p2]] = p2++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxlen;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>另一个大佬的写法，看看，其实这道题并不难，你的出发点有错误而已，不要自以为的认为某种方法慢，对其进行分析</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!s.length) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">1</span>, flag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;      </span><br><span class="line">        <span class="keyword">var</span> index = s.indexOf(s[i], flag) </span><br><span class="line">        <span class="keyword">if</span> (index !== <span class="number">-1</span> &amp;&amp; index &lt; i) flag = index + <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        max = <span class="built_in">Math</span>.max(max, i - flag + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/07/认知/速读笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/07/认知/速读笔记/" itemprop="url">速读笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T23:58:31+08:00">
+                2018-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="速读学习"><a href="#速读学习" class="headerlink" title="速读学习"></a>速读学习</h2><h3 id="阅读关键"><a href="#阅读关键" class="headerlink" title="阅读关键"></a>阅读关键</h3><ol>
+<li>通过标题理解主要内容</li>
+<li>缩短视觉定焦时间</li>
+<li>加大视觉幅度（视幅）</li>
+</ol>
+<h3 id="阅读技能："><a href="#阅读技能：" class="headerlink" title="阅读技能："></a>阅读技能：</h3><ol>
+<li>防止回调阅读</li>
+<li>通过视读进行阅读</li>
+</ol>
+<h3 id="六个大坑"><a href="#六个大坑" class="headerlink" title="六个大坑"></a>六个大坑</h3><ol>
+<li>速读不是阅读完就会的，需要可以练习，至少学习 6 周才能掌握</li>
+<li>速读不是省略的阅读，而是加快<strong>速度的逐句阅读</strong></li>
+<li>速读并不是聪明人的专利，而是人人都能掌握基础技能</li>
+<li>速读不是稀释理解能力的阅读，而是脑力全开的阅读方式</li>
+<li>速读不是一直保持一种速读，而是一种变速阅读方式</li>
+<li>练习速读是一种科学的速读套路</li>
+</ol>
+<p>自己理解：</p>
+<ol>
+<li><p>需要可以训练</p>
+</li>
+<li><p>每个人都能掌握</p>
+</li>
+<li><p>尽可能的利用大脑</p>
+</li>
+</ol>
+<h3 id="一、技能篇-001-谨记四要素"><a href="#一、技能篇-001-谨记四要素" class="headerlink" title="一、技能篇 001 谨记四要素"></a>一、技能篇 001 谨记四要素</h3><p>16个字： 刻意拉伸、专项训练、及时反馈、全身关注</p>
+<p>为什么牛逼的人能坚持，因为都是有反馈呀！</p>
+<p>所以训练的时候需要进行记录，让自己看得到进步，得到正反馈。</p>
+<h3 id="二、技能篇002-眼球运动训练"><a href="#二、技能篇002-眼球运动训练" class="headerlink" title="二、技能篇002 眼球运动训练"></a>二、技能篇002 眼球运动训练</h3><p>锻炼眼部肌肉</p>
+<ol>
+<li>手指引导法（因为人的眼睛是不会走直线）</li>
+<li>通过</li>
+</ol>
+<h3 id="三、技能篇003-基础技能模块二：-视觉定焦训练"><a href="#三、技能篇003-基础技能模块二：-视觉定焦训练" class="headerlink" title="三、技能篇003 基础技能模块二： 视觉定焦训练"></a>三、技能篇003 基础技能模块二： 视觉定焦训练</h3><ol>
+<li>符号训练法</li>
+<li>有节奏的默念法</li>
+<li>手指刷页法————推荐</li>
+<li>图解电影翻页法</li>
+</ol>
+<h3 id="四、技能篇004-基础技能模块三：-视觉幅度训练"><a href="#四、技能篇004-基础技能模块三：-视觉幅度训练" class="headerlink" title="四、技能篇004 基础技能模块三： 视觉幅度训练"></a>四、技能篇004 基础技能模块三： 视觉幅度训练</h3><h4 id="1-语义单元法——重点"><a href="#1-语义单元法——重点" class="headerlink" title="1. 语义单元法——重点"></a>1. 语义单元法——重点</h4><p>笨鸟真的不一定先飞，因为可能你花费的时间的效率可能远远不足人家。</p>
+<p>当你的大脑看了半分钟的文字后还没能了解当前文章的大意，大脑就是懈怠（人类的大脑是世界上最强大的超级计算机，会进行罢工</p>
+<h3 id="2-立体图法"><a href="#2-立体图法" class="headerlink" title="2. 立体图法"></a>2. 立体图法</h3><h3 id="3-字母树法"><a href="#3-字母树法" class="headerlink" title="3. 字母树法"></a>3. 字母树法</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/07/Javascript-知识点计划/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/07/Javascript-知识点计划/" itemprop="url">Javascript 知识点计划</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T09:36:17+08:00">
+                2018-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="必补知识点"><a href="#必补知识点" class="headerlink" title="必补知识点"></a>必补知识点</h2><h3 id="一、CSS-样式"><a href="#一、CSS-样式" class="headerlink" title="一、CSS 样式"></a>一、CSS 样式</h3><ol>
+<li>各种流的定义 + 内层元素如何挤压外层元素</li>
+</ol>
+<p>float 会把指定元素变成块级元素 （inline-block？）</p>
+<h3 id="二、-JavaScript-基础知识"><a href="#二、-JavaScript-基础知识" class="headerlink" title="二、 JavaScript 基础知识"></a>二、 JavaScript 基础知识</h3><ol>
+<li>null == undefined  为何是true</li>
+</ol>
+<h3 id="三、浏览器"><a href="#三、浏览器" class="headerlink" title="三、浏览器"></a>三、浏览器</h3><ol>
+<li>浏览器端渲染机制</li>
+</ol>
+<h3 id="四、网络"><a href="#四、网络" class="headerlink" title="四、网络"></a>四、网络</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/2. Add Two Numbers——medium/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -310,302 +729,6 @@
 <p>三个步骤:</p>
 <p>判断节点</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l1</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l2</span></span><br><span class="line"><span class="comment"> * @return &#123;ListNode&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> addTwoNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> h1 = l1;</span><br><span class="line">    <span class="keyword">var</span> h2 = l2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> l3 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">var</span> current = l3;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> carry = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (h1 !== <span class="literal">null</span> || h2 !== <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> x = h1 !== <span class="literal">null</span> ? h1.val : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> y = h2 !== <span class="literal">null</span> ? h2.val : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> sum = x + y + carry;</span><br><span class="line">        carry = <span class="built_in">Math</span>.floor(sum/<span class="number">10</span>);</span><br><span class="line">        current.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">        current = current.next;</span><br><span class="line">        <span class="keyword">if</span>(h1 !== <span class="literal">null</span>) &#123;h1 = h1.next&#125;;</span><br><span class="line">        <span class="keyword">if</span>(h2 !== <span class="literal">null</span>) &#123;h2 = h2.next&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        current.next = <span class="keyword">new</span> ListNode(carry);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> l3.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/##  53. Maximum Subarray（最大子串）/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/##  53. Maximum Subarray（最大子串）/" itemprop="url">53. Maximum Subarray（最大子串）——EASY</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="53-Maximum-Subarray（最大子串）——EASY"><a href="#53-Maximum-Subarray（最大子串）——EASY" class="headerlink" title="53. Maximum Subarray（最大子串）——EASY"></a>53. Maximum Subarray（最大子串）——EASY</h3><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
-<p><strong>Follow up:</strong></p>
-<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-<p>解题思路：</p>
-<p>从前往后进行遍历，设置两个总和 maxSum 和 curSum</p>
-<p>当加上当前值小于之前值时，则替换最大值为当前值。</p>
-<p>其实简单来说：</p>
-<p>从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值，</p>
-<p>开始给 max 赋值  nums[0] . lastMax  = 0;</p>
-<p>然后不断的给 lastMax 赋值，如果大于 max 则进行<strong>替换</strong> max，否则不变。</p>
-<p>然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> maxSum = nums[<span class="number">0</span>],</span><br><span class="line">        curSum = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i]&gt;curSum+nums[i])&#123;</span><br><span class="line">            curSum = nums[i];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            curSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(curSum&gt;maxSum)&#123;</span><br><span class="line">            maxSum = curSum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(maxSubArray([<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]));</span><br></pre></td></tr></table></figure>
-<p>另外一种写法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> lastMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        lastMax += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(lastMax&gt;max)&#123;</span><br><span class="line">            max = lastMax;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lastMax&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            lastMax = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/26. Remove Duplicates from Sorted Array/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/26. Remove Duplicates from Sorted Array/" itemprop="url">26. Remove Duplicates from Sorted Array</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26. Remove Duplicates from Sorted Array"></a>26. Remove Duplicates from Sorted Array</h2><p>Given a sorted array <em>nums</em>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank" rel="noopener"><strong>in-place</strong></a> such that each element appear only <em>once</em> and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array in-place</strong> with O(1) extra memory.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what you leave beyond the returned length.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [0,0,1,1,1,2,2,3,3,4],</span><br><span class="line"></span><br><span class="line">Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what values are set beyond the returned length.</span><br></pre></td></tr></table></figure>
-<p><strong>Clarification:</strong></p>
-<p>Confused why the returned value is an integer but your answer is an array?</p>
-<p>Note that the input array is passed in by <strong>reference</strong>, which means modification to the input array will be known to the caller as well.</p>
-<p>Internally you can think of this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// nums is passed in by reference. (i.e., without making a copy)</span><br><span class="line">int len = removeDuplicates(nums);</span><br><span class="line"></span><br><span class="line">// any modification to nums in your function would be known by the caller.</span><br><span class="line">// using the length returned by your function, it prints the first len elements.</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解题思路：</p>
-<p>通过两个变量来控制整个的替换，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var removeDuplicates = function(nums) &#123;</span><br><span class="line">    // if(nums == null || nums.length == 0) return [];</span><br><span class="line">    // var answer = nums.reduce(function(prev,cur)&#123;</span><br><span class="line">    //     if(prev.indexOf(cur)==-1)&#123;</span><br><span class="line">    //         prev.push(cur);</span><br><span class="line">    //         console.log(prev);</span><br><span class="line">    //     &#125;</span><br><span class="line">    //     return prev;</span><br><span class="line">    // &#125;,[])</span><br><span class="line">    // console.log(answer instanceof Array,nums);</span><br><span class="line">    // return answer;</span><br><span class="line"></span><br><span class="line">    var a = 0 ;</span><br><span class="line">    for(var i=1;i&lt;nums.length;i++)&#123;</span><br><span class="line">        if(nums[a]!= nums[i])&#123;</span><br><span class="line">            a++;</span><br><span class="line">            nums[a] = nums[i];</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">    nums.splice(a+1,nums.length-a+1);</span><br><span class="line">    return i;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>其他人解法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">javascript<span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeD</span>(<span class="params">sortedArray</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (sortedArray.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">let</span> j = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(j &lt; sortedArray.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (sortedArray[j] != sortedArray[j<span class="number">-1</span>]) &#123;</span><br><span class="line">            sortedArray[i] = sortedArray[j]</span><br><span class="line">            i++</span><br><span class="line">        &#125;</span><br><span class="line">        j++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><h3 id="一、splice-操作"><a href="#一、splice-操作" class="headerlink" title="一、splice 操作"></a>一、splice 操作</h3><p>原文链接：</p>
-<p><a href="http://caibaojian.com/js-splice-element.html" target="_blank" rel="noopener">http://caibaojian.com/js-splice-element.html</a></p>
-<h3 id="删除的数组的某一项"><a href="#删除的数组的某一项" class="headerlink" title="删除的数组的某一项"></a>删除的数组的某一项</h3><p>splice(index,len,[item])    注释：该方法会改变原始数组。</p>
-<p>splice有3个参数，它也可以用来<strong>替换/删除/添加</strong>数组内某一个或者几个值</p>
-<p>index:数组开始下标        len: 替换/删除的长度       item:替换的值，删除操作的话 item为空</p>
-<p>来源：</p>
-<p>前端开发博客</p>
-<h3 id="二、-Array-reduce"><a href="#二、-Array-reduce" class="headerlink" title="二、 Array.reduce()"></a>二、 Array.reduce()</h3><p><a href="https://aotu.io/notes/2016/04/14/js-reduce/index.html" target="_blank" rel="noopener">数组 reduce 用法 </a>详解，后期记录</p>
-<p>主要是设定初始值的时候格式</p>
-<p>array.reduce(function(prev,cru,index,array){</p>
-<p>},initialValue)</p>
-<p>initialValue 可以设置初始值</p>
-<h3 id="三、sort-方法"><a href="#三、sort-方法" class="headerlink" title="三、sort() 方法"></a>三、sort() 方法</h3><h4 id="1-sort-不带参数"><a href="#1-sort-不带参数" class="headerlink" title="1.sort() 不带参数"></a>1.sort() 不带参数</h4><p><code>sort()</code>方法对数组的元素做原地的排序，并返回这个数组。</p>
-<p>它是按<code>升序</code>排列数组项。<code>sort()</code>方法会调用每个数组项的 <code>toString()</code> 转型方法，然后按 <strong>UNICODE</strong> 进行比较，然后根据这个进行排序</p>
-<p>来一个简单的例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'laoluo'</span>,<span class="string">'kerwin'</span>,<span class="string">'brady'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.sort()); <span class="comment">//数组顺序将变为 brady kerwin laoluo</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var 这num = [1,2,8,12,36];</span><br><span class="line">a.sort() // 数组顺序改成 1 12 2 36 8</span><br></pre></td></tr></table></figure>
-<p>通过<code>charCodeAt()</code>来验证一下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"laoluo"</span>.charCodeAt()  <span class="comment">// 108</span></span><br><span class="line"><span class="string">"kerwin"</span>.charCodeAt() <span class="comment">// 107</span></span><br><span class="line"><span class="string">"brady"</span>.charCodeAt() <span class="comment">//	98</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-sort-中带参数——自己定义排序的函数"><a href="#2-sort-中带参数——自己定义排序的函数" class="headerlink" title="2. sort()中带参数——自己定义排序的函数"></a>2. sort()中带参数——自己定义排序的函数</h4><p>可以在参数中定义一个比较函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compareFun</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// a 排在 b 的前面</span></span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;b)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// a 排在 b 后面</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// a和b的位置保持不变</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//改良版</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compareNew</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&lt;b?<span class="number">-1</span>:a&gt;b?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//新版本升序</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ascSort</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新版本降序</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">desSort</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span>  b-a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过以下的方式可以对数组进行正确的进行<code>升序</code>排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var c = [7,3,5,9,10,4];</span><br><span class="line">c.sort(compareFun); // c 数组将改变为 3,4,5,7,9,10</span><br></pre></td></tr></table></figure>
-<h4 id="3-数组随机排序"><a href="#3-数组随机排序" class="headerlink" title="3. 数组随机排序"></a>3. 数组随机排序</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomSort</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>更多的方法请参照</p>
-<p><a href="https://www.w3cplus.com/javascript/array-part-4.html" target="_blank" rel="noopener">https://www.w3cplus.com/javascript/array-part-4.html</a></p>
 
           
         
@@ -924,7 +1047,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/JavaScript字符串操作+ 929. Unique Email Addresses/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/##  53. Maximum Subarray（最大子串）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -943,7 +1066,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/JavaScript字符串操作+ 929. Unique Email Addresses/" itemprop="url">JavaScript字符串操作+ 929. Unique Email Addresses</a></h1>
+                <a class="post-title-link" href="/2018/12/05/##  53. Maximum Subarray（最大子串）/" itemprop="url">53. Maximum Subarray（最大子串）——EASY</a></h1>
         
 
         <div class="post-meta">
@@ -995,181 +1118,22 @@
       
         
           
-            <h2 id="JavaScript字符串操作-929-Unique-Email-Addresses"><a href="#JavaScript字符串操作-929-Unique-Email-Addresses" class="headerlink" title="JavaScript字符串操作+ 929. Unique Email Addresses"></a>JavaScript字符串操作+ 929. Unique Email Addresses</h2><p>Every email consists of a local name and a domain name, separated by the @ sign.</p>
-<p>For example, in <a href="mailto:`alice@leetcode.com" target="_blank" rel="noopener">`alice@leetcode.com</a><code>,</code>alice<code>is the local name, and</code>leetcode.com` is the domain name.</p>
-<p>Besides lowercase letters, these emails may contain <code>&#39;.&#39;</code>s or <code>&#39;+&#39;</code>s.</p>
-<p>If you add periods (<code>&#39;.&#39;</code>) between some characters in the <strong>local name</strong> part of an email address, mail sent there will be forwarded to the same address without dots in the local name.  For example, <code>&quot;alice.z@leetcode.com&quot;</code> and <code>&quot;alicez@leetcode.com&quot;</code> forward to the same email address.  (Note that this rule does not apply for domain names.)</p>
-<p>If you add a plus (<code>&#39;+&#39;</code>) in the <strong>local name</strong>, everything after the first plus sign will be <strong>ignored</strong>. This allows certain emails to be filtered, for example <a href="mailto:`m.y+name@email.com" target="_blank" rel="noopener">`m.y+name@email.com</a><code>will be forwarded to</code><a href="mailto:my@email.com" target="_blank" rel="noopener">my@email.com</a>`.  (Again, this rule does not apply for domain names.)</p>
-<p>It is possible to use both of these rules at the same time.</p>
-<p>Given a list of <code>emails</code>, we send one email to each address in the list.  How many different addresses actually receive mails?</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;test.email+alex@leetcode.com&quot;,&quot;test.e.mail+bob.cathy@leetcode.com&quot;,&quot;testemail+david@lee.tcode.com&quot;]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: &quot;testemail@leetcode.com&quot; and &quot;testemail@lee.tcode.com&quot; actually receive mails</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ul>
-<li><code>1 &lt;= emails[i].length &lt;= 100</code></li>
-<li><code>1 &lt;= emails.length &lt;= 100</code></li>
-<li>Each <code>emails[i]</code> contains exactly one <code>&#39;@&#39;</code> character.</li>
-</ul>
-<p>以上大概的意思就是检测是否有重复的邮箱，<code>local</code>部分如果有符号<code>.</code>则忽视，<code>+</code>则后面全部东西进行忽略</p>
-<p>考点: 对字符串的操作</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numUniqueEmails = <span class="function"><span class="keyword">function</span>(<span class="params">emails</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> uniq = [];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; emails.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> emSplit = emails[i].split(<span class="string">'@'</span>);</span><br><span class="line">        <span class="keyword">var</span> local = emSplit[<span class="number">0</span>].split(<span class="string">'+'</span>)[<span class="number">0</span>].replace(<span class="regexp">/\./g</span>, <span class="string">''</span>) + <span class="string">'@'</span> + emSplit[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">var</span> domain = emSplit[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//includes 是ES6 Array的新方法，查找是否有元素</span></span><br><span class="line">        <span class="keyword">if</span> (!uniq.includes(local)) &#123;</span><br><span class="line">            uniq.push(local);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> uniq.length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h3 id="一、slice、substring-、substr——截取字符串-但不修改字符串本身的值"><a href="#一、slice、substring-、substr——截取字符串-但不修改字符串本身的值" class="headerlink" title="一、slice、substring 、substr——截取字符串,但不修改字符串本身的值"></a>一、slice、substring 、substr——截取字符串,但不修改字符串本身的值</h3><h4 id="1-单个参数"><a href="#1-单个参数" class="headerlink" title="1.单个参数"></a>1.单个参数</h4><p>三种方法都一样，从开始位置进行截取</p>
-<h4 id="2-两个参数"><a href="#2-两个参数" class="headerlink" title="2.两个参数"></a>2.两个参数</h4><p>slice 、substring 截取开始和结束的 index（但不截取该位置字符）</p>
-<p>而 substr 是开始索引 index 和 长度。</p>
-<h4 id="3-参数出现负数"><a href="#3-参数出现负数" class="headerlink" title="3. 参数出现负数"></a>3. 参数出现负数</h4><p>当以上三种若参数中出现负数时，情况各不相同</p>
-<ol>
-<li>slice 会将传入负值与字符串长度相加，</li>
-<li>substr 会将负数的第一个参数加上字符串长度，第二个参数若为负数则转换为 0 ，</li>
-<li>substring 会将所有负值参数转换 0</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="string">"hello world"</span> <span class="comment">//共11位</span></span><br><span class="line">alert(value.slice(<span class="number">-3</span>)); <span class="comment">// rld</span></span><br><span class="line">alert(value.substring(<span class="number">-3</span>)) <span class="comment">// hello world 相当于 value.substring(0)</span></span><br><span class="line">alert(value.substr(<span class="number">-3</span>)) <span class="comment">// rld</span></span><br><span class="line">alert(value,slice(<span class="number">3</span>,<span class="number">-4</span>)) <span class="comment">// lo w</span></span><br><span class="line">alert(value.substring(<span class="number">3</span>,<span class="number">-4</span>)) <span class="comment">//hel  相当于 value.substring(3,0);</span></span><br></pre></td></tr></table></figure>
-<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p>只有 substring 方法会将较小的数作为开始位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value.substring(3,1) 相当于 value.substring(1,3)</span><br></pre></td></tr></table></figure>
-<h3 id="二、join-和-split-一个为连接数组，一个为拆分数组，括号内填写连接或者拆分的字符串。"><a href="#二、join-和-split-一个为连接数组，一个为拆分数组，括号内填写连接或者拆分的字符串。" class="headerlink" title="二、join() 和 split(),一个为连接数组，一个为拆分数组，括号内填写连接或者拆分的字符串。"></a>二、join() 和 split(),一个为连接数组，一个为拆分数组，括号内填写连接或者拆分的字符串。</h3><h3 id="三、concat-拼接一个或多个字符串"><a href="#三、concat-拼接一个或多个字符串" class="headerlink" title="三、concat 拼接一个或多个字符串"></a>三、concat 拼接一个或多个字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value =	<span class="string">"hello "</span>;</span><br><span class="line"><span class="keyword">var</span> result = value.concat(<span class="string">"world"</span>,<span class="string">"!"</span>);</span><br><span class="line">alert(result);		<span class="comment">//"hello world!"</span></span><br><span class="line">alert(value); 		<span class="comment">//"hello"</span></span><br></pre></td></tr></table></figure>
-<h2 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h2><h3 id="一、拆分——slice-和-splice"><a href="#一、拆分——slice-和-splice" class="headerlink" title="一、拆分——slice 和 splice"></a>一、拆分——slice 和 splice</h3><p>前者 slice 需要开始和结束索引，并返回一个子数组（但不改变原数组）</p>
-<p> splice 则需要开始索引和长度（会改变原数组），并返回一个子数组</p>
-<p>slice 为浅拷贝，</p>
-<p>​</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/javascript 循环集合/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/javascript 循环集合/" itemprop="url">概念：浅拷贝-深拷贝</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Javascript-循环集合"><a href="#Javascript-循环集合" class="headerlink" title="Javascript 循环集合"></a>Javascript 循环集合</h2><p>在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法</p>
-<h3 id="一、foreach"><a href="#一、foreach" class="headerlink" title="一、foreach()"></a>一、foreach()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'lala'</span>];</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//输出 1 2 3 lala</span></span><br></pre></td></tr></table></figure>
-<p>小缺点：</p>
-<p>不能使用 break 语句进行终端，也不能用 return  返回到外层函数</p>
-<h3 id="二、for-in"><a href="#二、for-in" class="headerlink" title="二、for  in"></a>二、for  in</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,&apos;lala&apos;];</span><br><span class="line">arr.__proto__.name  = &apos;laoluo&apos;; //给 arr 的原型赋予属性name</span><br><span class="line">for(let i in arr)&#123;</span><br><span class="line">    console.log(i,arr[i]);</span><br><span class="line">&#125;</span><br><span class="line">// 0 1</span><br><span class="line">// 1 2</span><br><span class="line">// 2 3</span><br><span class="line">// 3 lala</span><br><span class="line">// name laoluo</span><br></pre></td></tr></table></figure>
-<ul>
-<li>上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1   = “21”，会对编码造成极大的不便</li>
-<li>for-in 循环体除了遍历数组元素外，还会遍历<strong>自定义元素</strong>，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到</li>
-<li>最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！</li>
-<li>所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此<code>不适用于数组</code></li>
-</ul>
-<h3 id="三、for-of-循环"><a href="#三、for-of-循环" class="headerlink" title="三、for of 循环"></a>三、for of 循环</h3><h4 id="这是最简洁的循环数组的语法"><a href="#这是最简洁的循环数组的语法" class="headerlink" title="这是最简洁的循环数组的语法"></a>这是最简洁的循环数组的语法</h4><ul>
-<li>避开了 for-in 的全部缺陷</li>
-<li>与 forEach 不同的是，他可以正确的响应 break、continue、return 语句<br>-</li>
-</ul>
-<ul>
-<li>for-of 循环支持数组循环，还支持字符串的循环</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> val <span class="keyword">of</span> arr)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(val) <span class="comment">// 分别输出 1 2 3 5 6</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> val <span class="keyword">of</span> <span class="string">"laoluo"</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(val); <span class="comment">//分别输出各个字符 l a o l u o</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="for-of-循环可以遍历其他集合（map，-set）"><a href="#for-of-循环可以遍历其他集合（map，-set）" class="headerlink" title="for-of 循环可以遍历其他集合（map， set）"></a>for-of 循环可以遍历其他集合（map， set）</h4><p>引用</p>
-<p><a href="https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop" target="_blank" rel="noopener">https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop</a></p>
+            <h3 id="53-Maximum-Subarray（最大子串）——EASY"><a href="#53-Maximum-Subarray（最大子串）——EASY" class="headerlink" title="53. Maximum Subarray（最大子串）——EASY"></a>53. Maximum Subarray（最大子串）——EASY</h3><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
+<p><strong>Follow up:</strong></p>
+<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
+<p>解题思路：</p>
+<p>从前往后进行遍历，设置两个总和 maxSum 和 curSum</p>
+<p>当加上当前值小于之前值时，则替换最大值为当前值。</p>
+<p>其实简单来说：</p>
+<p>从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值，</p>
+<p>开始给 max 赋值  nums[0] . lastMax  = 0;</p>
+<p>然后不断的给 lastMax 赋值，如果大于 max 则进行<strong>替换</strong> max，否则不变。</p>
+<p>然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> maxSum = nums[<span class="number">0</span>],</span><br><span class="line">        curSum = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i]&gt;curSum+nums[i])&#123;</span><br><span class="line">            curSum = nums[i];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            curSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(curSum&gt;maxSum)&#123;</span><br><span class="line">            maxSum = curSum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(maxSubArray([<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]));</span><br></pre></td></tr></table></figure>
+<p>另外一种写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> lastMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        lastMax += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(lastMax&gt;max)&#123;</span><br><span class="line">            max = lastMax;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lastMax&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            lastMax = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1340,7 +1304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/概念：浅拷贝-深拷贝/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/javascript 循环集合/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -1359,7 +1323,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/概念：浅拷贝-深拷贝/" itemprop="url">概念：浅拷贝-深拷贝</a></h1>
+                <a class="post-title-link" href="/2018/12/05/javascript 循环集合/" itemprop="url">Javascript 循环集合</a></h1>
         
 
         <div class="post-meta">
@@ -1411,15 +1375,27 @@
       
         
           
-            <h2 id="概念：浅拷贝-深拷贝"><a href="#概念：浅拷贝-深拷贝" class="headerlink" title="概念：浅拷贝-深拷贝"></a>概念：浅拷贝-深拷贝</h2><ol>
-<li>浅拷贝，对于第一层目标对象为<code>基本数据类型</code>的数据，直接赋值，而对于<code>引用数据类型</code>，就是直接赋存在于栈内存的<code>堆内存地址</code> ,即【传址】，并没有开辟新的栈<ol>
-<li>深拷贝，则为深度的赋值，里面对象对应两个地址，修改一个对象的属性并不会改变另外一个对象的值</li>
-</ol>
-</li>
-</ol>
-<h3 id="二、浅拷贝"><a href="#二、浅拷贝" class="headerlink" title="二、浅拷贝"></a>二、浅拷贝</h3><p>浅拷贝的方法</p>
-<h4 id="Array-concat-Array-slice-Array-from-Object-assign"><a href="#Array-concat-Array-slice-Array-from-Object-assign" class="headerlink" title="Array.concat()/Array.slice()/ Array.from()/Object.assign()"></a>Array.concat()/Array.slice()/ Array.from()/Object.assign()</h4><p>后面再继续记录更多的方法</p>
-<p><a href="https://segmentfault.com/a/1190000015042902" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015042902</a></p>
+            <h2 id="Javascript-循环集合"><a href="#Javascript-循环集合" class="headerlink" title="Javascript 循环集合"></a>Javascript 循环集合</h2><p>在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法</p>
+<h3 id="一、foreach"><a href="#一、foreach" class="headerlink" title="一、foreach()"></a>一、foreach()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'lala'</span>];</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//输出 1 2 3 lala</span></span><br></pre></td></tr></table></figure>
+<p>小缺点：</p>
+<p>不能使用 break 语句进行终端，也不能用 return  返回到外层函数</p>
+<h3 id="二、for-in"><a href="#二、for-in" class="headerlink" title="二、for  in"></a>二、for  in</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,&apos;lala&apos;];</span><br><span class="line">arr.__proto__.name  = &apos;laoluo&apos;; //给 arr 的原型赋予属性name</span><br><span class="line">for(let i in arr)&#123;</span><br><span class="line">    console.log(i,arr[i]);</span><br><span class="line">&#125;</span><br><span class="line">// 0 1</span><br><span class="line">// 1 2</span><br><span class="line">// 2 3</span><br><span class="line">// 3 lala</span><br><span class="line">// name laoluo</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1   = “21”，会对编码造成极大的不便</li>
+<li>for-in 循环体除了遍历数组元素外，还会遍历<strong>自定义元素</strong>，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到</li>
+<li>最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！</li>
+<li>所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此<code>不适用于数组</code></li>
+</ul>
+<h3 id="三、for-of-循环"><a href="#三、for-of-循环" class="headerlink" title="三、for of 循环"></a>三、for of 循环</h3><h4 id="这是最简洁的循环数组的语法"><a href="#这是最简洁的循环数组的语法" class="headerlink" title="这是最简洁的循环数组的语法"></a>这是最简洁的循环数组的语法</h4><ul>
+<li>避开了 for-in 的全部缺陷</li>
+<li>与 forEach 不同的是，他可以正确的响应 break、continue、return 语句<br>-</li>
+</ul>
+<ul>
+<li>for-of 循环支持数组循环，还支持字符串的循环</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> val <span class="keyword">of</span> arr)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(val) <span class="comment">// 分别输出 1 2 3 5 6</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> val <span class="keyword">of</span> <span class="string">"laoluo"</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(val); <span class="comment">//分别输出各个字符 l a o l u o</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="for-of-循环可以遍历其他集合（map，-set）"><a href="#for-of-循环可以遍历其他集合（map，-set）" class="headerlink" title="for-of 循环可以遍历其他集合（map， set）"></a>for-of 循环可以遍历其他集合（map， set）</h4><p>引用</p>
+<p><a href="https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop" target="_blank" rel="noopener">https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop</a></p>
 
           
         
@@ -1468,7 +1444,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/26. Remove Duplicates from Sorted Array/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -1487,7 +1463,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/比较运算符/" itemprop="url">概念：浅拷贝-深拷贝</a></h1>
+                <a class="post-title-link" href="/2018/12/05/26. Remove Duplicates from Sorted Array/" itemprop="url">26. Remove Duplicates from Sorted Array</a></h1>
         
 
         <div class="post-meta">
@@ -1539,13 +1515,48 @@
       
         
           
-            <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
-<li>数字 跟 字符串 比较， 会将字符串转换成数字进行比较</li>
-<li>字符串 和 字符串 比较，会比较对应位置上的字符编码值</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;a&apos;&lt; &apos;b&quot;  //true</span><br><span class="line">&apos;abcdd&apos;&lt;&apos;abcda&apos; //false</span><br><span class="line">&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true</span><br></pre></td></tr></table></figure>
-<p>详细记录</p>
-<p><a href="https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/" target="_blank" rel="noopener">https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/</a></p>
+            <h2 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26. Remove Duplicates from Sorted Array"></a>26. Remove Duplicates from Sorted Array</h2><p>Given a sorted array <em>nums</em>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank" rel="noopener"><strong>in-place</strong></a> such that each element appear only <em>once</em> and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array in-place</strong> with O(1) extra memory.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what you leave beyond the returned length.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [0,0,1,1,1,2,2,3,3,4],</span><br><span class="line"></span><br><span class="line">Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.</span><br><span class="line"></span><br><span class="line">It doesn&apos;t matter what values are set beyond the returned length.</span><br></pre></td></tr></table></figure>
+<p><strong>Clarification:</strong></p>
+<p>Confused why the returned value is an integer but your answer is an array?</p>
+<p>Note that the input array is passed in by <strong>reference</strong>, which means modification to the input array will be known to the caller as well.</p>
+<p>Internally you can think of this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// nums is passed in by reference. (i.e., without making a copy)</span><br><span class="line">int len = removeDuplicates(nums);</span><br><span class="line"></span><br><span class="line">// any modification to nums in your function would be known by the caller.</span><br><span class="line">// using the length returned by your function, it prints the first len elements.</span><br><span class="line">for (int i = 0; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解题思路：</p>
+<p>通过两个变量来控制整个的替换，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var removeDuplicates = function(nums) &#123;</span><br><span class="line">    // if(nums == null || nums.length == 0) return [];</span><br><span class="line">    // var answer = nums.reduce(function(prev,cur)&#123;</span><br><span class="line">    //     if(prev.indexOf(cur)==-1)&#123;</span><br><span class="line">    //         prev.push(cur);</span><br><span class="line">    //         console.log(prev);</span><br><span class="line">    //     &#125;</span><br><span class="line">    //     return prev;</span><br><span class="line">    // &#125;,[])</span><br><span class="line">    // console.log(answer instanceof Array,nums);</span><br><span class="line">    // return answer;</span><br><span class="line"></span><br><span class="line">    var a = 0 ;</span><br><span class="line">    for(var i=1;i&lt;nums.length;i++)&#123;</span><br><span class="line">        if(nums[a]!= nums[i])&#123;</span><br><span class="line">            a++;</span><br><span class="line">            nums[a] = nums[i];</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">    nums.splice(a+1,nums.length-a+1);</span><br><span class="line">    return i;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>其他人解法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">javascript<span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeD</span>(<span class="params">sortedArray</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (sortedArray.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">let</span> j = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(j &lt; sortedArray.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (sortedArray[j] != sortedArray[j<span class="number">-1</span>]) &#123;</span><br><span class="line">            sortedArray[i] = sortedArray[j]</span><br><span class="line">            i++</span><br><span class="line">        &#125;</span><br><span class="line">        j++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><h3 id="一、splice-操作"><a href="#一、splice-操作" class="headerlink" title="一、splice 操作"></a>一、splice 操作</h3><p>原文链接：</p>
+<p><a href="http://caibaojian.com/js-splice-element.html" target="_blank" rel="noopener">http://caibaojian.com/js-splice-element.html</a></p>
+<h3 id="删除的数组的某一项"><a href="#删除的数组的某一项" class="headerlink" title="删除的数组的某一项"></a>删除的数组的某一项</h3><p>splice(index,len,[item])    注释：该方法会改变原始数组。</p>
+<p>splice有3个参数，它也可以用来<strong>替换/删除/添加</strong>数组内某一个或者几个值</p>
+<p>index:数组开始下标        len: 替换/删除的长度       item:替换的值，删除操作的话 item为空</p>
+<p>来源：</p>
+<p>前端开发博客</p>
+<h3 id="二、-Array-reduce"><a href="#二、-Array-reduce" class="headerlink" title="二、 Array.reduce()"></a>二、 Array.reduce()</h3><p><a href="https://aotu.io/notes/2016/04/14/js-reduce/index.html" target="_blank" rel="noopener">数组 reduce 用法 </a>详解，后期记录</p>
+<p>主要是设定初始值的时候格式</p>
+<p>array.reduce(function(prev,cru,index,array){</p>
+<p>},initialValue)</p>
+<p>initialValue 可以设置初始值</p>
+<h3 id="三、sort-方法"><a href="#三、sort-方法" class="headerlink" title="三、sort() 方法"></a>三、sort() 方法</h3><h4 id="1-sort-不带参数"><a href="#1-sort-不带参数" class="headerlink" title="1.sort() 不带参数"></a>1.sort() 不带参数</h4><p><code>sort()</code>方法对数组的元素做原地的排序，并返回这个数组。</p>
+<p>它是按<code>升序</code>排列数组项。<code>sort()</code>方法会调用每个数组项的 <code>toString()</code> 转型方法，然后按 <strong>UNICODE</strong> 进行比较，然后根据这个进行排序</p>
+<p>来一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'laoluo'</span>,<span class="string">'kerwin'</span>,<span class="string">'brady'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.sort()); <span class="comment">//数组顺序将变为 brady kerwin laoluo</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var 这num = [1,2,8,12,36];</span><br><span class="line">a.sort() // 数组顺序改成 1 12 2 36 8</span><br></pre></td></tr></table></figure>
+<p>通过<code>charCodeAt()</code>来验证一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"laoluo"</span>.charCodeAt()  <span class="comment">// 108</span></span><br><span class="line"><span class="string">"kerwin"</span>.charCodeAt() <span class="comment">// 107</span></span><br><span class="line"><span class="string">"brady"</span>.charCodeAt() <span class="comment">//	98</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-sort-中带参数——自己定义排序的函数"><a href="#2-sort-中带参数——自己定义排序的函数" class="headerlink" title="2. sort()中带参数——自己定义排序的函数"></a>2. sort()中带参数——自己定义排序的函数</h4><p>可以在参数中定义一个比较函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compareFun</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// a 排在 b 的前面</span></span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a&gt;b)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// a 排在 b 后面</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// a和b的位置保持不变</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//改良版</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compareNew</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&lt;b?<span class="number">-1</span>:a&gt;b?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//新版本升序</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ascSort</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新版本降序</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">desSort</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span>  b-a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过以下的方式可以对数组进行正确的进行<code>升序</code>排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var c = [7,3,5,9,10,4];</span><br><span class="line">c.sort(compareFun); // c 数组将改变为 3,4,5,7,9,10</span><br></pre></td></tr></table></figure>
+<h4 id="3-数组随机排序"><a href="#3-数组随机排序" class="headerlink" title="3. 数组随机排序"></a>3. 数组随机排序</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomSort</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更多的方法请参照</p>
+<p><a href="https://www.w3cplus.com/javascript/array-part-4.html" target="_blank" rel="noopener">https://www.w3cplus.com/javascript/array-part-4.html</a></p>
 
           
         
@@ -1584,6 +1595,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1627,7 +1642,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1640,7 +1655,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -1695,7 +1710,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

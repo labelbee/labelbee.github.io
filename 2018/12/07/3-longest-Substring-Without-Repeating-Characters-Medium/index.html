@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值  123&amp;apos;a&amp;apos;&amp;lt; &amp;apos;b&amp;quot;  //true&amp;apos;abcdd&amp;apos;&amp;lt;&amp;apos;abcda&amp;apos; //false&amp;apos;2018-02-23&amp;apos;&amp;lt;&amp;apos;2018-11-11&amp;apos;">
-<meta name="keywords" content="javascript">
+<meta name="description" content="3. longest Substring Without Repeating Characters–MediumGiven a string, find the length of the longest substring without repeating characters. Example 1: 123Input: &amp;quot;abcabcbb&amp;quot;Output: 3 Explan">
 <meta property="og:type" content="article">
-<meta property="og:title" content="比较运算符">
-<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/05/比较运算符/index.html">
+<meta property="og:title" content="3. longest Substring Without Repeating Characters--Medium">
+<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/07/3-longest-Substring-Without-Repeating-Characters-Medium/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值  123&amp;apos;a&amp;apos;&amp;lt; &amp;apos;b&amp;quot;  //true&amp;apos;abcdd&amp;apos;&amp;lt;&amp;apos;abcda&amp;apos; //false&amp;apos;2018-02-23&amp;apos;&amp;lt;&amp;apos;2018-11-11&amp;apos;">
+<meta property="og:description" content="3. longest Substring Without Repeating Characters–MediumGiven a string, find the length of the longest substring without repeating characters. Example 1: 123Input: &amp;quot;abcabcbb&amp;quot;Output: 3 Explan">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-07T14:56:55.010Z">
+<meta property="og:updated_time" content="2018-12-07T16:03:24.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="比较运算符">
-<meta name="twitter:description" content="比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值  123&amp;apos;a&amp;apos;&amp;lt; &amp;apos;b&amp;quot;  //true&amp;apos;abcdd&amp;apos;&amp;lt;&amp;apos;abcda&amp;apos; //false&amp;apos;2018-02-23&amp;apos;&amp;lt;&amp;apos;2018-11-11&amp;apos;">
+<meta name="twitter:title" content="3. longest Substring Without Repeating Characters--Medium">
+<meta name="twitter:description" content="3. longest Substring Without Repeating Characters–MediumGiven a string, find the length of the longest substring without repeating characters. Example 1: 123Input: &amp;quot;abcabcbb&amp;quot;Output: 3 Explan">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
+  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/07/3-longest-Substring-Without-Repeating-Characters-Medium/">
 
 
 
 
 
-  <title>比较运算符 | zerlPark</title>
+  <title>3. longest Substring Without Repeating Characters--Medium | zerlPark</title>
   
 
 
@@ -233,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/07/3-longest-Substring-Without-Repeating-Characters-Medium/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -250,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">比较运算符</h1>
+          <h1 class="post-title" itemprop="name headline">3. longest Substring Without Repeating Characters--Medium</h1>
         
 
         <div class="post-meta">
@@ -262,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T23:59:13+08:00">
+                2018-12-07
               </time>
             
 
@@ -300,13 +299,16 @@
       
 
       
-        <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
-<li>数字 跟 字符串 比较， 会将字符串转换成数字进行比较</li>
-<li>字符串 和 字符串 比较，会比较对应位置上的字符编码值</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;a&apos;&lt; &apos;b&quot;  //true</span><br><span class="line">&apos;abcdd&apos;&lt;&apos;abcda&apos; //false</span><br><span class="line">&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true</span><br></pre></td></tr></table></figure>
-<p>详细记录</p>
-<p><a href="https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/" target="_blank" rel="noopener">https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/</a></p>
+        <h2 id="3-longest-Substring-Without-Repeating-Characters–Medium"><a href="#3-longest-Substring-Without-Repeating-Characters–Medium" class="headerlink" title="3. longest Substring Without Repeating Characters–Medium"></a>3. longest Substring Without Repeating Characters–Medium</h2><p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;abcabcbb&quot;</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: The answer is &quot;abc&quot;, with the length of 3.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3. </span><br><span class="line">             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> maxlen = <span class="number">0</span>,p1 = <span class="number">0</span>,p2 = <span class="number">0</span>,len = s.length,hash =&#123;&#125;;</span><br><span class="line">    <span class="keyword">while</span>(p2&lt;len)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hash[s[p2]] !== <span class="literal">undefined</span>)&#123;</span><br><span class="line">            p1 = <span class="built_in">Math</span>.max(hash[s[p2]]+<span class="number">1</span>,p1);</span><br><span class="line">        &#125;</span><br><span class="line">        maxlen = <span class="built_in">Math</span>.max(maxlen,p2-p1+<span class="number">1</span>);</span><br><span class="line">        hash[s[p2]] = p2++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxlen;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>另一个大佬的写法，看看，其实这道题并不难，你的出发点有错误而已，不要自以为的认为某种方法慢，对其进行分析</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!s.length) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">1</span>, flag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;      </span><br><span class="line">        <span class="keyword">var</span> index = s.indexOf(s[i], flag) </span><br><span class="line">        <span class="keyword">if</span> (index !== <span class="number">-1</span> &amp;&amp; index &lt; i) flag = index + <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        max = <span class="built_in">Math</span>.max(max, i - flag + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -322,12 +324,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
-          
-        </div>
-      
 
       
       
@@ -337,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/05/JavaScript字符串操作+ 929. Unique Email Addresses/" rel="next" title="JavaScript字符串操作+ 929. Unique Email Addresses">
-                <i class="fa fa-chevron-left"></i> JavaScript字符串操作+ 929. Unique Email Addresses
+              <a href="/2018/12/07/认知/速读笔记/" rel="next" title="速读笔记">
+                <i class="fa fa-chevron-left"></i> 速读笔记
               </a>
             
           </div>
@@ -346,10 +342,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/05/概念：浅拷贝-深拷贝/" rel="prev" title="概念：浅拷贝-深拷贝">
-                概念：浅拷贝-深拷贝 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,7 +464,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#比较运算符"><span class="nav-number">1.</span> <span class="nav-text">比较运算符</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-longest-Substring-Without-Repeating-Characters–Medium"><span class="nav-number">1.</span> <span class="nav-text">3. longest Substring Without Repeating Characters–Medium</span></a></li></ol></div>
             
 
           </div>
