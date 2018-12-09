@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/07/3-longest-Substring-Without-Repeating-Characters-Medium/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/07/leetcode/3-longest-Substring-Without-Repeating-Characters-Medium/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/07/3-longest-Substring-Without-Repeating-Characters-Medium/" itemprop="url">3. longest Substring Without Repeating Characters--Medium</a></h1>
+                <a class="post-title-link" href="/2018/12/07/leetcode/3-longest-Substring-Without-Repeating-Characters-Medium/" itemprop="url">3. longest Substring Without Repeating Characters--Medium</a></h1>
         
 
         <div class="post-meta">
@@ -307,9 +307,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
 <p><strong>Example 3:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3. </span><br><span class="line">             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> maxlen = <span class="number">0</span>,p1 = <span class="number">0</span>,p2 = <span class="number">0</span>,len = s.length,hash =&#123;&#125;;</span><br><span class="line">    <span class="keyword">while</span>(p2&lt;len)&#123;</span><br><span class="line">        <span class="keyword">if</span>(hash[s[p2]] !== <span class="literal">undefined</span>)&#123;</span><br><span class="line">            p1 = <span class="built_in">Math</span>.max(hash[s[p2]]+<span class="number">1</span>,p1);</span><br><span class="line">        &#125;</span><br><span class="line">        maxlen = <span class="built_in">Math</span>.max(maxlen,p2-p1+<span class="number">1</span>);</span><br><span class="line">        hash[s[p2]] = p2++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxlen;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>另一个大佬的写法，看看，其实这道题并不难，你的出发点有错误而已，不要自以为的认为某种方法慢，对其进行分析</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!s.length) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">1</span>, flag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;      </span><br><span class="line">        <span class="keyword">var</span> index = s.indexOf(s[i], flag) </span><br><span class="line">        <span class="keyword">if</span> (index !== <span class="number">-1</span> &amp;&amp; index &lt; i) flag = index + <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        max = <span class="built_in">Math</span>.max(max, i - flag + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h4><p>在主要通过 flag 判断当前开始位置，通过 indexOf(searchIndex,fromIndex) 从flag 位置开始寻找是否有相同的字符，若有则改变 flag ，并判断是否修改最大值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!s.length) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">1</span>, flag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;      </span><br><span class="line">        <span class="keyword">var</span> index = s.indexOf(s[i], flag) </span><br><span class="line">        <span class="keyword">if</span> (index !== <span class="number">-1</span> &amp;&amp; index &lt; i) flag = index + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//也可写为 if(index&lt;i),因为index 一定存在，并且</span></span><br><span class="line">        </span><br><span class="line">        max = <span class="built_in">Math</span>.max(max, i - flag + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h4><p>通过一个 <code>str</code>存储字符串，<code>cache</code> 数组存储数组位置</p>
+<p>当字符在 <code>cache</code> 中不存在时，则往 <code>str</code> 加入该字符和 <code>cache</code> 中加入以其字符为key、坐标为值的该字符对象。</p>
+<p>当字符存在时：</p>
+<ol>
+<li>先判断与最大值的长度比较</li>
+<li>获取当前字符的位置</li>
+<li>对 <code>str</code> 字符进行截取（从 index+1 开始)</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> cache = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (i &lt; s.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cache[s[i]]) &#123;</span><br><span class="line">            <span class="comment">// Found a repeating character.</span></span><br><span class="line">            <span class="keyword">if</span> (str.length &gt; max) &#123;</span><br><span class="line">                max = str.length;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> start = str.indexOf(s[i]);</span><br><span class="line">            str = str.substring(start + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &lt; s.length) &#123;</span><br><span class="line">            str += s[i];</span><br><span class="line">            cache[s[i]] = i + <span class="number">1</span>;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (str.length &gt; max) &#123;</span><br><span class="line">        max = str.length;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -648,7 +657,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/2. Add Two Numbers——medium/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/概念：浅拷贝-深拷贝/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -667,7 +676,262 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/2. Add Two Numbers——medium/" itemprop="url">2. Add Two Numbers——medium</a></h1>
+                <a class="post-title-link" href="/2018/12/05/概念：浅拷贝-深拷贝/" itemprop="url">概念：浅拷贝-深拷贝</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="概念：浅拷贝-深拷贝"><a href="#概念：浅拷贝-深拷贝" class="headerlink" title="概念：浅拷贝-深拷贝"></a>概念：浅拷贝-深拷贝</h2><ol>
+<li>浅拷贝，对于第一层目标对象为<code>基本数据类型</code>的数据，直接赋值，而对于<code>引用数据类型</code>，就是直接赋存在于栈内存的<code>堆内存地址</code> ,即【传址】，并没有开辟新的栈<ol>
+<li>深拷贝，则为深度的赋值，里面对象对应两个var </li>
+</ol>
+</li>
+</ol>
+<h3 id="三、深拷贝"><a href="#三、深拷贝" class="headerlink" title="三、深拷贝"></a>三、深拷贝</h3><h4 id="1-对象深拷贝："><a href="#1-对象深拷贝：" class="headerlink" title="1.对象深拷贝："></a>1.对象深拷贝：</h4><p>(1) Object.assign({},yourObj);    </p>
+<p>(2) var newObj =  {…yourObj};</p>
+<p>后面再继续记录更多的方法</p>
+<p><a href="https://segmentfault.com/a/1190000015042902" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015042902</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/比较运算符/" itemprop="url">比较运算符</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
+<li>数字 跟 字符串 比较， 会将字符串转换成数字进行比较</li>
+<li>字符串 和 字符串 比较，会比较对应位置上的字符编码值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;a&apos;&lt; &apos;b&quot;  //true</span><br><span class="line">&apos;abcdd&apos;&lt;&apos;abcda&apos; //false</span><br><span class="line">&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true</span><br></pre></td></tr></table></figure>
+<p>详细记录</p>
+<p><a href="https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/" target="_blank" rel="noopener">https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/2. Add Two Numbers——medium/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/leetcode/2. Add Two Numbers——medium/" itemprop="url">2. Add Two Numbers——medium</a></h1>
         
 
         <div class="post-meta">
@@ -729,533 +993,6 @@
 <p>三个步骤:</p>
 <p>判断节点</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l1</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l2</span></span><br><span class="line"><span class="comment"> * @return &#123;ListNode&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> addTwoNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> h1 = l1;</span><br><span class="line">    <span class="keyword">var</span> h2 = l2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> l3 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">var</span> current = l3;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> carry = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (h1 !== <span class="literal">null</span> || h2 !== <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> x = h1 !== <span class="literal">null</span> ? h1.val : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> y = h2 !== <span class="literal">null</span> ? h2.val : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> sum = x + y + carry;</span><br><span class="line">        carry = <span class="built_in">Math</span>.floor(sum/<span class="number">10</span>);</span><br><span class="line">        current.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">        current = current.next;</span><br><span class="line">        <span class="keyword">if</span>(h1 !== <span class="literal">null</span>) &#123;h1 = h1.next&#125;;</span><br><span class="line">        <span class="keyword">if</span>(h2 !== <span class="literal">null</span>) &#123;h2 = h2.next&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        current.next = <span class="keyword">new</span> ListNode(carry);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> l3.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/717. 1-bit and 2-bit Characters/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/717. 1-bit and 2-bit Characters/" itemprop="url">717. 1-bit and 2-bit Characters</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="717-1-bit-and-2-bit-Characters"><a href="#717-1-bit-and-2-bit-Characters" class="headerlink" title="717. 1-bit and 2-bit Characters"></a>717. 1-bit and 2-bit Characters</h2><p>  We have two special characters. The first character can be represented by one bit <code>0</code>. The second character can be represented by two bits (<code>10</code> or <code>11</code>).</p>
-<p>Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">bits = [1, 0, 0]</span><br><span class="line">Output: True</span><br><span class="line">Explanation:</span><br><span class="line">The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">bits = [1, 1, 1, 0]</span><br><span class="line">Output: False</span><br><span class="line">Explanation:</span><br><span class="line">The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character.</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<p><code>1 &lt;= len(bits) &lt;= 1000</code>.</p>
-<p><code>bits[i]</code> is always <code>0</code> or <code>1</code>.</p>
-<p>解题思路:</p>
-<p>由于只有三种编码方式 <code>0</code> <code>10</code> `11</p>
-<p>所以只要遇到 <code>1</code>就会前进两格，当遇到0时则前进一格，令初始值为 <code>i=0</code></p>
-<p>如果最后一个为 <code>0</code>则倒数第二个数所积累的长度必然等于 length-1</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; bits</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isOneBitCharacter = <span class="function"><span class="keyword">function</span>(<span class="params">bits</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = bits.length;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;    </span><br><span class="line">    <span class="keyword">while</span>(i&lt;len<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(bits[i]==<span class="string">"1"</span>)</span><br><span class="line">            i = i+<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i == len<span class="number">-1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/942. DI String Match/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/942. DI String Match/" itemprop="url">942. DI String Match</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="942-DI-String-Match"><a href="#942-DI-String-Match" class="headerlink" title="942. DI String Match"></a>942. DI String Match</h2><p>  Given a string <code>S</code> that <strong>only</strong> contains “I” (increase) or “D” (decrease), let <code>N = S.length</code>.</p>
-<p>Return <strong>any</strong> permutation <code>A</code> of <code>[0, 1, ..., N]</code> such that for all <code>i = 0, ..., N-1</code>:</p>
-<ul>
-<li>If <code>S[i] == &quot;I&quot;</code>, then <code>A[i] &lt; A[i+1]</code></li>
-<li>If <code>S[i] == &quot;D&quot;</code>, then <code>A[i] &gt; A[i+1]</code></li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;IDID&quot;</span><br><span class="line">Output: [0,4,1,3,2]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;III&quot;</span><br><span class="line">Output: [0,1,2,3]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;DDI&quot;</span><br><span class="line">Output: [3,2,0,1]</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ol>
-<li><code>1 &lt;= S.length &lt;= 10000</code></li>
-<li><code>S</code> only contains characters <code>&quot;I&quot;</code> or <code>&quot;D&quot;</code>.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; S</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> diStringMatch = <span class="function"><span class="keyword">function</span>(<span class="params">S</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> min = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = S.length;</span><br><span class="line">    <span class="keyword">var</span> s  = S.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> answer = s.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(item==<span class="string">"I"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> min++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (item==<span class="string">"D"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> max--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    answer.push(min); <span class="comment">//因为最后只剩下一个数字</span></span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/##  53. Maximum Subarray（最大子串）/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/##  53. Maximum Subarray（最大子串）/" itemprop="url">53. Maximum Subarray（最大子串）——EASY</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="53-Maximum-Subarray（最大子串）——EASY"><a href="#53-Maximum-Subarray（最大子串）——EASY" class="headerlink" title="53. Maximum Subarray（最大子串）——EASY"></a>53. Maximum Subarray（最大子串）——EASY</h3><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
-<p><strong>Follow up:</strong></p>
-<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-<p>解题思路：</p>
-<p>从前往后进行遍历，设置两个总和 maxSum 和 curSum</p>
-<p>当加上当前值小于之前值时，则替换最大值为当前值。</p>
-<p>其实简单来说：</p>
-<p>从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值，</p>
-<p>开始给 max 赋值  nums[0] . lastMax  = 0;</p>
-<p>然后不断的给 lastMax 赋值，如果大于 max 则进行<strong>替换</strong> max，否则不变。</p>
-<p>然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> maxSum = nums[<span class="number">0</span>],</span><br><span class="line">        curSum = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i]&gt;curSum+nums[i])&#123;</span><br><span class="line">            curSum = nums[i];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            curSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(curSum&gt;maxSum)&#123;</span><br><span class="line">            maxSum = curSum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(maxSubArray([<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]));</span><br></pre></td></tr></table></figure>
-<p>另外一种写法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> lastMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        lastMax += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(lastMax&gt;max)&#123;</span><br><span class="line">            max = lastMax;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lastMax&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            lastMax = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/CSS3 背景图设置/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/CSS3 背景图设置/" itemprop="url">CSS 背景图设置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="CSS3-背景图设置"><a href="#CSS3-背景图设置" class="headerlink" title="CSS3 背景图设置"></a>CSS3 背景图设置</h2><h3 id="一、设置背景图"><a href="#一、设置背景图" class="headerlink" title="一、设置背景图"></a>一、设置背景图</h3><p><code>background-image: url(&#39;/static/img/background.jpg&#39;);</code></p>
-<h3 id="二、设置背景图大小"><a href="#二、设置背景图大小" class="headerlink" title="二、设置背景图大小"></a>二、设置背景图大小</h3><p>`background-image: auto||</p>
-<h3 id="三、设置其他属性集合"><a href="#三、设置其他属性集合" class="headerlink" title="三、设置其他属性集合"></a>三、设置其他属性集合</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-repeat: repeat || repeat-x || repeat-y || no-repeat</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1444,7 +1181,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/26. Remove Duplicates from Sorted Array/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/26. Remove Duplicates from Sorted Array/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -1463,7 +1200,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/26. Remove Duplicates from Sorted Array/" itemprop="url">26. Remove Duplicates from Sorted Array</a></h1>
+                <a class="post-title-link" href="/2018/12/05/leetcode/26. Remove Duplicates from Sorted Array/" itemprop="url">26. Remove Duplicates from Sorted Array</a></h1>
         
 
         <div class="post-meta">
@@ -1557,6 +1294,261 @@
 <h4 id="3-数组随机排序"><a href="#3-数组随机排序" class="headerlink" title="3. 数组随机排序"></a>3. 数组随机排序</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomSort</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>更多的方法请参照</p>
 <p><a href="https://www.w3cplus.com/javascript/array-part-4.html" target="_blank" rel="noopener">https://www.w3cplus.com/javascript/array-part-4.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/CSS3 背景图设置/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/CSS3 背景图设置/" itemprop="url">CSS 背景图设置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="CSS3-背景图设置"><a href="#CSS3-背景图设置" class="headerlink" title="CSS3 背景图设置"></a>CSS3 背景图设置</h2><h3 id="一、设置背景图"><a href="#一、设置背景图" class="headerlink" title="一、设置背景图"></a>一、设置背景图</h3><p><code>background-image: url(&#39;/static/img/background.jpg&#39;);</code></p>
+<h3 id="二、设置背景图大小"><a href="#二、设置背景图大小" class="headerlink" title="二、设置背景图大小"></a>二、设置背景图大小</h3><p>`background-image: auto||</p>
+<h3 id="三、设置其他属性集合"><a href="#三、设置其他属性集合" class="headerlink" title="三、设置其他属性集合"></a>三、设置其他属性集合</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-repeat: repeat || repeat-x || repeat-y || no-repeat</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/717. 1-bit and 2-bit Characters/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/leetcode/717. 1-bit and 2-bit Characters/" itemprop="url">717. 1-bit and 2-bit Characters</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="717-1-bit-and-2-bit-Characters"><a href="#717-1-bit-and-2-bit-Characters" class="headerlink" title="717. 1-bit and 2-bit Characters"></a>717. 1-bit and 2-bit Characters</h2><p>  We have two special characters. The first character can be represented by one bit <code>0</code>. The second character can be represented by two bits (<code>10</code> or <code>11</code>).</p>
+<p>Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">bits = [1, 0, 0]</span><br><span class="line">Output: True</span><br><span class="line">Explanation:</span><br><span class="line">The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">bits = [1, 1, 1, 0]</span><br><span class="line">Output: False</span><br><span class="line">Explanation:</span><br><span class="line">The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character.</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<p><code>1 &lt;= len(bits) &lt;= 1000</code>.</p>
+<p><code>bits[i]</code> is always <code>0</code> or <code>1</code>.</p>
+<p>解题思路:</p>
+<p>由于只有三种编码方式 <code>0</code> <code>10</code> `11</p>
+<p>所以只要遇到 <code>1</code>就会前进两格，当遇到0时则前进一格，令初始值为 <code>i=0</code></p>
+<p>如果最后一个为 <code>0</code>则倒数第二个数所积累的长度必然等于 length-1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; bits</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isOneBitCharacter = <span class="function"><span class="keyword">function</span>(<span class="params">bits</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = bits.length;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;    </span><br><span class="line">    <span class="keyword">while</span>(i&lt;len<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(bits[i]==<span class="string">"1"</span>)</span><br><span class="line">            i = i+<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i == len<span class="number">-1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
           
         

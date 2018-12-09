@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/概念：浅拷贝-深拷贝/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/JavaScript字符串操作+ 929. Unique Email Addresses/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -248,261 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/05/概念：浅拷贝-深拷贝/" itemprop="url">概念：浅拷贝-深拷贝</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="概念：浅拷贝-深拷贝"><a href="#概念：浅拷贝-深拷贝" class="headerlink" title="概念：浅拷贝-深拷贝"></a>概念：浅拷贝-深拷贝</h2><ol>
-<li>浅拷贝，对于第一层目标对象为<code>基本数据类型</code>的数据，直接赋值，而对于<code>引用数据类型</code>，就是直接赋存在于栈内存的<code>堆内存地址</code> ,即【传址】，并没有开辟新的栈<ol>
-<li>深拷贝，则为深度的赋值，里面对象对应两个地址，修改一个对象的属性并不会改变另外一个对象的值</li>
-</ol>
-</li>
-</ol>
-<h3 id="二、浅拷贝"><a href="#二、浅拷贝" class="headerlink" title="二、浅拷贝"></a>二、浅拷贝</h3><p>浅拷贝的方法</p>
-<h4 id="Array-concat-Array-slice-Array-from-Object-assign"><a href="#Array-concat-Array-slice-Array-from-Object-assign" class="headerlink" title="Array.concat()/Array.slice()/ Array.from()/Object.assign()"></a>Array.concat()/Array.slice()/ Array.from()/Object.assign()</h4><p>后面再继续记录更多的方法</p>
-<p><a href="https://segmentfault.com/a/1190000015042902" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015042902</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/比较运算符/" itemprop="url">比较运算符</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
-<li>数字 跟 字符串 比较， 会将字符串转换成数字进行比较</li>
-<li>字符串 和 字符串 比较，会比较对应位置上的字符编码值</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;a&apos;&lt; &apos;b&quot;  //true</span><br><span class="line">&apos;abcdd&apos;&lt;&apos;abcda&apos; //false</span><br><span class="line">&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true</span><br></pre></td></tr></table></figure>
-<p>详细记录</p>
-<p><a href="https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/" target="_blank" rel="noopener">https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/JavaScript字符串操作+ 929. Unique Email Addresses/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/05/JavaScript字符串操作+ 929. Unique Email Addresses/" itemprop="url">JavaScript字符串操作+ 929. Unique Email Addresses</a></h1>
+                <a class="post-title-link" href="/2018/12/05/leetcode/JavaScript字符串操作+ 929. Unique Email Addresses/" itemprop="url">JavaScript字符串操作+ 929. Unique Email Addresses</a></h1>
         
 
         <div class="post-meta">
@@ -589,6 +335,278 @@
 <p> splice 则需要开始索引和长度（会改变原数组），并返回一个子数组</p>
 <p>slice 为浅拷贝，</p>
 <p>​</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/942. DI String Match/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/leetcode/942. DI String Match/" itemprop="url">942. DI String Match</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="942-DI-String-Match"><a href="#942-DI-String-Match" class="headerlink" title="942. DI String Match"></a>942. DI String Match</h2><p>  Given a string <code>S</code> that <strong>only</strong> contains “I” (increase) or “D” (decrease), let <code>N = S.length</code>.</p>
+<p>Return <strong>any</strong> permutation <code>A</code> of <code>[0, 1, ..., N]</code> such that for all <code>i = 0, ..., N-1</code>:</p>
+<ul>
+<li>If <code>S[i] == &quot;I&quot;</code>, then <code>A[i] &lt; A[i+1]</code></li>
+<li>If <code>S[i] == &quot;D&quot;</code>, then <code>A[i] &gt; A[i+1]</code></li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;IDID&quot;</span><br><span class="line">Output: [0,4,1,3,2]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;III&quot;</span><br><span class="line">Output: [0,1,2,3]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;DDI&quot;</span><br><span class="line">Output: [3,2,0,1]</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ol>
+<li><code>1 &lt;= S.length &lt;= 10000</code></li>
+<li><code>S</code> only contains characters <code>&quot;I&quot;</code> or <code>&quot;D&quot;</code>.</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; S</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> diStringMatch = <span class="function"><span class="keyword">function</span>(<span class="params">S</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> min = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = S.length;</span><br><span class="line">    <span class="keyword">var</span> s  = S.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> answer = s.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(item==<span class="string">"I"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> min++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (item==<span class="string">"D"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> max--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    answer.push(min); <span class="comment">//因为最后只剩下一个数字</span></span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/##  53. Maximum Subarray（最大子串）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/leetcode/##  53. Maximum Subarray（最大子串）/" itemprop="url">53. Maximum Subarray（最大子串）——EASY</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="53-Maximum-Subarray（最大子串）——EASY"><a href="#53-Maximum-Subarray（最大子串）——EASY" class="headerlink" title="53. Maximum Subarray（最大子串）——EASY"></a>53. Maximum Subarray（最大子串）——EASY</h3><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
+<p><strong>Follow up:</strong></p>
+<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
+<p>解题思路：</p>
+<p>从前往后进行遍历，设置两个总和 maxSum 和 curSum</p>
+<p>当加上当前值小于之前值时，则替换最大值为当前值。</p>
+<p>其实简单来说：</p>
+<p>从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值，</p>
+<p>开始给 max 赋值  nums[0] . lastMax  = 0;</p>
+<p>然后不断的给 lastMax 赋值，如果大于 max 则进行<strong>替换</strong> max，否则不变。</p>
+<p>然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> maxSum = nums[<span class="number">0</span>],</span><br><span class="line">        curSum = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i]&gt;curSum+nums[i])&#123;</span><br><span class="line">            curSum = nums[i];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            curSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(curSum&gt;maxSum)&#123;</span><br><span class="line">            maxSum = curSum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(maxSubArray([<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]));</span><br></pre></td></tr></table></figure>
+<p>另外一种写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> lastMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        lastMax += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(lastMax&gt;max)&#123;</span><br><span class="line">            max = lastMax;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lastMax&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            lastMax = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
