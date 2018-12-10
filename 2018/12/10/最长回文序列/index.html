@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="942. DI String Match  Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1:  If S[i] ==">
-<meta name="keywords" content="leetcode">
+<meta name="description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. Example 1: 123Input: &amp;quot;babad&amp;quot;Output: &amp;quot;bab&amp;quot;Note: &amp;quot;aba&amp;quot; i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="942. DI String Match">
-<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/05/leetcode/942. DI String Match/index.html">
+<meta property="og:title" content="最长回文序列">
+<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/10/最长回文序列/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="942. DI String Match  Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1:  If S[i] ==">
+<meta property="og:description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. Example 1: 123Input: &amp;quot;babad&amp;quot;Output: &amp;quot;bab&amp;quot;Note: &amp;quot;aba&amp;quot; i">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-07T14:48:58.831Z">
+<meta property="og:updated_time" content="2018-12-10T15:25:45.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="942. DI String Match">
-<meta name="twitter:description" content="942. DI String Match  Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1:  If S[i] ==">
+<meta name="twitter:title" content="最长回文序列">
+<meta name="twitter:description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. Example 1: 123Input: &amp;quot;babad&amp;quot;Output: &amp;quot;bab&amp;quot;Note: &amp;quot;aba&amp;quot; i">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/05/leetcode/942. DI String Match/">
+  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/10/最长回文序列/">
 
 
 
 
 
-  <title>942. DI String Match | zerlPark</title>
+  <title>最长回文序列 | zerlPark</title>
   
 
 
@@ -233,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/942. DI String Match/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/10/最长回文序列/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -250,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">942. DI String Match</h1>
+          <h1 class="post-title" itemprop="name headline">最长回文序列</h1>
         
 
         <div class="post-meta">
@@ -262,8 +261,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-10T22:45:09+08:00">
+                2018-12-10
               </time>
             
 
@@ -300,24 +299,16 @@
       
 
       
-        <h2 id="942-DI-String-Match"><a href="#942-DI-String-Match" class="headerlink" title="942. DI String Match"></a>942. DI String Match</h2><p>  Given a string <code>S</code> that <strong>only</strong> contains “I” (increase) or “D” (decrease), let <code>N = S.length</code>.</p>
-<p>Return <strong>any</strong> permutation <code>A</code> of <code>[0, 1, ..., N]</code> such that for all <code>i = 0, ..., N-1</code>:</p>
-<ul>
-<li>If <code>S[i] == &quot;I&quot;</code>, then <code>A[i] &lt; A[i+1]</code></li>
-<li>If <code>S[i] == &quot;D&quot;</code>, then <code>A[i] &gt; A[i+1]</code></li>
-</ul>
+        <p>Given a string <strong>s</strong>, find the longest palindromic substring in <strong>s</strong>. You may assume that the maximum length of <strong>s</strong> is 1000.</p>
 <p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;IDID&quot;</span><br><span class="line">Output: [0,4,1,3,2]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;babad&quot;</span><br><span class="line">Output: &quot;bab&quot;</span><br><span class="line">Note: &quot;aba&quot; is also a valid answer.</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;III&quot;</span><br><span class="line">Output: [0,1,2,3]</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;DDI&quot;</span><br><span class="line">Output: [3,2,0,1]</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong></p>
-<ol>
-<li><code>1 &lt;= S.length &lt;= 10000</code></li>
-<li><code>S</code> only contains characters <code>&quot;I&quot;</code> or <code>&quot;D&quot;</code>.</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; S</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> diStringMatch = <span class="function"><span class="keyword">function</span>(<span class="params">S</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> min = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = S.length;</span><br><span class="line">    <span class="keyword">var</span> s  = S.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">var</span> answer = s.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(item==<span class="string">"I"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> min++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (item==<span class="string">"D"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> max--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    answer.push(min); <span class="comment">//因为最后只剩下一个数字</span></span><br><span class="line">    <span class="keyword">return</span> answer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;cbbd&quot;</span><br><span class="line">Output: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<p>回文需要分为奇数和偶数列</p>
+<p>然后分为两层循环，一层为字符循环，一层为长度循环</p>
+<p>主要关键点为边界条件，奇数列循环时的需要考虑前后边界</p>
+<p>以及要考虑 偶数列的话，要排除特殊情况（ccc 的回文序列为 cc ，在欧数列中需要进行设置）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = s.split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">var</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt; arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i &amp;&amp; i + j &lt; arr.length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i-j] == arr[i+j])&#123;</span><br><span class="line">                <span class="keyword">if</span>( <span class="number">2</span> * j &gt; end - start)&#123;</span><br><span class="line">                    start = i - j;</span><br><span class="line">                    end = i + j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; arr.length - <span class="number">1</span> &amp;&amp; arr[i] == arr [i+<span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">if</span>(end - start &lt; <span class="number">2</span>)&#123;</span><br><span class="line">                start = i;</span><br><span class="line">                end = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i &amp;&amp; i + j +<span class="number">1</span> &lt; arr.length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i-j] == arr[i +j +<span class="number">1</span>])&#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="number">2</span> * j + <span class="number">2</span> &gt; end - start +<span class="number">1</span>)&#123;</span><br><span class="line">                        start = i - j;</span><br><span class="line">                        end = i + j + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s.substring(start,end + <span class="number">1</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -333,12 +324,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
-          
-        </div>
-      
 
       
       
@@ -348,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/05/leetcode/717. 1-bit and 2-bit Characters/" rel="next" title="717. 1-bit and 2-bit Characters">
-                <i class="fa fa-chevron-left"></i> 717. 1-bit and 2-bit Characters
+              <a href="/2018/12/10/javascript-滚动操作/" rel="next" title="javascript 滚动操作">
+                <i class="fa fa-chevron-left"></i> javascript 滚动操作
               </a>
             
           </div>
@@ -357,10 +342,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/05/leetcode/26. Remove Duplicates from Sorted Array/" rel="prev" title="26. Remove Duplicates from Sorted Array">
-                26. Remove Duplicates from Sorted Array <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,17 +393,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -473,22 +445,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#942-DI-String-Match"><span class="nav-number">1.</span> <span class="nav-text">942. DI String Match</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
