@@ -89,7 +89,7 @@
 <meta name="description" content="欢迎来到老罗的小地盘~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="zerlPark">
-<meta property="og:url" content="http://Kerwin-L.github.com/tags/JavaScript/index.html">
+<meta property="og:url" content="http://Kerwin-L.github.com/tags/javascript/index.html">
 <meta property="og:site_name" content="zerlPark">
 <meta property="og:description" content="欢迎来到老罗的小地盘~">
 <meta property="og:locale" content="zh-Hans">
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://Kerwin-L.github.com/tags/JavaScript/">
+  <link rel="canonical" href="http://Kerwin-L.github.com/tags/javascript/">
 
 
 
 
 
-  <title>标签: JavaScript | zerlPark</title>
+  <title>标签: javascript | zerlPark</title>
   
 
 
@@ -283,7 +283,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>JavaScript<small>标签</small>
+        <h1>javascript<small>标签</small>
         </h1>
       </div>
 
@@ -295,17 +295,69 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/12/15/JavaScript常见用法/" itemprop="url">
+            <a class="post-title-link" href="/2018/12/05/javascript 循环集合/" itemprop="url">
               
-                <span itemprop="name">JavaScript常见用法</span>
+                <span itemprop="name">Javascript 循环集合</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-15T16:24:20+08:00" content="2018-12-15">
-          12-15
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-05T23:58:31+08:00" content="2018-12-05">
+          12-05
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/12/05/概念：浅拷贝-深拷贝/" itemprop="url">
+              
+                <span itemprop="name">概念：浅拷贝-深拷贝</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-05T23:58:31+08:00" content="2018-12-05">
+          12-05
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/12/05/比较运算符/" itemprop="url">
+              
+                <span itemprop="name">比较运算符</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-05T23:58:31+08:00" content="2018-12-05">
+          12-05
         </time>
       </div>
 
@@ -458,17 +510,17 @@
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>
+      <i class="fa fa-user"></i>本站访客数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
+      人次
     </span>
   
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>
+      <i class="fa fa-eye"></i>本站总访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
+      次
     </span>
   
 </div>
@@ -1008,64 +1060,6 @@
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-ge);
               }
             });
           } else {
