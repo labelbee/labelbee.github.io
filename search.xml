@@ -3,11 +3,17 @@
   <entry>
     <title><![CDATA[习惯的力量]]></title>
     <url>%2F2019%2F01%2F05%2F%E8%AE%A4%E7%9F%A5%2F%E4%B9%A0%E6%83%AF%E7%9A%84%E5%8A%9B%E9%87%8F%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[一、习惯是怎么运作 需要有个暗示]]></content>
+      <categories>
+        <category>认知</category>
+      </categories>
+      <tags>
+        <tag>learning</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[JavaScript常见用法]]></title>
-    <url>%2F2018%2F12%2F15%2FJavaScript%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%2F</url>
+    <url>%2F2018%2F12%2F15%2Fjavascript%2FJavaScript%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[记录常见容易入坑的 JavaScript 用法 1.setTimeout / setInterval 中的函数 this 指向 window下面这个例子可以看出，setInterval/setTimout 中的传入函数中的 this 会指向 window 对象 1234567891011var a = 1;function time()&#123; this.a = 2 ; this.getA = function()&#123; setInterval(function()&#123; console.log(this.a); &#125;,1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 1 问题解析：setTimeout / setInterval 中的函数运行环境并不是当前执行环境，导致 this 指向 window 对象，详细可以看 MDN setTimeout 解决方法： 在当前对象中设定一个新变量 that 指向原来的 this 123456789101112var a = 1;function time()&#123; this.a = 2 ; var that = this; this.getA = function()&#123; setInterval(function()&#123; console.log(that.a); &#125;,1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 2 通过 bind 方式设置作用域 1234567891011var a = 1;function time()&#123; this.a = 2 ; this.getA = function()&#123; setInterval(function()&#123; console.log(this.a); &#125;.bind(this),1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 2 通过箭头函数，该方法 this 总是指向外层调用者的 this 1234567891011var a = 1;function time()&#123; this.a = 2 ; this.getA = function()&#123; setInterval(()=&gt;&#123; console.log(this.a); &#125;,1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 2]]></content>
       <tags>
         <tag>JavaScript</tag>
@@ -23,7 +29,7 @@
   </entry>
   <entry>
     <title><![CDATA[最长回文序列]]></title>
-    <url>%2F2018%2F12%2F10%2F%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%BA%8F%E5%88%97%2F</url>
+    <url>%2F2018%2F12%2F10%2Fleetcode%2F%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%BA%8F%E5%88%97%2F</url>
     <content type="text"><![CDATA[Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. Example 1: 123Input: &quot;babad&quot;Output: &quot;bab&quot;Note: &quot;aba&quot; is also a valid answer. Example 2: 12Input: &quot;cbbd&quot;Output: &quot;bb&quot; 回文需要分为奇数和偶数列 然后分为两层循环，一层为字符循环，一层为长度循环 主要关键点为边界条件，奇数列循环时的需要考虑前后边界 以及要考虑 偶数列的话，要排除特殊情况（ccc 的回文序列为 cc ，在欧数列中需要进行设置） 12345678910111213141516171819202122232425262728293031323334353637/** * @param &#123;string&#125; s * @return &#123;string&#125; */var longestPalindrome = function(s) &#123; var arr = s.split(''); var start = 0, end = 0; for(let i = 0; i&lt; arr.length; i++)&#123; for(let j = 1; j &lt;= i &amp;&amp; i + j &lt; arr.length; j++)&#123; if(arr[i-j] == arr[i+j])&#123; if( 2 * j &gt; end - start)&#123; start = i - j; end = i + j; &#125; else continue; &#125; else break; &#125; if(i &lt; arr.length - 1 &amp;&amp; arr[i] == arr [i+1])&#123; if(end - start &lt; 2)&#123; start = i; end = i + 1; &#125; for(let j = 1; j &lt;= i &amp;&amp; i + j +1 &lt; arr.length; j++)&#123; if(arr[i-j] == arr[i +j +1])&#123; if(2 * j + 2 &gt; end - start +1)&#123; start = i - j; end = i + j + 1; &#125; else continue; &#125; else break; &#125; &#125; &#125; return s.substring(start,end + 1);&#125;;]]></content>
       <categories>
         <category>leetcode</category>
@@ -34,7 +40,7 @@
   </entry>
   <entry>
     <title><![CDATA[javascript 滚动操作]]></title>
-    <url>%2F2018%2F12%2F10%2Fjavascript-%E6%BB%9A%E5%8A%A8%E6%93%8D%E4%BD%9C%2F</url>
+    <url>%2F2018%2F12%2F10%2Fjavascript%2Fjavascript-%E6%BB%9A%E5%8A%A8%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[今天在使用 vonic 的时候，因为适配的组件的 position: absolute 然后发现 window.scrollTop 这东西， 下面就想深入了解，然后发现，所有的dom 元素都有 scrollTop scrollHeight clientHeight 等属性，所以可以直接通过 scrollTo() 方法直接设置 scrollTop JS监听滚动监听12345678910111213141516window.addEventListener('scroll',fun()) //添加滚动监听时间也可以对一个 dom 元素进行监听&lt;style&gt;.app&#123; height: 100px; overflow: scroll;&#125;&lt;/style&gt;&lt;div class="app" id='scroll'&gt; &lt;table&gt; &lt;/table&gt;&lt;/div&gt;document.getElementById.scrollTo(x,y) //可以直接设定里面元素scroll中的位置 ​]]></content>
   </entry>
   <entry>
@@ -52,39 +58,15 @@
   </entry>
   <entry>
     <title><![CDATA[Javascript 知识点计划]]></title>
-    <url>%2F2018%2F12%2F07%2FJavascript-%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%A1%E5%88%92%2F</url>
+    <url>%2F2018%2F12%2F07%2Fjavascript%2FJavascript-%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%A1%E5%88%92%2F</url>
     <content type="text"><![CDATA[必补知识点一、CSS 样式 各种流的定义 + 内层元素如何挤压外层元素 float 会把指定元素变成块级元素 （inline-block？） 二、 JavaScript 基础知识 null == undefined 为何是true 三、浏览器 浏览器端渲染机制 四、网络]]></content>
   </entry>
   <entry>
-    <title><![CDATA[CSS 背景图设置]]></title>
-    <url>%2F2018%2F12%2F05%2Fcss%2FCSS3%20%E8%83%8C%E6%99%AF%E5%9B%BE%E8%AE%BE%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[CSS3 背景图设置一、设置背景图background-image: url(&#39;/static/img/background.jpg&#39;); 二、设置背景图大小`background-image: auto|| 三、设置其他属性集合1background-repeat: repeat || repeat-x || repeat-y || no-repeat]]></content>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Javascript 循环集合]]></title>
-    <url>%2F2018%2F12%2F05%2Fjavascript%20%E5%BE%AA%E7%8E%AF%E9%9B%86%E5%90%88%2F</url>
-    <content type="text"><![CDATA[Javascript 循环集合在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法 一、foreach()12345var arr = [1,2,3,'lala'];arr.forEach(function(value)&#123; console.log(value);&#125;)//输出 1 2 3 lala 小缺点： 不能使用 break 语句进行终端，也不能用 return 返回到外层函数 二、for in12345678910var arr = [1,2,3,&apos;lala&apos;];arr.__proto__.name = &apos;laoluo&apos;; //给 arr 的原型赋予属性namefor(let i in arr)&#123; console.log(i,arr[i]);&#125;// 0 1// 1 2// 2 3// 3 lala// name laoluo 上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1 = “21”，会对编码造成极大的不便 for-in 循环体除了遍历数组元素外，还会遍历自定义元素，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到 最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！ 所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此不适用于数组 三、for of 循环这是最简洁的循环数组的语法 避开了 for-in 的全部缺陷 与 forEach 不同的是，他可以正确的响应 break、continue、return 语句- for-of 循环支持数组循环，还支持字符串的循环 1234567var arr = [1,2,3,5,6];for(let val of arr)&#123; console.log(val) // 分别输出 1 2 3 5 6&#125;for(let val of "laoluo")&#123; console.log(val); //分别输出各个字符 l a o l u o&#125; for-of 循环可以遍历其他集合（map， set）引用 https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[942. DI String Match]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F942.%20DI%20String%20Match%2F</url>
-    <content type="text"><![CDATA[942. DI String Match Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1: If S[i] == &quot;I&quot;, then A[i] &lt; A[i+1] If S[i] == &quot;D&quot;, then A[i] &gt; A[i+1] Example 1: 12Input: &quot;IDID&quot;Output: [0,4,1,3,2] Example 2: 12Input: &quot;III&quot;Output: [0,1,2,3] Example 3: 12Input: &quot;DDI&quot;Output: [3,2,0,1] Note: 1 &lt;= S.length &lt;= 10000 S only contains characters &quot;I&quot; or &quot;D&quot;. 123456789101112131415161718/** * @param &#123;string&#125; S * @return &#123;number[]&#125; */var diStringMatch = function(S) &#123; var min = 0; var max = S.length; var s = S.split(""); var answer = s.map(function(item)&#123; if(item=="I")&#123; return min++; &#125;else if (item=="D")&#123; return max--; &#125; &#125;) answer.push(min); //因为最后只剩下一个数字 return answer;&#125;;]]></content>
+    <title><![CDATA[JavaScript字符串操作+ 929. Unique Email Addresses]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2FJavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%2B%20929.%20Unique%20Email%20Addresses%2F</url>
+    <content type="text"><![CDATA[JavaScript字符串操作+ 929. Unique Email AddressesEvery email consists of a local name and a domain name, separated by the @ sign. For example, in `alice@leetcode.com,aliceis the local name, andleetcode.com` is the domain name. Besides lowercase letters, these emails may contain &#39;.&#39;s or &#39;+&#39;s. If you add periods (&#39;.&#39;) between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. For example, &quot;alice.z@leetcode.com&quot; and &quot;alicez@leetcode.com&quot; forward to the same email address. (Note that this rule does not apply for domain names.) If you add a plus (&#39;+&#39;) in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered, for example `m.y+name@email.comwill be forwarded tomy@email.com`. (Again, this rule does not apply for domain names.) It is possible to use both of these rules at the same time. Given a list of emails, we send one email to each address in the list. How many different addresses actually receive mails? Example 1: 123Input: [&quot;test.email+alex@leetcode.com&quot;,&quot;test.e.mail+bob.cathy@leetcode.com&quot;,&quot;testemail+david@lee.tcode.com&quot;]Output: 2Explanation: &quot;testemail@leetcode.com&quot; and &quot;testemail@lee.tcode.com&quot; actually receive mails Note: 1 &lt;= emails[i].length &lt;= 100 1 &lt;= emails.length &lt;= 100 Each emails[i] contains exactly one &#39;@&#39; character. 以上大概的意思就是检测是否有重复的邮箱，local部分如果有符号.则忽视，+则后面全部东西进行忽略 考点: 对字符串的操作 12345678910111213141516var numUniqueEmails = function(emails) &#123; var uniq = []; for (var i = 0; i &lt; emails.length; i++) &#123; var emSplit = emails[i].split('@'); var local = emSplit[0].split('+')[0].replace(/\./g, '') + '@' + emSplit[1]; var domain = emSplit[1]; //includes 是ES6 Array的新方法，查找是否有元素 if (!uniq.includes(local)) &#123; uniq.push(local); &#125; &#125; return uniq.length;&#125;; 字符串操作一、slice、substring 、substr——截取字符串,但不修改字符串本身的值1.单个参数三种方法都一样，从开始位置进行截取 2.两个参数slice 、substring 截取开始和结束的 index（但不截取该位置字符） 而 substr 是开始索引 index 和 长度。 3. 参数出现负数当以上三种若参数中出现负数时，情况各不相同 slice 会将传入负值与字符串长度相加， substr 会将负数的第一个参数加上字符串长度，第二个参数若为负数则转换为 0 ， substring 会将所有负值参数转换 0 123456var value = "hello world" //共11位alert(value.slice(-3)); // rldalert(value.substring(-3)) // hello world 相当于 value.substring(0)alert(value.substr(-3)) // rldalert(value,slice(3,-4)) // lo walert(value.substring(3,-4)) //hel 相当于 value.substring(3,0); 注意：只有 substring 方法会将较小的数作为开始位置 1value.substring(3,1) 相当于 value.substring(1,3) 二、join() 和 split(),一个为连接数组，一个为拆分数组，括号内填写连接或者拆分的字符串。三、concat 拼接一个或多个字符串1234var value = "hello ";var result = value.concat("world","!");alert(result); //"hello world!"alert(value); //"hello" 数组操作一、拆分——slice 和 splice前者 slice 需要开始和结束索引，并返回一个子数组（但不改变原数组） splice 则需要开始索引和长度（会改变原数组），并返回一个子数组 slice 为浅拷贝， ​]]></content>
       <tags>
         <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[比较运算符]]></title>
-    <url>%2F2018%2F12%2F05%2F%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
-    <content type="text"><![CDATA[比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值 123&apos;a&apos;&lt; &apos;b&quot; //true&apos;abcdd&apos;&lt;&apos;abcda&apos; //false&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true 详细记录 https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/]]></content>
-      <tags>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -96,9 +78,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2. Add Two Numbers——medium]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F2.%20Add%20Two%20Numbers%E2%80%94%E2%80%94medium%2F</url>
-    <content type="text"><![CDATA[2. Add Two Numbers——medium You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself. Example: 123Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)Output: 7 -&gt; 0 -&gt; 8Explanation: 342 + 465 = 807. 这道题并不难： 其实就是通过进位进行设置而已。 把握好一些边界条件。当两个链表长度不等怎么办，最后一位含有进位如何 三个步骤: 判断节点 12345678910111213141516171819202122232425262728293031323334353637383940/** * Definition for singly-linked list. * function ListNode(val) &#123; * this.val = val; * this.next = null; * &#125; *//** * @param &#123;ListNode&#125; l1 * @param &#123;ListNode&#125; l2 * @return &#123;ListNode&#125; */var addTwoNumbers = function(l1, l2) &#123; var h1 = l1; var h2 = l2; var l3 = new ListNode(0); var current = l3; var carry = 0; while (h1 !== null || h2 !== null) &#123; var x = h1 !== null ? h1.val : 0; var y = h2 !== null ? h2.val : 0; var sum = x + y + carry; carry = Math.floor(sum/10); current.next = new ListNode(sum % 10); current = current.next; if(h1 !== null) &#123;h1 = h1.next&#125;; if(h2 !== null) &#123;h2 = h2.next&#125;; &#125; if (carry &gt; 0) &#123; current.next = new ListNode(carry); &#125; return l3.next;&#125;;]]></content>
+    <title><![CDATA[942. DI String Match]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F942.%20DI%20String%20Match%2F</url>
+    <content type="text"><![CDATA[942. DI String Match Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1: If S[i] == &quot;I&quot;, then A[i] &lt; A[i+1] If S[i] == &quot;D&quot;, then A[i] &gt; A[i+1] Example 1: 12Input: &quot;IDID&quot;Output: [0,4,1,3,2] Example 2: 12Input: &quot;III&quot;Output: [0,1,2,3] Example 3: 12Input: &quot;DDI&quot;Output: [3,2,0,1] Note: 1 &lt;= S.length &lt;= 10000 S only contains characters &quot;I&quot; or &quot;D&quot;. 123456789101112131415161718/** * @param &#123;string&#125; S * @return &#123;number[]&#125; */var diStringMatch = function(S) &#123; var min = 0; var max = S.length; var s = S.split(""); var answer = s.map(function(item)&#123; if(item=="I")&#123; return min++; &#125;else if (item=="D")&#123; return max--; &#125; &#125;) answer.push(min); //因为最后只剩下一个数字 return answer;&#125;;]]></content>
       <tags>
         <tag>leetcode</tag>
       </tags>
@@ -112,24 +94,51 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[比较运算符]]></title>
+    <url>%2F2018%2F12%2F05%2Fjavascript%2F%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值 123&apos;a&apos;&lt; &apos;b&quot; //true&apos;abcdd&apos;&lt;&apos;abcda&apos; //false&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true 详细记录 https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2. Add Two Numbers——medium]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F2.%20Add%20Two%20Numbers%E2%80%94%E2%80%94medium%2F</url>
+    <content type="text"><![CDATA[2. Add Two Numbers——medium You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself. Example: 123Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)Output: 7 -&gt; 0 -&gt; 8Explanation: 342 + 465 = 807. 这道题并不难： 其实就是通过进位进行设置而已。 把握好一些边界条件。当两个链表长度不等怎么办，最后一位含有进位如何 三个步骤: 判断节点 12345678910111213141516171819202122232425262728293031323334353637383940/** * Definition for singly-linked list. * function ListNode(val) &#123; * this.val = val; * this.next = null; * &#125; *//** * @param &#123;ListNode&#125; l1 * @param &#123;ListNode&#125; l2 * @return &#123;ListNode&#125; */var addTwoNumbers = function(l1, l2) &#123; var h1 = l1; var h2 = l2; var l3 = new ListNode(0); var current = l3; var carry = 0; while (h1 !== null || h2 !== null) &#123; var x = h1 !== null ? h1.val : 0; var y = h2 !== null ? h2.val : 0; var sum = x + y + carry; carry = Math.floor(sum/10); current.next = new ListNode(sum % 10); current = current.next; if(h1 !== null) &#123;h1 = h1.next&#125;; if(h2 !== null) &#123;h2 = h2.next&#125;; &#125; if (carry &gt; 0) &#123; current.next = new ListNode(carry); &#125; return l3.next;&#125;;]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS 背景图设置]]></title>
+    <url>%2F2018%2F12%2F05%2Fcss%2FCSS3%20%E8%83%8C%E6%99%AF%E5%9B%BE%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[CSS3 背景图设置一、设置背景图background-image: url(&#39;/static/img/background.jpg&#39;); 二、设置背景图大小`background-image: auto|| 三、设置其他属性集合1background-repeat: repeat || repeat-x || repeat-y || no-repeat]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[概念：浅拷贝-深拷贝]]></title>
-    <url>%2F2018%2F12%2F05%2F%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
+    <url>%2F2018%2F12%2F05%2Fjavascript%2F%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
     <content type="text"><![CDATA[概念：浅拷贝-深拷贝 浅拷贝，对于第一层目标对象为基本数据类型的数据，直接赋值，而对于引用数据类型，就是直接赋存在于栈内存的堆内存地址 ,即【传址】，并没有开辟新的栈 深拷贝，则为深度的赋值，里面对象对应两个var 三、深拷贝1.对象深拷贝：(1) Object.assign({},yourObj); (2) var newObj = {…yourObj}; 后面再继续记录更多的方法 https://segmentfault.com/a/1190000015042902]]></content>
       <tags>
         <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JavaScript字符串操作+ 929. Unique Email Addresses]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2FJavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%2B%20929.%20Unique%20Email%20Addresses%2F</url>
-    <content type="text"><![CDATA[JavaScript字符串操作+ 929. Unique Email AddressesEvery email consists of a local name and a domain name, separated by the @ sign. For example, in `alice@leetcode.com,aliceis the local name, andleetcode.com` is the domain name. Besides lowercase letters, these emails may contain &#39;.&#39;s or &#39;+&#39;s. If you add periods (&#39;.&#39;) between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. For example, &quot;alice.z@leetcode.com&quot; and &quot;alicez@leetcode.com&quot; forward to the same email address. (Note that this rule does not apply for domain names.) If you add a plus (&#39;+&#39;) in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered, for example `m.y+name@email.comwill be forwarded tomy@email.com`. (Again, this rule does not apply for domain names.) It is possible to use both of these rules at the same time. Given a list of emails, we send one email to each address in the list. How many different addresses actually receive mails? Example 1: 123Input: [&quot;test.email+alex@leetcode.com&quot;,&quot;test.e.mail+bob.cathy@leetcode.com&quot;,&quot;testemail+david@lee.tcode.com&quot;]Output: 2Explanation: &quot;testemail@leetcode.com&quot; and &quot;testemail@lee.tcode.com&quot; actually receive mails Note: 1 &lt;= emails[i].length &lt;= 100 1 &lt;= emails.length &lt;= 100 Each emails[i] contains exactly one &#39;@&#39; character. 以上大概的意思就是检测是否有重复的邮箱，local部分如果有符号.则忽视，+则后面全部东西进行忽略 考点: 对字符串的操作 12345678910111213141516var numUniqueEmails = function(emails) &#123; var uniq = []; for (var i = 0; i &lt; emails.length; i++) &#123; var emSplit = emails[i].split('@'); var local = emSplit[0].split('+')[0].replace(/\./g, '') + '@' + emSplit[1]; var domain = emSplit[1]; //includes 是ES6 Array的新方法，查找是否有元素 if (!uniq.includes(local)) &#123; uniq.push(local); &#125; &#125; return uniq.length;&#125;; 字符串操作一、slice、substring 、substr——截取字符串,但不修改字符串本身的值1.单个参数三种方法都一样，从开始位置进行截取 2.两个参数slice 、substring 截取开始和结束的 index（但不截取该位置字符） 而 substr 是开始索引 index 和 长度。 3. 参数出现负数当以上三种若参数中出现负数时，情况各不相同 slice 会将传入负值与字符串长度相加， substr 会将负数的第一个参数加上字符串长度，第二个参数若为负数则转换为 0 ， substring 会将所有负值参数转换 0 123456var value = "hello world" //共11位alert(value.slice(-3)); // rldalert(value.substring(-3)) // hello world 相当于 value.substring(0)alert(value.substr(-3)) // rldalert(value,slice(3,-4)) // lo walert(value.substring(3,-4)) //hel 相当于 value.substring(3,0); 注意：只有 substring 方法会将较小的数作为开始位置 1value.substring(3,1) 相当于 value.substring(1,3) 二、join() 和 split(),一个为连接数组，一个为拆分数组，括号内填写连接或者拆分的字符串。三、concat 拼接一个或多个字符串1234var value = "hello ";var result = value.concat("world","!");alert(result); //"hello world!"alert(value); //"hello" 数组操作一、拆分——slice 和 splice前者 slice 需要开始和结束索引，并返回一个子数组（但不改变原数组） splice 则需要开始索引和长度（会改变原数组），并返回一个子数组 slice 为浅拷贝， ​]]></content>
+    <title><![CDATA[Javascript 循环集合]]></title>
+    <url>%2F2018%2F12%2F05%2Fjavascript%2Fjavascript%20%E5%BE%AA%E7%8E%AF%E9%9B%86%E5%90%88%2F</url>
+    <content type="text"><![CDATA[Javascript 循环集合在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法 一、foreach()12345var arr = [1,2,3,'lala'];arr.forEach(function(value)&#123; console.log(value);&#125;)//输出 1 2 3 lala 小缺点： 不能使用 break 语句进行终端，也不能用 return 返回到外层函数 二、for in12345678910var arr = [1,2,3,&apos;lala&apos;];arr.__proto__.name = &apos;laoluo&apos;; //给 arr 的原型赋予属性namefor(let i in arr)&#123; console.log(i,arr[i]);&#125;// 0 1// 1 2// 2 3// 3 lala// name laoluo 上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1 = “21”，会对编码造成极大的不便 for-in 循环体除了遍历数组元素外，还会遍历自定义元素，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到 最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！ 所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此不适用于数组 三、for of 循环这是最简洁的循环数组的语法 避开了 for-in 的全部缺陷 与 forEach 不同的是，他可以正确的响应 break、continue、return 语句- for-of 循环支持数组循环，还支持字符串的循环 1234567var arr = [1,2,3,5,6];for(let val of arr)&#123; console.log(val) // 分别输出 1 2 3 5 6&#125;for(let val of "laoluo")&#123; console.log(val); //分别输出各个字符 l a o l u o&#125; for-of 循环可以遍历其他集合（map， set）引用 https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
       <tags>
-        <tag>leetcode</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[53. Maximum Subarray（最大子串）——EASY]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F%23%23%20%2053.%20Maximum%20Subarray%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AD%90%E4%B8%B2%EF%BC%89%2F</url>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F53.%20Maximum%20Subarray%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AD%90%E4%B8%B2%EF%BC%89%2F</url>
     <content type="text"><![CDATA[53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6. Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle. 解题思路： 从前往后进行遍历，设置两个总和 maxSum 和 curSum 当加上当前值小于之前值时，则替换最大值为当前值。 其实简单来说： 从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值， 开始给 max 赋值 nums[0] . lastMax = 0; 然后不断的给 lastMax 赋值，如果大于 max 则进行替换 max，否则不变。 然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。 1234567891011121314151617var maxSubArray = function(nums) &#123; if(nums.length==0) return 0; var maxSum = nums[0], curSum = nums[0]; for(var i=1;i&lt;nums.length;i++)&#123; if(nums[i]&gt;curSum+nums[i])&#123; curSum = nums[i]; &#125;else&#123; curSum += nums[i]; &#125; if(curSum&gt;maxSum)&#123; maxSum = curSum; &#125; &#125; return maxSum;&#125;;console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); 另外一种写法 1234567891011121314var maxSubArray = function(nums) &#123; var max = nums[0]; var lastMax = 0; for(let i=0;i&lt;nums.length;i++)&#123; lastMax += nums[i]; if(lastMax&gt;max)&#123; max = lastMax; &#125; if(lastMax&lt;0)&#123; lastMax = 0; &#125; &#125; return max;&#125;]]></content>
       <tags>
         <tag>leetcode</tag>

@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-">
+<meta name="description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. Example 1: 123Input: &amp;quot;babad&amp;quot;Output: &amp;quot;bab&amp;quot;Note: &amp;quot;aba&amp;quot; i">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="53. Maximum Subarray（最大子串）——EASY">
-<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/05/leetcode/##  53. Maximum Subarray（最大子串）/index.html">
+<meta property="og:title" content="最长回文序列">
+<meta property="og:url" content="http://Kerwin-L.github.com/2018/12/10/leetcode/最长回文序列/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-">
+<meta property="og:description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. Example 1: 123Input: &amp;quot;babad&amp;quot;Output: &amp;quot;bab&amp;quot;Note: &amp;quot;aba&amp;quot; i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T16:04:38.928Z">
+<meta property="og:updated_time" content="2019-01-05T13:32:59.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="53. Maximum Subarray（最大子串）——EASY">
-<meta name="twitter:description" content="53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-">
+<meta name="twitter:title" content="最长回文序列">
+<meta name="twitter:description" content="Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. Example 1: 123Input: &amp;quot;babad&amp;quot;Output: &amp;quot;bab&amp;quot;Note: &amp;quot;aba&amp;quot; i">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/05/leetcode/##  53. Maximum Subarray（最大子串）/">
+  <link rel="canonical" href="http://Kerwin-L.github.com/2018/12/10/leetcode/最长回文序列/">
 
 
 
 
 
-  <title>53. Maximum Subarray（最大子串）——EASY | zerlPark</title>
+  <title>最长回文序列 | zerlPark</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/##  53. Maximum Subarray（最大子串）/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/10/leetcode/最长回文序列/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">53. Maximum Subarray（最大子串）——EASY</h1>
+          <h1 class="post-title" itemprop="name headline">最长回文序列</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T22:45:09+08:00">
+                2018-12-10
               </time>
             
 
@@ -332,6 +332,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -339,7 +361,7 @@
 
           
           
-             <span id="/2018/12/05/leetcode/##  53. Maximum Subarray（最大子串）/" class="leancloud_visitors" data-flag-title="53. Maximum Subarray（最大子串）——EASY">
+             <span id="/2018/12/10/leetcode/最长回文序列/" class="leancloud_visitors" data-flag-title="最长回文序列">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -369,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  353 字
+                  308 字
                 </span>
               
 
@@ -406,22 +428,16 @@
       
 
       
-        <h3 id="53-Maximum-Subarray（最大子串）——EASY"><a href="#53-Maximum-Subarray（最大子串）——EASY" class="headerlink" title="53. Maximum Subarray（最大子串）——EASY"></a>53. Maximum Subarray（最大子串）——EASY</h3><p>Given an integer array <code>nums</code>, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.</p>
-<p><strong>Example:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [-2,1,-3,4,-1,2,1,-5,4],</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: [4,-1,2,1] has the largest sum = 6.</span><br></pre></td></tr></table></figure>
-<p><strong>Follow up:</strong></p>
-<p>If you have figured out the O(<em>n</em>) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-<p>解题思路：</p>
-<p>从前往后进行遍历，设置两个总和 maxSum 和 curSum</p>
-<p>当加上当前值小于之前值时，则替换最大值为当前值。</p>
-<p>其实简单来说：</p>
-<p>从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值，</p>
-<p>开始给 max 赋值  nums[0] . lastMax  = 0;</p>
-<p>然后不断的给 lastMax 赋值，如果大于 max 则进行<strong>替换</strong> max，否则不变。</p>
-<p>然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> maxSum = nums[<span class="number">0</span>],</span><br><span class="line">        curSum = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i]&gt;curSum+nums[i])&#123;</span><br><span class="line">            curSum = nums[i];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            curSum += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(curSum&gt;maxSum)&#123;</span><br><span class="line">            maxSum = curSum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSum;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(maxSubArray([<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]));</span><br></pre></td></tr></table></figure>
-<p>另外一种写法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> lastMax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        lastMax += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(lastMax&gt;max)&#123;</span><br><span class="line">            max = lastMax;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(lastMax&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            lastMax = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given a string <strong>s</strong>, find the longest palindromic substring in <strong>s</strong>. You may assume that the maximum length of <strong>s</strong> is 1000.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;babad&quot;</span><br><span class="line">Output: &quot;bab&quot;</span><br><span class="line">Note: &quot;aba&quot; is also a valid answer.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;cbbd&quot;</span><br><span class="line">Output: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<p>回文需要分为奇数和偶数列</p>
+<p>然后分为两层循环，一层为字符循环，一层为长度循环</p>
+<p>主要关键点为边界条件，奇数列循环时的需要考虑前后边界</p>
+<p>以及要考虑 偶数列的话，要排除特殊情况（ccc 的回文序列为 cc ，在欧数列中需要进行设置）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = s.split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">var</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt; arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i &amp;&amp; i + j &lt; arr.length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i-j] == arr[i+j])&#123;</span><br><span class="line">                <span class="keyword">if</span>( <span class="number">2</span> * j &gt; end - start)&#123;</span><br><span class="line">                    start = i - j;</span><br><span class="line">                    end = i + j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; arr.length - <span class="number">1</span> &amp;&amp; arr[i] == arr [i+<span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">if</span>(end - start &lt; <span class="number">2</span>)&#123;</span><br><span class="line">                start = i;</span><br><span class="line">                end = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i &amp;&amp; i + j +<span class="number">1</span> &lt; arr.length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i-j] == arr[i +j +<span class="number">1</span>])&#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="number">2</span> * j + <span class="number">2</span> &gt; end - start +<span class="number">1</span>)&#123;</span><br><span class="line">                        start = i - j;</span><br><span class="line">                        end = i + j + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s.substring(start,end + <span class="number">1</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -452,14 +468,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/12/10/javascript/javascript-滚动操作/" rel="next" title="javascript 滚动操作">
+                <i class="fa fa-chevron-left"></i> javascript 滚动操作
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/05/leetcode/JavaScript字符串操作+ 929. Unique Email Addresses/" rel="prev" title="JavaScript字符串操作+ 929. Unique Email Addresses">
-                JavaScript字符串操作+ 929. Unique Email Addresses <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/12/css/css3-动画/" rel="prev" title="css3 动画">
+                css3 动画 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -512,17 +532,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -548,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -559,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -582,22 +593,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#53-Maximum-Subarray（最大子串）——EASY"><span class="nav-number">1.</span> <span class="nav-text">53. Maximum Subarray（最大子串）——EASY</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -642,7 +637,7 @@
 </div>
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv">
