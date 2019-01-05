@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[习惯的力量]]></title>
+    <url>%2F2019%2F01%2F05%2F%E8%AE%A4%E7%9F%A5%2F%E4%B9%A0%E6%83%AF%E7%9A%84%E5%8A%9B%E9%87%8F%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[JavaScript常见用法]]></title>
     <url>%2F2018%2F12%2F15%2FJavaScript%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[记录常见容易入坑的 JavaScript 用法 1.setTimeout / setInterval 中的函数 this 指向 window下面这个例子可以看出，setInterval/setTimout 中的传入函数中的 this 会指向 window 对象 1234567891011var a = 1;function time()&#123; this.a = 2 ; this.getA = function()&#123; setInterval(function()&#123; console.log(this.a); &#125;,1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 1 问题解析：setTimeout / setInterval 中的函数运行环境并不是当前执行环境，导致 this 指向 window 对象，详细可以看 MDN setTimeout 解决方法： 在当前对象中设定一个新变量 that 指向原来的 this 123456789101112var a = 1;function time()&#123; this.a = 2 ; var that = this; this.getA = function()&#123; setInterval(function()&#123; console.log(that.a); &#125;,1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 2 通过 bind 方式设置作用域 1234567891011var a = 1;function time()&#123; this.a = 2 ; this.getA = function()&#123; setInterval(function()&#123; console.log(this.a); &#125;.bind(this),1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 2 通过箭头函数，该方法 this 总是指向外层调用者的 this 1234567891011var a = 1;function time()&#123; this.a = 2 ; this.getA = function()&#123; setInterval(()=&gt;&#123; console.log(this.a); &#125;,1000); &#125;&#125;var t = new time();t.getA() // 不断的打印出： 2]]></content>
@@ -51,6 +56,30 @@
     <content type="text"><![CDATA[必补知识点一、CSS 样式 各种流的定义 + 内层元素如何挤压外层元素 float 会把指定元素变成块级元素 （inline-block？） 二、 JavaScript 基础知识 null == undefined 为何是true 三、浏览器 浏览器端渲染机制 四、网络]]></content>
   </entry>
   <entry>
+    <title><![CDATA[CSS 背景图设置]]></title>
+    <url>%2F2018%2F12%2F05%2Fcss%2FCSS3%20%E8%83%8C%E6%99%AF%E5%9B%BE%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[CSS3 背景图设置一、设置背景图background-image: url(&#39;/static/img/background.jpg&#39;); 二、设置背景图大小`background-image: auto|| 三、设置其他属性集合1background-repeat: repeat || repeat-x || repeat-y || no-repeat]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Javascript 循环集合]]></title>
+    <url>%2F2018%2F12%2F05%2Fjavascript%20%E5%BE%AA%E7%8E%AF%E9%9B%86%E5%90%88%2F</url>
+    <content type="text"><![CDATA[Javascript 循环集合在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法 一、foreach()12345var arr = [1,2,3,'lala'];arr.forEach(function(value)&#123; console.log(value);&#125;)//输出 1 2 3 lala 小缺点： 不能使用 break 语句进行终端，也不能用 return 返回到外层函数 二、for in12345678910var arr = [1,2,3,&apos;lala&apos;];arr.__proto__.name = &apos;laoluo&apos;; //给 arr 的原型赋予属性namefor(let i in arr)&#123; console.log(i,arr[i]);&#125;// 0 1// 1 2// 2 3// 3 lala// name laoluo 上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1 = “21”，会对编码造成极大的不便 for-in 循环体除了遍历数组元素外，还会遍历自定义元素，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到 最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！ 所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此不适用于数组 三、for of 循环这是最简洁的循环数组的语法 避开了 for-in 的全部缺陷 与 forEach 不同的是，他可以正确的响应 break、continue、return 语句- for-of 循环支持数组循环，还支持字符串的循环 1234567var arr = [1,2,3,5,6];for(let val of arr)&#123; console.log(val) // 分别输出 1 2 3 5 6&#125;for(let val of "laoluo")&#123; console.log(val); //分别输出各个字符 l a o l u o&#125; for-of 循环可以遍历其他集合（map， set）引用 https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[942. DI String Match]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F942.%20DI%20String%20Match%2F</url>
+    <content type="text"><![CDATA[942. DI String Match Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1: If S[i] == &quot;I&quot;, then A[i] &lt; A[i+1] If S[i] == &quot;D&quot;, then A[i] &gt; A[i+1] Example 1: 12Input: &quot;IDID&quot;Output: [0,4,1,3,2] Example 2: 12Input: &quot;III&quot;Output: [0,1,2,3] Example 3: 12Input: &quot;DDI&quot;Output: [3,2,0,1] Note: 1 &lt;= S.length &lt;= 10000 S only contains characters &quot;I&quot; or &quot;D&quot;. 123456789101112131415161718/** * @param &#123;string&#125; S * @return &#123;number[]&#125; */var diStringMatch = function(S) &#123; var min = 0; var max = S.length; var s = S.split(""); var answer = s.map(function(item)&#123; if(item=="I")&#123; return min++; &#125;else if (item=="D")&#123; return max--; &#125; &#125;) answer.push(min); //因为最后只剩下一个数字 return answer;&#125;;]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[比较运算符]]></title>
     <url>%2F2018%2F12%2F05%2F%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
     <content type="text"><![CDATA[比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符编码值 123&apos;a&apos;&lt; &apos;b&quot; //true&apos;abcdd&apos;&lt;&apos;abcda&apos; //false&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true 详细记录 https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/]]></content>
@@ -59,17 +88,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[概念：浅拷贝-深拷贝]]></title>
-    <url>%2F2018%2F12%2F05%2F%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
-    <content type="text"><![CDATA[概念：浅拷贝-深拷贝 浅拷贝，对于第一层目标对象为基本数据类型的数据，直接赋值，而对于引用数据类型，就是直接赋存在于栈内存的堆内存地址 ,即【传址】，并没有开辟新的栈 深拷贝，则为深度的赋值，里面对象对应两个var 三、深拷贝1.对象深拷贝：(1) Object.assign({},yourObj); (2) var newObj = {…yourObj}; 后面再继续记录更多的方法 https://segmentfault.com/a/1190000015042902]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[53. Maximum Subarray（最大子串）——EASY]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F%23%23%20%2053.%20Maximum%20Subarray%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AD%90%E4%B8%B2%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6. Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle. 解题思路： 从前往后进行遍历，设置两个总和 maxSum 和 curSum 当加上当前值小于之前值时，则替换最大值为当前值。 其实简单来说： 从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值， 开始给 max 赋值 nums[0] . lastMax = 0; 然后不断的给 lastMax 赋值，如果大于 max 则进行替换 max，否则不变。 然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。 1234567891011121314151617var maxSubArray = function(nums) &#123; if(nums.length==0) return 0; var maxSum = nums[0], curSum = nums[0]; for(var i=1;i&lt;nums.length;i++)&#123; if(nums[i]&gt;curSum+nums[i])&#123; curSum = nums[i]; &#125;else&#123; curSum += nums[i]; &#125; if(curSum&gt;maxSum)&#123; maxSum = curSum; &#125; &#125; return maxSum;&#125;;console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); 另外一种写法 1234567891011121314var maxSubArray = function(nums) &#123; var max = nums[0]; var lastMax = 0; for(let i=0;i&lt;nums.length;i++)&#123; lastMax += nums[i]; if(lastMax&gt;max)&#123; max = lastMax; &#125; if(lastMax&lt;0)&#123; lastMax = 0; &#125; &#125; return max;&#125;]]></content>
+    <title><![CDATA[26. Remove Duplicates from Sorted Array]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F26.%20Remove%20Duplicates%20from%20Sorted%20Array%2F</url>
+    <content type="text"><![CDATA[26. Remove Duplicates from Sorted ArrayGiven a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory. Example 1: 12345Given nums = [1,1,2],Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.It doesn&apos;t matter what you leave beyond the returned length. Example 2: 12345Given nums = [0,0,1,1,1,2,2,3,3,4],Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.It doesn&apos;t matter what values are set beyond the returned length. Clarification: Confused why the returned value is an integer but your answer is an array? Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well. Internally you can think of this: 12345678// nums is passed in by reference. (i.e., without making a copy)int len = removeDuplicates(nums);// any modification to nums in your function would be known by the caller.// using the length returned by your function, it prints the first len elements.for (int i = 0; i &lt; len; i++) &#123; print(nums[i]);&#125; 解题思路： 通过两个变量来控制整个的替换， 1234567891011121314151617181920212223242526/** * @param &#123;number[]&#125; nums * @return &#123;number&#125; */var removeDuplicates = function(nums) &#123; // if(nums == null || nums.length == 0) return []; // var answer = nums.reduce(function(prev,cur)&#123; // if(prev.indexOf(cur)==-1)&#123; // prev.push(cur); // console.log(prev); // &#125; // return prev; // &#125;,[]) // console.log(answer instanceof Array,nums); // return answer; var a = 0 ; for(var i=1;i&lt;nums.length;i++)&#123; if(nums[a]!= nums[i])&#123; a++; nums[a] = nums[i]; &#125; &#125; nums.splice(a+1,nums.length-a+1); return i;&#125;; 其他人解法 12345678910111213141516171819202122javascript/** * @param &#123;number[]&#125; nums * @return &#123;number&#125; */function removeD(sortedArray) &#123; if (sortedArray.length == 0) &#123; return 0 &#125; let i = 1 let j = 1 while(j &lt; sortedArray.length) &#123; if (sortedArray[j] != sortedArray[j-1]) &#123; sortedArray[i] = sortedArray[j] i++ &#125; j++ &#125; return i&#125; 数组操作一、splice 操作原文链接： http://caibaojian.com/js-splice-element.html 删除的数组的某一项splice(index,len,[item]) 注释：该方法会改变原始数组。 splice有3个参数，它也可以用来替换/删除/添加数组内某一个或者几个值 index:数组开始下标 len: 替换/删除的长度 item:替换的值，删除操作的话 item为空 来源： 前端开发博客 二、 Array.reduce()数组 reduce 用法 详解，后期记录 主要是设定初始值的时候格式 array.reduce(function(prev,cru,index,array){ },initialValue) initialValue 可以设置初始值 三、sort() 方法1.sort() 不带参数sort()方法对数组的元素做原地的排序，并返回这个数组。 它是按升序排列数组项。sort()方法会调用每个数组项的 toString() 转型方法，然后按 UNICODE 进行比较，然后根据这个进行排序 来一个简单的例子： 12var a = ['laoluo','kerwin','brady'];console.log(a.sort()); //数组顺序将变为 brady kerwin laoluo 12var 这num = [1,2,8,12,36];a.sort() // 数组顺序改成 1 12 2 36 8 通过charCodeAt()来验证一下 123"laoluo".charCodeAt() // 108"kerwin".charCodeAt() // 107"brady".charCodeAt() // 98 2. sort()中带参数——自己定义排序的函数可以在参数中定义一个比较函数 12345678910111213141516171819202122function compareFun(a,b)&#123; if(a&lt;b)&#123; return -1; // a 排在 b 的前面 &#125;else if(a&gt;b)&#123; return 1; // a 排在 b 后面 &#125;else&#123; return 0; // a和b的位置保持不变 &#125;&#125;//改良版function compareNew(a,b)&#123; return a&lt;b?-1:a&gt;b?1:0;&#125;//新版本升序function ascSort(a,b)&#123; return a - b;&#125;//新版本降序function desSort(a,b)&#123; return b-a;&#125; 通过以下的方式可以对数组进行正确的进行升序排序 12var c = [7,3,5,9,10,4];c.sort(compareFun); // c 数组将改变为 3,4,5,7,9,10 3. 数组随机排序123function randomSort(a,b)&#123; return Math.random() - 0.5;&#125; 更多的方法请参照 https://www.w3cplus.com/javascript/array-part-4.html]]></content>
       <tags>
         <tag>leetcode</tag>
       </tags>
@@ -83,14 +104,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[942. DI String Match]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F942.%20DI%20String%20Match%2F</url>
-    <content type="text"><![CDATA[942. DI String Match Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1: If S[i] == &quot;I&quot;, then A[i] &lt; A[i+1] If S[i] == &quot;D&quot;, then A[i] &gt; A[i+1] Example 1: 12Input: &quot;IDID&quot;Output: [0,4,1,3,2] Example 2: 12Input: &quot;III&quot;Output: [0,1,2,3] Example 3: 12Input: &quot;DDI&quot;Output: [3,2,0,1] Note: 1 &lt;= S.length &lt;= 10000 S only contains characters &quot;I&quot; or &quot;D&quot;. 123456789101112131415161718/** * @param &#123;string&#125; S * @return &#123;number[]&#125; */var diStringMatch = function(S) &#123; var min = 0; var max = S.length; var s = S.split(""); var answer = s.map(function(item)&#123; if(item=="I")&#123; return min++; &#125;else if (item=="D")&#123; return max--; &#125; &#125;) answer.push(min); //因为最后只剩下一个数字 return answer;&#125;;]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[717. 1-bit and 2-bit Characters]]></title>
     <url>%2F2018%2F12%2F05%2Fleetcode%2F717.%201-bit%20and%202-bit%20Characters%2F</url>
     <content type="text"><![CDATA[717. 1-bit and 2-bit Characters We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11). Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero. Example 1: 12345Input:bits = [1, 0, 0]Output: TrueExplanation:The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character. Example 2: 12345Input:bits = [1, 1, 1, 0]Output: FalseExplanation:The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character. Note: 1 &lt;= len(bits) &lt;= 1000. bits[i] is always 0 or 1. 解题思路: 由于只有三种编码方式 0 10 `11 所以只要遇到 1就会前进两格，当遇到0时则前进一格，令初始值为 i=0 如果最后一个为 0则倒数第二个数所积累的长度必然等于 length-1 123456789101112131415/** * @param &#123;number[]&#125; bits * @return &#123;boolean&#125; */var isOneBitCharacter = function(bits) &#123; var len = bits.length; var i = 0; while(i&lt;len-1)&#123; if(bits[i]=="1") i = i+2; else i++; &#125; return i == len-1&#125;;]]></content>
@@ -99,11 +112,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[26. Remove Duplicates from Sorted Array]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F26.%20Remove%20Duplicates%20from%20Sorted%20Array%2F</url>
-    <content type="text"><![CDATA[26. Remove Duplicates from Sorted ArrayGiven a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory. Example 1: 12345Given nums = [1,1,2],Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.It doesn&apos;t matter what you leave beyond the returned length. Example 2: 12345Given nums = [0,0,1,1,1,2,2,3,3,4],Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.It doesn&apos;t matter what values are set beyond the returned length. Clarification: Confused why the returned value is an integer but your answer is an array? Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well. Internally you can think of this: 12345678// nums is passed in by reference. (i.e., without making a copy)int len = removeDuplicates(nums);// any modification to nums in your function would be known by the caller.// using the length returned by your function, it prints the first len elements.for (int i = 0; i &lt; len; i++) &#123; print(nums[i]);&#125; 解题思路： 通过两个变量来控制整个的替换， 1234567891011121314151617181920212223242526/** * @param &#123;number[]&#125; nums * @return &#123;number&#125; */var removeDuplicates = function(nums) &#123; // if(nums == null || nums.length == 0) return []; // var answer = nums.reduce(function(prev,cur)&#123; // if(prev.indexOf(cur)==-1)&#123; // prev.push(cur); // console.log(prev); // &#125; // return prev; // &#125;,[]) // console.log(answer instanceof Array,nums); // return answer; var a = 0 ; for(var i=1;i&lt;nums.length;i++)&#123; if(nums[a]!= nums[i])&#123; a++; nums[a] = nums[i]; &#125; &#125; nums.splice(a+1,nums.length-a+1); return i;&#125;; 其他人解法 12345678910111213141516171819202122javascript/** * @param &#123;number[]&#125; nums * @return &#123;number&#125; */function removeD(sortedArray) &#123; if (sortedArray.length == 0) &#123; return 0 &#125; let i = 1 let j = 1 while(j &lt; sortedArray.length) &#123; if (sortedArray[j] != sortedArray[j-1]) &#123; sortedArray[i] = sortedArray[j] i++ &#125; j++ &#125; return i&#125; 数组操作一、splice 操作原文链接： http://caibaojian.com/js-splice-element.html 删除的数组的某一项splice(index,len,[item]) 注释：该方法会改变原始数组。 splice有3个参数，它也可以用来替换/删除/添加数组内某一个或者几个值 index:数组开始下标 len: 替换/删除的长度 item:替换的值，删除操作的话 item为空 来源： 前端开发博客 二、 Array.reduce()数组 reduce 用法 详解，后期记录 主要是设定初始值的时候格式 array.reduce(function(prev,cru,index,array){ },initialValue) initialValue 可以设置初始值 三、sort() 方法1.sort() 不带参数sort()方法对数组的元素做原地的排序，并返回这个数组。 它是按升序排列数组项。sort()方法会调用每个数组项的 toString() 转型方法，然后按 UNICODE 进行比较，然后根据这个进行排序 来一个简单的例子： 12var a = ['laoluo','kerwin','brady'];console.log(a.sort()); //数组顺序将变为 brady kerwin laoluo 12var 这num = [1,2,8,12,36];a.sort() // 数组顺序改成 1 12 2 36 8 通过charCodeAt()来验证一下 123"laoluo".charCodeAt() // 108"kerwin".charCodeAt() // 107"brady".charCodeAt() // 98 2. sort()中带参数——自己定义排序的函数可以在参数中定义一个比较函数 12345678910111213141516171819202122function compareFun(a,b)&#123; if(a&lt;b)&#123; return -1; // a 排在 b 的前面 &#125;else if(a&gt;b)&#123; return 1; // a 排在 b 后面 &#125;else&#123; return 0; // a和b的位置保持不变 &#125;&#125;//改良版function compareNew(a,b)&#123; return a&lt;b?-1:a&gt;b?1:0;&#125;//新版本升序function ascSort(a,b)&#123; return a - b;&#125;//新版本降序function desSort(a,b)&#123; return b-a;&#125; 通过以下的方式可以对数组进行正确的进行升序排序 12var c = [7,3,5,9,10,4];c.sort(compareFun); // c 数组将改变为 3,4,5,7,9,10 3. 数组随机排序123function randomSort(a,b)&#123; return Math.random() - 0.5;&#125; 更多的方法请参照 https://www.w3cplus.com/javascript/array-part-4.html]]></content>
+    <title><![CDATA[概念：浅拷贝-深拷贝]]></title>
+    <url>%2F2018%2F12%2F05%2F%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
+    <content type="text"><![CDATA[概念：浅拷贝-深拷贝 浅拷贝，对于第一层目标对象为基本数据类型的数据，直接赋值，而对于引用数据类型，就是直接赋存在于栈内存的堆内存地址 ,即【传址】，并没有开辟新的栈 深拷贝，则为深度的赋值，里面对象对应两个var 三、深拷贝1.对象深拷贝：(1) Object.assign({},yourObj); (2) var newObj = {…yourObj}; 后面再继续记录更多的方法 https://segmentfault.com/a/1190000015042902]]></content>
       <tags>
-        <tag>leetcode</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -115,19 +128,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Javascript 循环集合]]></title>
-    <url>%2F2018%2F12%2F05%2Fjavascript%20%E5%BE%AA%E7%8E%AF%E9%9B%86%E5%90%88%2F</url>
-    <content type="text"><![CDATA[Javascript 循环集合在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法 一、foreach()12345var arr = [1,2,3,'lala'];arr.forEach(function(value)&#123; console.log(value);&#125;)//输出 1 2 3 lala 小缺点： 不能使用 break 语句进行终端，也不能用 return 返回到外层函数 二、for in12345678910var arr = [1,2,3,&apos;lala&apos;];arr.__proto__.name = &apos;laoluo&apos;; //给 arr 的原型赋予属性namefor(let i in arr)&#123; console.log(i,arr[i]);&#125;// 0 1// 1 2// 2 3// 3 lala// name laoluo 上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1 = “21”，会对编码造成极大的不便 for-in 循环体除了遍历数组元素外，还会遍历自定义元素，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到 最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！ 所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此不适用于数组 三、for of 循环这是最简洁的循环数组的语法 避开了 for-in 的全部缺陷 与 forEach 不同的是，他可以正确的响应 break、continue、return 语句- for-of 循环支持数组循环，还支持字符串的循环 1234567var arr = [1,2,3,5,6];for(let val of arr)&#123; console.log(val) // 分别输出 1 2 3 5 6&#125;for(let val of "laoluo")&#123; console.log(val); //分别输出各个字符 l a o l u o&#125; for-of 循环可以遍历其他集合（map， set）引用 https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop]]></content>
+    <title><![CDATA[53. Maximum Subarray（最大子串）——EASY]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F%23%23%20%2053.%20Maximum%20Subarray%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AD%90%E4%B8%B2%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6. Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle. 解题思路： 从前往后进行遍历，设置两个总和 maxSum 和 curSum 当加上当前值小于之前值时，则替换最大值为当前值。 其实简单来说： 从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值， 开始给 max 赋值 nums[0] . lastMax = 0; 然后不断的给 lastMax 赋值，如果大于 max 则进行替换 max，否则不变。 然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。 1234567891011121314151617var maxSubArray = function(nums) &#123; if(nums.length==0) return 0; var maxSum = nums[0], curSum = nums[0]; for(var i=1;i&lt;nums.length;i++)&#123; if(nums[i]&gt;curSum+nums[i])&#123; curSum = nums[i]; &#125;else&#123; curSum += nums[i]; &#125; if(curSum&gt;maxSum)&#123; maxSum = curSum; &#125; &#125; return maxSum;&#125;;console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); 另外一种写法 1234567891011121314var maxSubArray = function(nums) &#123; var max = nums[0]; var lastMax = 0; for(let i=0;i&lt;nums.length;i++)&#123; lastMax += nums[i]; if(lastMax&gt;max)&#123; max = lastMax; &#125; if(lastMax&lt;0)&#123; lastMax = 0; &#125; &#125; return max;&#125;]]></content>
       <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[CSS 背景图设置]]></title>
-    <url>%2F2018%2F12%2F05%2Fcss%2FCSS3%20%E8%83%8C%E6%99%AF%E5%9B%BE%E8%AE%BE%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[CSS3 背景图设置一、设置背景图background-image: url(&#39;/static/img/background.jpg&#39;); 二、设置背景图大小`background-image: auto|| 三、设置其他属性集合1background-repeat: repeat || repeat-x || repeat-y || no-repeat]]></content>
-      <tags>
-        <tag>css</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
 </search>
