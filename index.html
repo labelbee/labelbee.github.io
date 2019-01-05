@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,13 +86,16 @@
 
 
 
+<meta name="description" content="欢迎来到老罗的小地盘~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="zerlPark">
 <meta property="og:url" content="http://Kerwin-L.github.com/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="欢迎来到老罗的小地盘~">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zerlPark">
+<meta name="twitter:description" content="欢迎来到老罗的小地盘~">
 
 
 
@@ -102,13 +105,13 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -140,7 +143,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -189,7 +192,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -199,7 +222,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -265,9 +288,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-15T16:24:20+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T16:24:20+08:00">
                 2018-12-15
               </time>
             
@@ -289,6 +312,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  296 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -307,24 +361,17 @@
       
         
           
-            <p>记录常见容易入坑的 JavaScript 用法 </p>
-<h4 id="1-setTimeout-setInterval-中的函数-this-指向-window"><a href="#1-setTimeout-setInterval-中的函数-this-指向-window" class="headerlink" title="1.setTimeout / setInterval 中的函数 this 指向 window"></a>1.setTimeout / setInterval 中的函数 this 指向 window</h4><p>下面这个例子可以看出，setInterval/setTimout 中的传入函数中的 this 会指向 window 对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">2</span> ;</span><br><span class="line">    <span class="keyword">this</span>.getA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    		<span class="built_in">console</span>.log(<span class="keyword">this</span>.a);    </span><br><span class="line">		&#125;,<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> time();</span><br><span class="line">t.getA() <span class="comment">// 不断的打印出： 1</span></span><br></pre></td></tr></table></figure>
-<h4 id="问题解析："><a href="#问题解析：" class="headerlink" title="问题解析："></a>问题解析：</h4><p>setTimeout / setInterval 中的函数运行环境并不是当前执行环境，导致 this 指向 window 对象，详细可以看 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout" target="_blank" rel="noopener">MDN setTimeout</a></p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><ol>
-<li>在当前对象中设定一个新变量 <code>that</code>  指向原来的 this </li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">2</span> ;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.getA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    		<span class="built_in">console</span>.log(that.a);    </span><br><span class="line">		&#125;,<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> time();</span><br><span class="line">t.getA() <span class="comment">// 不断的打印出： 2</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>通过 bind 方式设置作用域</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">2</span> ;</span><br><span class="line">    <span class="keyword">this</span>.getA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    		<span class="built_in">console</span>.log(<span class="keyword">this</span>.a);    </span><br><span class="line">		&#125;.bind(<span class="keyword">this</span>),<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> time();</span><br><span class="line">t.getA() <span class="comment">// 不断的打印出： 2</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>通过箭头函数，该方法 this 总是指向外层调用者的 this</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">2</span> ;</span><br><span class="line">    <span class="keyword">this</span>.getA = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        setInterval(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); </span><br><span class="line">		&#125;,<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> time();</span><br><span class="line">t.getA() <span class="comment">// 不断的打印出： 2</span></span><br></pre></td></tr></table></figure>
-
-          
+          记录常见容易入坑的 JavaScript 用法 
+1.setTimeout / setInterval 中的函数 this 指向 window下面这个例子可以看出，setInterval/setTimout 中的传入函数中的 this 会指向 window 对象
+1234567891011var a
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/15/JavaScript常见用法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -400,9 +447,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-12T15:36:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T15:36:59+08:00">
                 2018-12-12
               </time>
             
@@ -424,6 +471,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  373 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -442,88 +520,16 @@
       
         
           
-            <p>今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录</p>
-<h4 id="一、CSS3-变形"><a href="#一、CSS3-变形" class="headerlink" title="一、CSS3 变形"></a>一、CSS3 变形</h4><p>transform 属性的的基本语法如下</p>
-<p>`transform: none | <transform-function> </transform-function></p>
-<h5 id="2D-transform-常用的-transform-function-的功能："><a href="#2D-transform-常用的-transform-function-的功能：" class="headerlink" title="2D transform 常用的 transform-function 的功能："></a>2D transform 常用的 transform-function 的功能：</h5><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>功能描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>translate()</td>
-<td>移动元素，根据X轴和Y轴坐标重新定位元素位置，扩展函数有 translateX() , translateY()</td>
-</tr>
-<tr>
-<td>scale()</td>
-<td>缩小或放大元素</td>
-</tr>
-<tr>
-<td>rotate()</td>
-<td>2d 旋转元素</td>
-</tr>
-<tr>
-<td>skew()</td>
-<td>元素倾斜，在此基础上扩展 skewX() , skewY()</td>
-</tr>
-<tr>
-<td>matrix()</td>
-<td>定义矩阵变形</td>
-</tr>
-</tbody>
-</table>
-<h5 id="3D-transform-常用的-transform-function-的功能"><a href="#3D-transform-常用的-transform-function-的功能" class="headerlink" title="3D transform 常用的 transform-function 的功能"></a>3D transform 常用的 transform-function 的功能</h5><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>功能描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>translate3d()</td>
-<td>指定一个3D变形移动位移量</td>
-</tr>
-<tr>
-<td>translateZ()</td>
-<td>在 Z 轴上的位移</td>
-</tr>
-<tr>
-<td>scale3d(sx,sy,sz)</td>
-<td>放大、缩小</td>
-</tr>
-<tr>
-<td>scaleZ(s)</td>
-<td></td>
-</tr>
-<tr>
-<td>rotate3d(x,y,z,a)</td>
-<td>x,y,z 分别为绕各轴的矢量值（0-1的数值），a为角度值__3d旋转</td>
-</tr>
-<tr>
-<td>rotateX()、rotateY()、rotateZ()</td>
-<td></td>
-</tr>
-<tr>
-<td>perspective()</td>
-<td>透视投影，值越大角度出现的越远，值越小，角度出现的越近,transform: perspective(300px)</td>
-</tr>
-<tr>
-<td>matrix3d()</td>
-</tr>
-</tbody>
-</table>
-<h3 id="二、CSS3-过渡-——-transition"><a href="#二、CSS3-过渡-——-transition" class="headerlink" title="二、CSS3 过渡 —— transition"></a>二、CSS3 过渡 —— transition</h3><p>transition: <property> <duration>  <animation type="">  <delay> </delay></animation></duration></property></p>
-<p>相当于 transition: &lt;过渡属性&gt; &lt;过渡所需时间&gt; &lt;过渡动画函数&gt; &lt;过渡延迟时间&gt;</p>
-<h4 id="1、过渡属性"><a href="#1、过渡属性" class="headerlink" title="1、过渡属性"></a>1、过渡属性</h4><p>指定某一种 css 样式进行过渡</p>
-<p>例：</p>
-<p>transition-property: all || none || width || background-color ….基本的css 样式都能</p>
-<h4 id="3、过渡动画函数"><a href="#3、过渡动画函数" class="headerlink" title="3、过渡动画函数"></a>3、过渡动画函数</h4><p>该属性指定某种指点过渡 ”</p>
-
-          
+          今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录
+一、CSS3 变形transform 属性的的基本语法如下
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/12/css/css3-动画/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -599,9 +605,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-10T22:45:09+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T22:45:09+08:00">
                 2018-12-10
               </time>
             
@@ -612,6 +618,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -622,6 +650,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  308 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
           
 
           
@@ -641,18 +700,17 @@
       
         
           
-            <p>Given a string <strong>s</strong>, find the longest palindromic substring in <strong>s</strong>. You may assume that the maximum length of <strong>s</strong> is 1000.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;babad&quot;</span><br><span class="line">Output: &quot;bab&quot;</span><br><span class="line">Note: &quot;aba&quot; is also a valid answer.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;cbbd&quot;</span><br><span class="line">Output: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
-<p>回文需要分为奇数和偶数列</p>
-<p>然后分为两层循环，一层为字符循环，一层为长度循环</p>
-<p>主要关键点为边界条件，奇数列循环时的需要考虑前后边界</p>
-<p>以及要考虑 偶数列的话，要排除特殊情况（ccc 的回文序列为 cc ，在欧数列中需要进行设置）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> longestPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = s.split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">var</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt; arr.length; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i &amp;&amp; i + j &lt; arr.length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(arr[i-j] == arr[i+j])&#123;</span><br><span class="line">                <span class="keyword">if</span>( <span class="number">2</span> * j &gt; end - start)&#123;</span><br><span class="line">                    start = i - j;</span><br><span class="line">                    end = i + j;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; arr.length - <span class="number">1</span> &amp;&amp; arr[i] == arr [i+<span class="number">1</span>])&#123;</span><br><span class="line">            <span class="keyword">if</span>(end - start &lt; <span class="number">2</span>)&#123;</span><br><span class="line">                start = i;</span><br><span class="line">                end = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i &amp;&amp; i + j +<span class="number">1</span> &lt; arr.length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i-j] == arr[i +j +<span class="number">1</span>])&#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="number">2</span> * j + <span class="number">2</span> &gt; end - start +<span class="number">1</span>)&#123;</span><br><span class="line">                        start = i - j;</span><br><span class="line">                        end = i + j + <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s.substring(start,end + <span class="number">1</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
+          Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+Example 1:
+123Input: &quot;babad&q
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/10/最长回文序列/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -728,9 +786,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-10T17:23:08+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-10T17:23:08+08:00">
                 2018-12-10
               </time>
             
@@ -752,6 +810,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  150 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -770,11 +859,15 @@
       
         
           
-            <p>今天在使用 vonic 的时候，因为适配的组件的 <code>position: absolute</code> 然后发现  <code>window.scrollTop</code>  这东西， 下面就想深入了解，然后发现，所有的dom 元素都有 <code>scrollTop</code> <code>scrollHeight</code> <code>clientHeight</code>  等属性，所以可以直接通过 <code>scrollTo()</code> 方法直接设置 <code>scrollTop</code></p>
-<h2 id="JS监听滚动监听"><a href="#JS监听滚动监听" class="headerlink" title="JS监听滚动监听"></a>JS监听滚动监听</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>,fun()) <span class="comment">//添加滚动监听时间</span></span><br><span class="line"></span><br><span class="line">也可以对一个 dom 元素进行监听</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.app&#123;</span><br><span class="line">    height: <span class="number">100</span>px;</span><br><span class="line">    overflow: scroll;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;div class="app" id='scroll'&gt;</span></span><br><span class="line"><span class="regexp">	&lt;table&gt;</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">	&lt;/</span>table&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">document.getElementById.scrollTo(x,y) /</span><span class="regexp">/可以直接设定里面元素scroll中的位置</span></span><br></pre></td></tr></table></figure>
-<p>​    </p>
-
-          
+          今天在使用 vonic 的时候，因为适配的组件的 position: absolute 然后发现  window.scrollTop  这东西， 下面就想深入了解，然后发现，所有的dom 元素都有 scrollTop scrollHeight clientHeight  等属性，所以可以直接通过 s
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/10/javascript-滚动操作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -850,9 +943,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T23:59:13+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-07T23:59:13+08:00">
                 2018-12-07
               </time>
             
@@ -874,6 +967,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  470 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -892,27 +1016,16 @@
       
         
           
-            <h2 id="3-longest-Substring-Without-Repeating-Characters–Medium"><a href="#3-longest-Substring-Without-Repeating-Characters–Medium" class="headerlink" title="3. longest Substring Without Repeating Characters–Medium"></a>3. longest Substring Without Repeating Characters–Medium</h2><p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;abcabcbb&quot;</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: The answer is &quot;abc&quot;, with the length of 3.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3. </span><br><span class="line">             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure>
-<p>另一个大佬的写法，看看，其实这道题并不难，你的出发点有错误而已，不要自以为的认为某种方法慢，对其进行分析</p>
-<h4 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h4><p>在主要通过 flag 判断当前开始位置，通过 indexOf(searchIndex,fromIndex) 从flag 位置开始寻找是否有相同的字符，若有则改变 flag ，并判断是否修改最大值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!s.length) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">1</span>, flag = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;      </span><br><span class="line">        <span class="keyword">var</span> index = s.indexOf(s[i], flag) </span><br><span class="line">        <span class="keyword">if</span> (index !== <span class="number">-1</span> &amp;&amp; index &lt; i) flag = index + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//也可写为 if(index&lt;i),因为index 一定存在，并且</span></span><br><span class="line">        </span><br><span class="line">        max = <span class="built_in">Math</span>.max(max, i - flag + <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h4><p>通过一个 <code>str</code>存储字符串，<code>cache</code> 数组存储数组位置</p>
-<p>当字符在 <code>cache</code> 中不存在时，则往 <code>str</code> 加入该字符和 <code>cache</code> 中加入以其字符为key、坐标为值的该字符对象。</p>
-<p>当字符存在时：</p>
-<ol>
-<li>先判断与最大值的长度比较</li>
-<li>获取当前字符的位置</li>
-<li>对 <code>str</code> 字符进行截取（从 index+1 开始)</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> cache = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (i &lt; s.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cache[s[i]]) &#123;</span><br><span class="line">            <span class="comment">// Found a repeating character.</span></span><br><span class="line">            <span class="keyword">if</span> (str.length &gt; max) &#123;</span><br><span class="line">                max = str.length;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> start = str.indexOf(s[i]);</span><br><span class="line">            str = str.substring(start + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &lt; s.length) &#123;</span><br><span class="line">            str += s[i];</span><br><span class="line">            cache[s[i]] = i + <span class="number">1</span>;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (str.length &gt; max) &#123;</span><br><span class="line">        max = str.length;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
+          3. longest Substring Without Repeating Characters–MediumGiven a string, find the length of the longest substring without repeating characters.
+Example
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/07/leetcode/3-longest-Substring-Without-Repeating-Characters-Medium/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -988,9 +1101,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T23:58:31+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-07T23:58:31+08:00">
                 2018-12-07
               </time>
             
@@ -1012,6 +1125,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  484 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1030,50 +1174,28 @@
       
         
           
-            <h2 id="速读学习"><a href="#速读学习" class="headerlink" title="速读学习"></a>速读学习</h2><h3 id="阅读关键"><a href="#阅读关键" class="headerlink" title="阅读关键"></a>阅读关键</h3><ol>
-<li>通过标题理解主要内容</li>
-<li>缩短视觉定焦时间</li>
-<li>加大视觉幅度（视幅）</li>
-</ol>
-<h3 id="阅读技能："><a href="#阅读技能：" class="headerlink" title="阅读技能："></a>阅读技能：</h3><ol>
-<li>防止回调阅读</li>
-<li>通过视读进行阅读</li>
-</ol>
-<h3 id="六个大坑"><a href="#六个大坑" class="headerlink" title="六个大坑"></a>六个大坑</h3><ol>
-<li>速读不是阅读完就会的，需要可以练习，至少学习 6 周才能掌握</li>
-<li>速读不是省略的阅读，而是加快<strong>速度的逐句阅读</strong></li>
-<li>速读并不是聪明人的专利，而是人人都能掌握基础技能</li>
-<li>速读不是稀释理解能力的阅读，而是脑力全开的阅读方式</li>
-<li>速读不是一直保持一种速读，而是一种变速阅读方式</li>
-<li>练习速读是一种科学的速读套路</li>
-</ol>
-<p>自己理解：</p>
-<ol>
-<li><p>需要可以训练</p>
-</li>
-<li><p>每个人都能掌握</p>
-</li>
-<li><p>尽可能的利用大脑</p>
-</li>
-</ol>
-<h3 id="一、技能篇-001-谨记四要素"><a href="#一、技能篇-001-谨记四要素" class="headerlink" title="一、技能篇 001 谨记四要素"></a>一、技能篇 001 谨记四要素</h3><p>16个字： 刻意拉伸、专项训练、及时反馈、全身关注</p>
-<p>为什么牛逼的人能坚持，因为都是有反馈呀！</p>
-<p>所以训练的时候需要进行记录，让自己看得到进步，得到正反馈。</p>
-<h3 id="二、技能篇002-眼球运动训练"><a href="#二、技能篇002-眼球运动训练" class="headerlink" title="二、技能篇002 眼球运动训练"></a>二、技能篇002 眼球运动训练</h3><p>锻炼眼部肌肉</p>
-<ol>
-<li>手指引导法（因为人的眼睛是不会走直线）</li>
-<li>通过</li>
-</ol>
-<h3 id="三、技能篇003-基础技能模块二：-视觉定焦训练"><a href="#三、技能篇003-基础技能模块二：-视觉定焦训练" class="headerlink" title="三、技能篇003 基础技能模块二： 视觉定焦训练"></a>三、技能篇003 基础技能模块二： 视觉定焦训练</h3><ol>
-<li>符号训练法</li>
-<li>有节奏的默念法</li>
-<li>手指刷页法————推荐</li>
-<li>图解电影翻页法</li>
-</ol>
-<h3 id="四、技能篇004-基础技能模块三：-视觉幅度训练"><a href="#四、技能篇004-基础技能模块三：-视觉幅度训练" class="headerlink" title="四、技能篇004 基础技能模块三： 视觉幅度训练"></a>四、技能篇004 基础技能模块三： 视觉幅度训练</h3><h4 id="1-语义单元法——重点"><a href="#1-语义单元法——重点" class="headerlink" title="1. 语义单元法——重点"></a>1. 语义单元法——重点</h4><p>笨鸟真的不一定先飞，因为可能你花费的时间的效率可能远远不足人家。</p>
-<p>当你的大脑看了半分钟的文字后还没能了解当前文章的大意，大脑就是懈怠（人类的大脑是世界上最强大的超级计算机，会进行罢工</p>
-<h3 id="2-立体图法"><a href="#2-立体图法" class="headerlink" title="2. 立体图法"></a>2. 立体图法</h3><h3 id="3-字母树法"><a href="#3-字母树法" class="headerlink" title="3. 字母树法"></a>3. 字母树法</h3>
-          
+          速读学习阅读关键
+通过标题理解主要内容
+缩短视觉定焦时间
+加大视觉幅度（视幅）
+
+阅读技能：
+防止回调阅读
+通过视读进行阅读
+
+六个大坑
+速读不是阅读完就会的，需要可以练习，至少学习 6 周才能掌握
+速读不是省略的阅读，而是加快速度的逐句阅读
+速读并不是聪明人的专利，而是人人都能掌握基础技能
+速读不
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/07/认知/速读笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1149,9 +1271,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T09:36:17+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-07T09:36:17+08:00">
                 2018-12-07
               </time>
             
@@ -1173,6 +1295,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  69 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1191,18 +1344,25 @@
       
         
           
-            <h2 id="必补知识点"><a href="#必补知识点" class="headerlink" title="必补知识点"></a>必补知识点</h2><h3 id="一、CSS-样式"><a href="#一、CSS-样式" class="headerlink" title="一、CSS 样式"></a>一、CSS 样式</h3><ol>
-<li>各种流的定义 + 内层元素如何挤压外层元素</li>
-</ol>
-<p>float 会把指定元素变成块级元素 （inline-block？）</p>
-<h3 id="二、-JavaScript-基础知识"><a href="#二、-JavaScript-基础知识" class="headerlink" title="二、 JavaScript 基础知识"></a>二、 JavaScript 基础知识</h3><ol>
-<li>null == undefined  为何是true</li>
-</ol>
-<h3 id="三、浏览器"><a href="#三、浏览器" class="headerlink" title="三、浏览器"></a>三、浏览器</h3><ol>
-<li>浏览器端渲染机制</li>
-</ol>
-<h3 id="四、网络"><a href="#四、网络" class="headerlink" title="四、网络"></a>四、网络</h3>
+          必补知识点一、CSS 样式
+各种流的定义 + 内层元素如何挤压外层元素
+
+float 会把指定元素变成块级元素 （inline-block？）
+二、 JavaScript 基础知识
+null == undefined  为何是true
+
+三、浏览器
+浏览器端渲染机制
+
+四、网络
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/07/Javascript-知识点计划/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1278,9 +1438,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
                 2018-12-05
               </time>
             
@@ -1302,145 +1462,36 @@
           
 
           
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Javascript-循环集合"><a href="#Javascript-循环集合" class="headerlink" title="Javascript 循环集合"></a>Javascript 循环集合</h2><p>在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法</p>
-<h3 id="一、foreach"><a href="#一、foreach" class="headerlink" title="一、foreach()"></a>一、foreach()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'lala'</span>];</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//输出 1 2 3 lala</span></span><br></pre></td></tr></table></figure>
-<p>小缺点：</p>
-<p>不能使用 break 语句进行终端，也不能用 return  返回到外层函数</p>
-<h3 id="二、for-in"><a href="#二、for-in" class="headerlink" title="二、for  in"></a>二、for  in</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3,&apos;lala&apos;];</span><br><span class="line">arr.__proto__.name  = &apos;laoluo&apos;; //给 arr 的原型赋予属性name</span><br><span class="line">for(let i in arr)&#123;</span><br><span class="line">    console.log(i,arr[i]);</span><br><span class="line">&#125;</span><br><span class="line">// 0 1</span><br><span class="line">// 1 2</span><br><span class="line">// 2 3</span><br><span class="line">// 3 lala</span><br><span class="line">// name laoluo</span><br></pre></td></tr></table></figure>
-<ul>
-<li>上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1   = “21”，会对编码造成极大的不便</li>
-<li>for-in 循环体除了遍历数组元素外，还会遍历<strong>自定义元素</strong>，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到</li>
-<li>最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！</li>
-<li>所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此<code>不适用于数组</code></li>
-</ul>
-<h3 id="三、for-of-循环"><a href="#三、for-of-循环" class="headerlink" title="三、for of 循环"></a>三、for of 循环</h3><h4 id="这是最简洁的循环数组的语法"><a href="#这是最简洁的循环数组的语法" class="headerlink" title="这是最简洁的循环数组的语法"></a>这是最简洁的循环数组的语法</h4><ul>
-<li>避开了 for-in 的全部缺陷</li>
-<li>与 forEach 不同的是，他可以正确的响应 break、continue、return 语句<br>-</li>
-</ul>
-<ul>
-<li>for-of 循环支持数组循环，还支持字符串的循环</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> val <span class="keyword">of</span> arr)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(val) <span class="comment">// 分别输出 1 2 3 5 6</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> val <span class="keyword">of</span> <span class="string">"laoluo"</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(val); <span class="comment">//分别输出各个字符 l a o l u o</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="for-of-循环可以遍历其他集合（map，-set）"><a href="#for-of-循环可以遍历其他集合（map，-set）" class="headerlink" title="for-of 循环可以遍历其他集合（map， set）"></a>for-of 循环可以遍历其他集合（map， set）</h4><p>引用</p>
-<p><a href="https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop" target="_blank" rel="noopener">https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/比较运算符/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Laoluo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zerlPark">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+            <div class="post-wordcount">
+              
                 
-                <a class="post-title-link" href="/2018/12/05/比较运算符/" itemprop="url">比较运算符</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  483 字
+                </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
-                2018-12-05
-              </time>
-            
+                <span class="post-meta-divider">|</span>
+              
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2 分钟
+                </span>
+              
+            </div>
           
 
           
@@ -1460,15 +1511,16 @@
       
         
           
-            <h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><ul>
-<li>数字 跟 字符串 比较， 会将字符串转换成数字进行比较</li>
-<li>字符串 和 字符串 比较，会比较对应位置上的字符编码值</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&apos;a&apos;&lt; &apos;b&quot;  //true</span><br><span class="line">&apos;abcdd&apos;&lt;&apos;abcda&apos; //false</span><br><span class="line">&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true</span><br></pre></td></tr></table></figure>
-<p>详细记录</p>
-<p><a href="https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/" target="_blank" rel="noopener">https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/</a></p>
-
-          
+          Javascript 循环集合在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法
+一、foreach()12345var arr = [1,2,3,'lala'];arr.forEach(function(value)&#123;    console.log(
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/05/javascript 循环集合/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1544,9 +1596,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
                 2018-12-05
               </time>
             
@@ -1568,6 +1620,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  125 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1586,18 +1669,179 @@
       
         
           
-            <h2 id="概念：浅拷贝-深拷贝"><a href="#概念：浅拷贝-深拷贝" class="headerlink" title="概念：浅拷贝-深拷贝"></a>概念：浅拷贝-深拷贝</h2><ol>
-<li>浅拷贝，对于第一层目标对象为<code>基本数据类型</code>的数据，直接赋值，而对于<code>引用数据类型</code>，就是直接赋存在于栈内存的<code>堆内存地址</code> ,即【传址】，并没有开辟新的栈<ol>
-<li>深拷贝，则为深度的赋值，里面对象对应两个var </li>
-</ol>
-</li>
-</ol>
-<h3 id="三、深拷贝"><a href="#三、深拷贝" class="headerlink" title="三、深拷贝"></a>三、深拷贝</h3><h4 id="1-对象深拷贝："><a href="#1-对象深拷贝：" class="headerlink" title="1.对象深拷贝："></a>1.对象深拷贝：</h4><p>(1) Object.assign({},yourObj);    </p>
-<p>(2) var newObj =  {…yourObj};</p>
-<p>后面再继续记录更多的方法</p>
-<p><a href="https://segmentfault.com/a/1190000015042902" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015042902</a></p>
+          概念：浅拷贝-深拷贝
+浅拷贝，对于第一层目标对象为基本数据类型的数据，直接赋值，而对于引用数据类型，就是直接赋存在于栈内存的堆内存地址 ,即【传址】，并没有开辟新的栈
+深拷贝，则为深度的赋值，里面对象对应两个var 
+
+
+
+三、深拷贝1.对象深拷贝：(1) Object.assign({},your
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/05/概念：浅拷贝-深拷贝/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2018/12/05/leetcode/942. DI String Match/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laoluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zerlPark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/05/leetcode/942. DI String Match/" itemprop="url">942. DI String Match</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-05T23:58:31+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  180 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          942. DI String Match  Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length.
+Return any permutation A of [0, 1, ..., 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/05/leetcode/942. DI String Match/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1671,7 +1915,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Laoluo</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">欢迎来到老罗的小地盘~</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -1682,21 +1926,30 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">tags</span>
-                
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
               </div>
             
 
@@ -1741,7 +1994,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -1749,7 +2002,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -1774,6 +2027,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
