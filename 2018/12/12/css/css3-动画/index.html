@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -79,18 +86,18 @@
 
 
 
-<meta name="description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 CSS3 过渡 —— transitiontransition:        相当于 transition: &amp;lt;过渡属性&amp;gt; &amp;lt;过渡所需时间">
+<meta name="description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 `transform: none |   2D transform 常用的 transform-f">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css3 动画">
 <meta property="og:url" content="http://Kerwin-L.github.com/2018/12/12/css/css3-动画/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 CSS3 过渡 —— transitiontransition:        相当于 transition: &amp;lt;过渡属性&amp;gt; &amp;lt;过渡所需时间">
+<meta property="og:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 `transform: none |   2D transform 常用的 transform-f">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-12T16:02:55.463Z">
+<meta property="og:updated_time" content="2018-12-14T16:37:29.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3 动画">
-<meta name="twitter:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 CSS3 过渡 —— transitiontransition:        相当于 transition: &amp;lt;过渡属性&amp;gt; &amp;lt;过渡所需时间">
+<meta name="twitter:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 `transform: none |   2D transform 常用的 transform-f">
 
 
 
@@ -301,12 +308,85 @@
 
       
         <p>今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录</p>
-<h3 id="CSS3-过渡-——-transition"><a href="#CSS3-过渡-——-transition" class="headerlink" title="CSS3 过渡 —— transition"></a>CSS3 过渡 —— transition</h3><p>transition: <property> <duration>  <animation type="">  <delay> </delay></animation></duration></property></p>
+<h4 id="一、CSS3-变形"><a href="#一、CSS3-变形" class="headerlink" title="一、CSS3 变形"></a>一、CSS3 变形</h4><p>transform 属性的的基本语法如下</p>
+<p>`transform: none | <transform-function> </transform-function></p>
+<h5 id="2D-transform-常用的-transform-function-的功能："><a href="#2D-transform-常用的-transform-function-的功能：" class="headerlink" title="2D transform 常用的 transform-function 的功能："></a>2D transform 常用的 transform-function 的功能：</h5><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>translate()</td>
+<td>移动元素，根据X轴和Y轴坐标重新定位元素位置，扩展函数有 translateX() , translateY()</td>
+</tr>
+<tr>
+<td>scale()</td>
+<td>缩小或放大元素</td>
+</tr>
+<tr>
+<td>rotate()</td>
+<td>2d 旋转元素</td>
+</tr>
+<tr>
+<td>skew()</td>
+<td>元素倾斜，在此基础上扩展 skewX() , skewY()</td>
+</tr>
+<tr>
+<td>matrix()</td>
+<td>定义矩阵变形</td>
+</tr>
+</tbody>
+</table>
+<h5 id="3D-transform-常用的-transform-function-的功能"><a href="#3D-transform-常用的-transform-function-的功能" class="headerlink" title="3D transform 常用的 transform-function 的功能"></a>3D transform 常用的 transform-function 的功能</h5><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>translate3d()</td>
+<td>指定一个3D变形移动位移量</td>
+</tr>
+<tr>
+<td>translateZ()</td>
+<td>在 Z 轴上的位移</td>
+</tr>
+<tr>
+<td>scale3d(sx,sy,sz)</td>
+<td>放大、缩小</td>
+</tr>
+<tr>
+<td>scaleZ(s)</td>
+<td></td>
+</tr>
+<tr>
+<td>rotate3d(x,y,z,a)</td>
+<td>x,y,z 分别为绕各轴的矢量值（0-1的数值），a为角度值__3d旋转</td>
+</tr>
+<tr>
+<td>rotateX()、rotateY()、rotateZ()</td>
+<td></td>
+</tr>
+<tr>
+<td>perspective()</td>
+<td>透视投影，值越大角度出现的越远，值越小，角度出现的越近,transform: perspective(300px)</td>
+</tr>
+<tr>
+<td>matrix3d()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二、CSS3-过渡-——-transition"><a href="#二、CSS3-过渡-——-transition" class="headerlink" title="二、CSS3 过渡 —— transition"></a>二、CSS3 过渡 —— transition</h3><p>transition: <property> <duration>  <animation type="">  <delay> </delay></animation></duration></property></p>
 <p>相当于 transition: &lt;过渡属性&gt; &lt;过渡所需时间&gt; &lt;过渡动画函数&gt; &lt;过渡延迟时间&gt;</p>
-<h4 id="一、过渡属性"><a href="#一、过渡属性" class="headerlink" title="一、过渡属性"></a>一、过渡属性</h4><p>指定某一种 css 样式进行过渡</p>
+<h4 id="1、过渡属性"><a href="#1、过渡属性" class="headerlink" title="1、过渡属性"></a>1、过渡属性</h4><p>指定某一种 css 样式进行过渡</p>
 <p>例：</p>
 <p>transition-property: all || none || width || background-color ….基本的css 样式都能</p>
-<h4 id="三、过渡动画函数"><a href="#三、过渡动画函数" class="headerlink" title="三、过渡动画函数"></a>三、过渡动画函数</h4><p>该属性指定某种指点过渡 ”</p>
+<h4 id="3、过渡动画函数"><a href="#3、过渡动画函数" class="headerlink" title="3、过渡动画函数"></a>3、过渡动画函数</h4><p>该属性指定某种指点过渡 ”</p>
 
       
     </div>
@@ -324,7 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
           
         </div>
       
@@ -346,6 +426,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/15/JavaScript常见用法/" rel="prev" title="JavaScript常见用法">
+                JavaScript常见用法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -422,7 +506,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -468,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS3-过渡-——-transition"><span class="nav-number">1.</span> <span class="nav-text">CSS3 过渡 —— transition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、过渡属性"><span class="nav-number">1.1.</span> <span class="nav-text">一、过渡属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、过渡动画函数"><span class="nav-number">1.2.</span> <span class="nav-text">三、过渡动画函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、CSS3-变形"><span class="nav-number">1.</span> <span class="nav-text">一、CSS3 变形</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2D-transform-常用的-transform-function-的功能："><span class="nav-number">1.1.</span> <span class="nav-text">2D transform 常用的 transform-function 的功能：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3D-transform-常用的-transform-function-的功能"><span class="nav-number">1.2.</span> <span class="nav-text">3D transform 常用的 transform-function 的功能</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、CSS3-过渡-——-transition"><span class="nav-number"></span> <span class="nav-text">二、CSS3 过渡 —— transition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、过渡属性"><span class="nav-number">1.</span> <span class="nav-text">1、过渡属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、过渡动画函数"><span class="nav-number">2.</span> <span class="nav-text">3、过渡动画函数</span></a></li></ol></li></div>
             
 
           </div>
@@ -488,7 +572,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -511,6 +595,11 @@
 
 
 
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共5.6k字</span>
+</div>
         
 
 
