@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 `transform: none |   2D transform 常用的 transform-f">
+<meta name="description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;transform-function&amp;gt; 2D t">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css3 动画">
 <meta property="og:url" content="http://Kerwin-L.github.com/2018/12/12/css/css3-动画/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 `transform: none |   2D transform 常用的 transform-f">
+<meta property="og:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;transform-function&amp;gt; 2D t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-05T15:46:06.343Z">
+<meta property="og:updated_time" content="2019-01-08T15:45:29.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3 动画">
-<meta name="twitter:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 `transform: none |   2D transform 常用的 transform-f">
+<meta name="twitter:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;transform-function&amp;gt; 2D t">
 
 
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  373 字
+                  564 字
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -425,7 +425,7 @@
       
         <p>今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录</p>
 <h4 id="一、CSS3-变形"><a href="#一、CSS3-变形" class="headerlink" title="一、CSS3 变形"></a>一、CSS3 变形</h4><p>transform 属性的的基本语法如下</p>
-<p>`transform: none | <transform-function> </transform-function></p>
+<p><code>transform: none | &lt;transform-function&gt;</code></p>
 <h5 id="2D-transform-常用的-transform-function-的功能："><a href="#2D-transform-常用的-transform-function-的功能：" class="headerlink" title="2D transform 常用的 transform-function 的功能："></a>2D transform 常用的 transform-function 的功能：</h5><table>
 <thead>
 <tr>
@@ -497,12 +497,46 @@
 </tr>
 </tbody>
 </table>
-<h3 id="二、CSS3-过渡-——-transition"><a href="#二、CSS3-过渡-——-transition" class="headerlink" title="二、CSS3 过渡 —— transition"></a>二、CSS3 过渡 —— transition</h3><p>transition: <property> <duration>  <animation type="">  <delay> </delay></animation></duration></property></p>
-<p>相当于 transition: &lt;过渡属性&gt; &lt;过渡所需时间&gt; &lt;过渡动画函数&gt; &lt;过渡延迟时间&gt;</p>
+<h3 id="二、CSS3-过渡-——-transition"><a href="#二、CSS3-过渡-——-transition" class="headerlink" title="二、CSS3 过渡 —— transition"></a>二、CSS3 过渡 —— transition</h3><p><code>transition: &lt;property&gt; &lt;duration&gt;  &lt;animation type&gt;  &lt;delay&gt;</code></p>
+<p>相当于 transition:   &lt;过渡属性&gt;  &lt;过渡所需时间&gt; &lt;过渡动画函数&gt;  &lt;过渡延迟时间&gt;</p>
 <h4 id="1、过渡属性"><a href="#1、过渡属性" class="headerlink" title="1、过渡属性"></a>1、过渡属性</h4><p>指定某一种 css 样式进行过渡</p>
 <p>例：</p>
 <p>transition-property: all || none || width || background-color ….基本的css 样式都能</p>
-<h4 id="3、过渡动画函数"><a href="#3、过渡动画函数" class="headerlink" title="3、过渡动画函数"></a>3、过渡动画函数</h4><p>该属性指定某种指点过渡 ”</p>
+<h4 id="3、过渡动画函数"><a href="#3、过渡动画函数" class="headerlink" title="3、过渡动画函数"></a>3、过渡动画函数</h4><p>该属性指定某种指定的过渡函数： </p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>linear</td>
+<td>规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。</td>
+</tr>
+<tr>
+<td>ease</td>
+<td>规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。</td>
+</tr>
+<tr>
+<td>ease-in</td>
+<td>规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）</td>
+</tr>
+<tr>
+<td>ease-out</td>
+<td>规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。</td>
+</tr>
+<tr>
+<td>ease-in-out</td>
+<td>规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。</td>
+</tr>
+<tr>
+<td>cubic-bezier(n,n,n,n)</td>
+<td>cubic-bezier(n,n,n,n)    在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -543,8 +577,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/15/javascript/setTimout用法/" rel="prev" title="JavaScript常见用法">
-                JavaScript常见用法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/15/javascript/setTimout用法/" rel="prev" title="setTimout用法">
+                setTimout用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -723,7 +757,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.8k字</span>
+  <span class="post-count">博客全站共8k字</span>
 </div>
         
 <div class="busuanzi-count">
