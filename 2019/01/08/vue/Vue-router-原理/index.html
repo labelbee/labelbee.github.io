@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname去实现不跳转的页面切换。 2. history 模式14年后，html5  标准发布，通过两个api  pushState 、 replaceState、popstate，去改变url 但不发送请求，但比起hash 模式 ，url 美观hh 通过 window.onp">
+<meta name="description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname 实现页面内容的切换。 2. history 模式html5  标准发布后，通过两个api  pushState 、 replaceState，改变url 但不发送请求 用法： 12345678910pushState(Object,title,url)//往历史记录">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue-router 原理">
+<meta property="og:title" content="前端路由">
 <meta property="og:url" content="http://Kerwin-L.github.com/2019/01/08/vue/Vue-router-原理/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname去实现不跳转的页面切换。 2. history 模式14年后，html5  标准发布，通过两个api  pushState 、 replaceState、popstate，去改变url 但不发送请求，但比起hash 模式 ，url 美观hh 通过 window.onp">
+<meta property="og:description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname 实现页面内容的切换。 2. history 模式html5  标准发布后，通过两个api  pushState 、 replaceState，改变url 但不发送请求 用法： 12345678910pushState(Object,title,url)//往历史记录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-08T15:07:30.961Z">
+<meta property="og:updated_time" content="2019-01-08T15:28:56.958Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue-router 原理">
-<meta name="twitter:description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname去实现不跳转的页面切换。 2. history 模式14年后，html5  标准发布，通过两个api  pushState 、 replaceState、popstate，去改变url 但不发送请求，但比起hash 模式 ，url 美观hh 通过 window.onp">
+<meta name="twitter:title" content="前端路由">
+<meta name="twitter:description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname 实现页面内容的切换。 2. history 模式html5  标准发布后，通过两个api  pushState 、 replaceState，改变url 但不发送请求 用法： 12345678910pushState(Object,title,url)//往历史记录">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>Vue-router 原理 | zerlPark</title>
+  <title>前端路由 | zerlPark</title>
   
 
 
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vue-router 原理</h1>
+          <h1 class="post-title" itemprop="name headline">前端路由</h1>
         
 
         <div class="post-meta">
@@ -361,7 +361,7 @@
 
           
           
-             <span id="/2019/01/08/vue/Vue-router-原理/" class="leancloud_visitors" data-flag-title="Vue-router 原理">
+             <span id="/2019/01/08/vue/Vue-router-原理/" class="leancloud_visitors" data-flag-title="前端路由">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  101 字
+                  208 字
                 </span>
               
 
@@ -423,8 +423,10 @@
       
 
       
-        <h2 id="一、为什么可以实现前端路由"><a href="#一、为什么可以实现前端路由" class="headerlink" title="一、为什么可以实现前端路由"></a>一、为什么可以实现前端路由</h2><h3 id="1-hash-模式"><a href="#1-hash-模式" class="headerlink" title="1. hash 模式"></a>1. hash 模式</h3><p>因为改变hash 值并不会导致页面的刷新，通过监听 <code>window.onhashname</code>去实现不跳转的页面切换。</p>
-<h3 id="2-history-模式"><a href="#2-history-模式" class="headerlink" title="2. history 模式"></a>2. history 模式</h3><p>14年后，html5  标准发布，通过两个api  <code>pushState</code> 、 <code>replaceState</code>、<code>popstate</code>，去改变url 但不发送请求，但比起hash 模式 ，url 美观hh</p>
+        <h2 id="一、为什么可以实现前端路由"><a href="#一、为什么可以实现前端路由" class="headerlink" title="一、为什么可以实现前端路由"></a>一、为什么可以实现前端路由</h2><h3 id="1-hash-模式"><a href="#1-hash-模式" class="headerlink" title="1. hash 模式"></a>1. hash 模式</h3><p>因为改变hash 值并不会导致页面的刷新，通过监听 <code>window.onhashname</code> 实现页面内容的切换。</p>
+<h3 id="2-history-模式"><a href="#2-history-模式" class="headerlink" title="2. history 模式"></a>2. history 模式</h3><p>html5  标准发布后，通过两个api  <code>pushState</code> 、 <code>replaceState</code>，改变url 但不发送请求</p>
+<p>用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pushState(<span class="built_in">Object</span>,title,url)</span><br><span class="line"><span class="comment">//往历史记录栈中添加记录</span></span><br><span class="line"><span class="comment">//Object 主要用于在 popstate 时间中作为参数被获取</span></span><br><span class="line"><span class="comment">//url 新历史记录的地址，可为页面地址也可为一个锚点值，新url 必须与当前url 处于同一个域中，否则抛出异常</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.history.pushState(&#123;<span class="attr">laoluo</span>:<span class="string">'1'</span>&#125;,<span class="string">'laoluo1'</span>,<span class="string">"/page1"</span>);</span><br><span class="line"><span class="comment">//该 url 将会从原来的变成 page1</span></span><br><span class="line"><span class="built_in">window</span>.onpopchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(event.state) <span class="comment">//监听页面的前进后退按钮、调用 back()、forward()、go() </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>通过 <code>window.onpopstate = function(event){ }</code>监听 前进后退</p>
 
       
@@ -642,7 +644,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.7k字</span>
+  <span class="post-count">博客全站共7.8k字</span>
 </div>
         
 <div class="busuanzi-count">

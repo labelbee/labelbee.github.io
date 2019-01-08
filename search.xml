@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Vue-router 原理]]></title>
+    <title><![CDATA[前端路由]]></title>
     <url>%2F2019%2F01%2F08%2Fvue%2FVue-router-%E5%8E%9F%E7%90%86%2F</url>
-    <content type="text"><![CDATA[一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname去实现不跳转的页面切换。 2. history 模式14年后，html5 标准发布，通过两个api pushState 、 replaceState、popstate，去改变url 但不发送请求，但比起hash 模式 ，url 美观hh 通过 window.onpopstate = function(event){ }监听 前进后退]]></content>
+    <content type="text"><![CDATA[一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname 实现页面内容的切换。 2. history 模式html5 标准发布后，通过两个api pushState 、 replaceState，改变url 但不发送请求 用法： 12345678910pushState(Object,title,url)//往历史记录栈中添加记录//Object 主要用于在 popstate 时间中作为参数被获取//url 新历史记录的地址，可为页面地址也可为一个锚点值，新url 必须与当前url 处于同一个域中，否则抛出异常window.history.pushState(&#123;laoluo:'1'&#125;,'laoluo1',"/page1");//该 url 将会从原来的变成 page1window.onpopchange = function(event)&#123; console.log(event.state) //监听页面的前进后退按钮、调用 back()、forward()、go() &#125; 通过 window.onpopstate = function(event){ }监听 前进后退]]></content>
       <categories>
         <category>vue</category>
       </categories>
