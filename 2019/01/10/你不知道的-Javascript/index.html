@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="vue,">
+  <meta name="keywords" content="javascript,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname 实现页面内容的切换。 2. history 模式html5  标准发布后，通过两个api  pushState 、 replaceState，改变url 但不发送请求 用法： 12345678910pushState(Object,title,url)//往历史记录">
-<meta name="keywords" content="vue">
+<meta name="description" content="你不知道的 Javascript第一章 作用域是什么（LHS RHS 查询）作用域是一套规则，用与确认在何处（where),以及如何查找变量（标识符）。  如果查找的目的是对变量进行赋值，则会调用 LHS 查询。 如果目的是获取变量的值，则使用 RHS 查询  JavaScript 引擎首先会在代码执行之前对其进行编译，以var a = 2为例：  首先 var  a 在其作用域中声明新的变量。这">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端路由">
-<meta property="og:url" content="http://Kerwin-L.github.com/2019/01/08/vue/Vue-router-原理/index.html">
+<meta property="og:title" content="你不知道的 Javascript">
+<meta property="og:url" content="http://Kerwin-L.github.com/2019/01/10/你不知道的-Javascript/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname 实现页面内容的切换。 2. history 模式html5  标准发布后，通过两个api  pushState 、 replaceState，改变url 但不发送请求 用法： 12345678910pushState(Object,title,url)//往历史记录">
+<meta property="og:description" content="你不知道的 Javascript第一章 作用域是什么（LHS RHS 查询）作用域是一套规则，用与确认在何处（where),以及如何查找变量（标识符）。  如果查找的目的是对变量进行赋值，则会调用 LHS 查询。 如果目的是获取变量的值，则使用 RHS 查询  JavaScript 引擎首先会在代码执行之前对其进行编译，以var a = 2为例：  首先 var  a 在其作用域中声明新的变量。这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-08T15:31:47.410Z">
+<meta property="og:updated_time" content="2019-01-10T13:09:08.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端路由">
-<meta name="twitter:description" content="一、为什么可以实现前端路由1. hash 模式因为改变hash 值并不会导致页面的刷新，通过监听 window.onhashname 实现页面内容的切换。 2. history 模式html5  标准发布后，通过两个api  pushState 、 replaceState，改变url 但不发送请求 用法： 12345678910pushState(Object,title,url)//往历史记录">
+<meta name="twitter:title" content="你不知道的 Javascript">
+<meta name="twitter:description" content="你不知道的 Javascript第一章 作用域是什么（LHS RHS 查询）作用域是一套规则，用与确认在何处（where),以及如何查找变量（标识符）。  如果查找的目的是对变量进行赋值，则会调用 LHS 查询。 如果目的是获取变量的值，则使用 RHS 查询  JavaScript 引擎首先会在代码执行之前对其进行编译，以var a = 2为例：  首先 var  a 在其作用域中声明新的变量。这">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://Kerwin-L.github.com/2019/01/08/vue/Vue-router-原理/">
+  <link rel="canonical" href="http://Kerwin-L.github.com/2019/01/10/你不知道的-Javascript/">
 
 
 
 
 
-  <title>前端路由 | zerlPark</title>
+  <title>你不知道的 Javascript | zerlPark</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2019/01/08/vue/Vue-router-原理/">
+    <link itemprop="mainEntityOfPage" href="http://Kerwin-L.github.com/2019/01/10/你不知道的-Javascript/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laoluo">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端路由</h1>
+          <h1 class="post-title" itemprop="name headline">你不知道的 Javascript</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T10:54:27+08:00">
-                2019-01-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T13:29:09+08:00">
+                2019-01-10
               </time>
             
 
@@ -344,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -361,7 +361,7 @@
 
           
           
-             <span id="/2019/01/08/vue/Vue-router-原理/" class="leancloud_visitors" data-flag-title="前端路由">
+             <span id="/2019/01/10/你不知道的-Javascript/" class="leancloud_visitors" data-flag-title="你不知道的 Javascript">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  225 字
+                  1.5k 字
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  6 分钟
                 </span>
               
             </div>
@@ -423,12 +423,79 @@
       
 
       
-        <h2 id="一、为什么可以实现前端路由"><a href="#一、为什么可以实现前端路由" class="headerlink" title="一、为什么可以实现前端路由"></a>一、为什么可以实现前端路由</h2><h3 id="1-hash-模式"><a href="#1-hash-模式" class="headerlink" title="1. hash 模式"></a>1. hash 模式</h3><p>因为改变hash 值并不会导致页面的刷新，通过监听 <code>window.onhashname</code> 实现页面内容的切换。</p>
-<h3 id="2-history-模式"><a href="#2-history-模式" class="headerlink" title="2. history 模式"></a>2. history 模式</h3><p>html5  标准发布后，通过两个api  <code>pushState</code> 、 <code>replaceState</code>，改变url 但不发送请求</p>
-<p>用法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pushState(<span class="built_in">Object</span>,title,url)</span><br><span class="line"><span class="comment">//往历史记录栈中添加记录</span></span><br><span class="line"><span class="comment">//Object 主要用于在 popstate 时间中作为参数被获取</span></span><br><span class="line"><span class="comment">//url 新历史记录的地址，可为页面地址也可为一个锚点值，新url 必须与当前url 处于同一个域中，否则抛出异常</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.history.pushState(&#123;<span class="attr">laoluo</span>:<span class="string">'1'</span>&#125;,<span class="string">'laoluo1'</span>,<span class="string">"/page1"</span>);</span><br><span class="line"><span class="comment">//该 url 将会从原来的变成 page1</span></span><br><span class="line"><span class="built_in">window</span>.onpopchange = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(event.state) <span class="comment">//监听页面的前进后退按钮、调用 back()、forward()、go() </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过 <code>window.onpopstate = function(event){ }</code>监听 前进后退</p>
-<h2 id="二、vue-的路由是怎么样的呢？"><a href="#二、vue-的路由是怎么样的呢？" class="headerlink" title="二、vue 的路由是怎么样的呢？"></a>二、vue 的路由是怎么样的呢？</h2><p><a href="https://zhuanlan.zhihu.com/p/37730038" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37730038</a></p>
+        <h1 id="你不知道的-Javascript"><a href="#你不知道的-Javascript" class="headerlink" title="你不知道的 Javascript"></a>你不知道的 Javascript</h1><h2 id="第一章-作用域是什么（LHS-RHS-查询）"><a href="#第一章-作用域是什么（LHS-RHS-查询）" class="headerlink" title="第一章 作用域是什么（LHS RHS 查询）"></a>第一章 作用域是什么（LHS RHS 查询）</h2><p>作用域是一套规则，用与确认在<strong>何处（where)</strong>,以及如何查找变量（标识符）。</p>
+<ul>
+<li>如果查找的目的是对变量进行赋值，则会调用 LHS 查询。</li>
+<li>如果目的是获取变量的值，则使用 RHS 查询</li>
+</ul>
+<p>JavaScript 引擎首先会在代码执行之前对其进行编译，以<code>var a = 2</code>为例：</p>
+<ol>
+<li><p>首先 <code>var  a</code> 在其作用域中声明新的变量。这会在代码最开始的阶段，也就是代码执行之前（具体原因是因为变量的提升)</p>
+</li>
+<li><p>接下来 <code>a =2</code> 会 查询（LHS查询）变量 a 并对其进行赋值操作</p>
+</li>
+</ol>
+<p>LHS 和 RHS 查询都会顺着 作用域链 进行查询</p>
+<p>不成功的 RHS 引用会导致抛出 ReferenceError 异常。（引用不存在的变量）</p>
+<p>不成功的 LHS 引用会导致自动创建一个全局变量（  a = 2 ; 若a 没有声明则会创建为全局变量)————仅限非严格模式下。</p>
+<h2 id="第二部分-之-this-和对象原型——-第-3-章-对象"><a href="#第二部分-之-this-和对象原型——-第-3-章-对象" class="headerlink" title="第二部分 之 this 和对象原型—— 第 3 章 对象"></a>第二部分 之 this 和对象原型—— 第 3 章 对象</h2><p>内置对象：String 、Number 、Boolean、Object  、Function、Array 、Date、RegExp、Error</p>
+<h2 id="3-2-类型"><a href="#3-2-类型" class="headerlink" title="3.2 类型"></a>3.2 类型</h2><blockquote>
+<p> Javascript 中二进制前三位为 0 的话会被判定为 Object 类型， null 的二进制表示是全 0，自然前三位也是 0 ，所以执行  typeof 时会返回  “object” </p>
+</blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =  <span class="string">"I am a string"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.length); <span class="comment">// 13 </span></span><br><span class="line"><span class="built_in">console</span>.log(str.charAt(<span class="number">3</span>));<span class="comment">//m</span></span><br><span class="line"><span class="comment">// 为什么能有该属性是因为引擎自动将字面量转换成 String 对象，所以可以使用其属性</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line">obj.a ; <span class="comment">// 2  ———— 属性访问</span></span><br><span class="line">obj[<span class="string">'a'</span>]; <span class="comment">//2 ———— 键访问</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">两者主要区别是 . 操作符要求属性名满足标识符的命名规范（除了_ $。不能使用特殊字符），而['..'] 语法可以接受任意 UTF-8/Unicode 字符串作为属性名。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>[‘..’] 该用法中的可以为变量，并且里面的变量都会转换成 字符串的形式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> id = a ;</span><br><span class="line"><span class="built_in">console</span>.log(obj[id]); <span class="comment">//2 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 =&#123;&#125; ;</span><br><span class="line">obj2[<span class="literal">true</span>] = <span class="string">'foo'</span>;</span><br><span class="line">obj2[<span class="number">3</span>] = <span class="string">'bar'</span>;</span><br><span class="line">obj2[obj2] = <span class="string">'baz'</span>;</span><br><span class="line"></span><br><span class="line">obj2[<span class="string">'true'</span>]; <span class="comment">// 'foo'</span></span><br><span class="line">obj2[<span class="string">'3'</span>] ; <span class="comment">// 'bar'</span></span><br><span class="line">obj2[<span class="string">"[Object Object]"</span>] <span class="comment">// 'baz'</span></span><br></pre></td></tr></table></figure>
+<h3 id="划重点！-ES6-中刚才提到的键访问形式-obj-中可以进行计算"><a href="#划重点！-ES6-中刚才提到的键访问形式-obj-中可以进行计算" class="headerlink" title="划重点！ ES6 中刚才提到的键访问形式(obj[..]) 中可以进行计算"></a><strong>划重点！ ES6 中刚才提到的键访问形式(obj[..]) 中可以进行计算</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> prefix = <span class="string">'foo'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    [prefix + <span class="string">"bar"</span>]: <span class="string">"hello"</span>,</span><br><span class="line">    [prefix + <span class="string">"baz"</span>]: <span class="string">"world"</span></span><br><span class="line">&#125;</span><br><span class="line">obj[<span class="string">"foobar"</span>]; <span class="comment">// hello</span></span><br><span class="line">obj[<span class="string">"foobaz"</span>]; <span class="comment">// world</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-3-4-复制对象"><a href="#3-3-4-复制对象" class="headerlink" title="3.3.4 复制对象"></a>3.3.4 复制对象</h2><p><strong>深复制</strong>： 通过 JSON.parse(JSON.stringify(someObj))</p>
+<p><strong>浅复制</strong>：Object.assign(..) ——第一个参数为 <strong>目标对象</strong>，后面可以跟一个或多个<strong>源对象</strong></p>
+<p>浅复制关键点： </p>
+<ol>
+<li>它会遍历一个或多个<strong>源对象</strong>中可枚举（enumerable）的自有键( owned key )</li>
+<li>使用 = 操作符赋值 到目标对象中。（由于是 = 操作符赋值，所以源对象属性的一些特性（比如 writable ） 不会复制到目标对象。</li>
+</ol>
+<h3 id="3-3-5属性描述符"><a href="#3-3-5属性描述符" class="headerlink" title="3.3.5属性描述符"></a><strong>3.3.5属性描述符</strong></h3><p>ES5 开始，所有属性都剧本了属性描述符</p>
+<p>writable  可写 、enumerable（可枚举） 和 configurable （可配置）</p>
+<ol>
+<li><p><strong>writable</strong>：决定事发后可以修改属性的值——如果强行更改属性值，非严格模式下会静默失败（silently failed)，严格模式下，会 TypeError</p>
+</li>
+<li><p><strong>configurable</strong>: 是否可以通过 <code>Object.defineProperty(..)</code>方法来修改属性描述符——如果设置为<code>false</code> 后，再继续进行修改，则产生一个<code>TypeError</code>错误（不管是否为严格模式）。注意：<code>configurable</code>修改成 <code>false</code> 是一个<strong>单项操作</strong>，<strong>无法撤销</strong>！！！</p>
+<p>有一个小小的例外： 即便属性是 configurable: false ，我们还是可以把 writable 的状态由 true 改为 false， 但是无法从 fasle 改为 true</p>
+</li>
+<li><p><strong>enumerable</strong>:  是否可枚举</p>
+</li>
+</ol>
+<h3 id="3-3-6-不变性"><a href="#3-3-6-不变性" class="headerlink" title="3.3.6 不变性"></a><strong>3.3.6 不变性</strong></h3><p>上述的设置都是浅不变性（如： 对 obj.a 设定不可更改，但其obj.a = [1,2,3] ,obj.a.push(4) 仍可执行</p>
+<p>所以就有以下的方法</p>
+<ol>
+<li><p>禁止扩展： </p>
+<p><code>Object.preventExtensions(yourObject)</code>创建错误同上</p>
+</li>
+<li><p>密封：</p>
+<p>功能： 不能添加新属性 + 不能重新配置或删除现有属性</p>
+<p>Object.seal(..)，方法实际是 先 进行 Object.preventExtensions（）,后将所有属性标记为 configurable: false</p>
+</li>
+<li><p>冻结：</p>
+<p>功能： Object.seal() +  writable: false </p>
+<p>object.freeze() </p>
+</li>
+</ol>
+<h3 id="3-3-9-Getter-和-Setter"><a href="#3-3-9-Getter-和-Setter" class="headerlink" title="3.3.9 Getter 和 Setter "></a><strong>3.3.9 Getter 和 Setter </strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj= &#123;</span><br><span class="line">    get a()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"I am get"</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">	&#125;,</span><br><span class="line">	set a(newVal)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"I am "</span> + newVal);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.a ; <span class="comment">// 打印出 'I am get' ,值为 1 </span></span><br><span class="line">obj.a = <span class="string">'laoluo'</span>; <span class="comment">// 打印出'I am laoluo'</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-10-存在性"><a href="#3-3-10-存在性" class="headerlink" title="3.3.10 存在性"></a><strong>3.3.10 存在性</strong></h3><p><code>in</code> 操作符时检查属性是否在对象及其 [[Prototype]] 原型链中。</p>
+<p><code>hasOwnProperty(..)</code>是检查属性是否在其对象中</p>
+<p><code>for in</code>只是可以枚举那些可枚举的对象属性（包含原型链上的） </p>
+<p><code>propertyIsEnumerable(..)</code> 检查给定属性是否在对象中，并且满足<code>enumerable:: true</code></p>
+<p><code>Object.keys(..)</code> 会返回一个包含所有可枚举属性的数组。（只包含本对象）</p>
+<p><code>Object.getOwnPropertyNames(..)</code> 返回所有属性（不管是否可枚举）的数组（只包含本对象）</p>
+<h3 id="3-4-遍历"><a href="#3-4-遍历" class="headerlink" title="3.4 遍历"></a><strong>3.4 遍历</strong></h3><p>数组内置迭代器@@iterator 来对数组进行遍历，</p>
+<p>ES6 新增方法 for of 用于遍历本身含有迭代器的对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> a <span class="keyword">of</span> arr)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+<p>for of 循环首先会向被访问对象请求一个迭代器对象，然后通过迭代器对象的 next() 方法来遍历所有返回值。</p>
+<p>下面使用数组的迭代器方法来手动遍历数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> it = arr[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line"></span><br><span class="line">it.next();<span class="comment">//&#123;value: 1,done: false&#125;</span></span><br><span class="line">it.next();<span class="comment">//&#123;value: 2,done: false&#125;</span></span><br><span class="line">it.next();<span class="comment">//&#123;value: 3,done: false&#125;</span></span><br><span class="line">it.next();<span class="comment">//&#123;done: true&#125;</span></span><br></pre></td></tr></table></figure>
+<p>同样我们也可以任何想遍历的对象定义 @@iterator , 举例来说:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a:<span class="number">1</span>,</span><br><span class="line">    b:<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="built_in">Symbol</span>.iterator,&#123;</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">false</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> o = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">var</span> idx=  <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> ks = <span class="built_in">Object</span>.keys(o);</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            next: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    value: o[ks[idx++]],</span><br><span class="line">                    done: (idx&gt;ks.length)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//手动遍历</span></span><br><span class="line"><span class="keyword">var</span> it = obj[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line">it.next(); <span class="comment">// &#123;value: 1,done:false&#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123;value: 2,done:false&#125;</span></span><br><span class="line">it.next(); <span class="comment">// &#123;value: undefined,done:true&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//用 for .. of 遍历 obj </span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> a <span class="keyword">of</span> obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>同样也可以用对象字面量的方式定义 [Symbol.iterator]`w</p>
 
       
     </div>
@@ -446,7 +513,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
           
         </div>
       
@@ -459,8 +526,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/06/css/CSS-水平垂直居中小集合/" rel="next" title="CSS 水平垂直居中小集合">
-                <i class="fa fa-chevron-left"></i> CSS 水平垂直居中小集合
+              <a href="/2019/01/08/vue/Vue-router-原理/" rel="next" title="前端路由">
+                <i class="fa fa-chevron-left"></i> 前端路由
               </a>
             
           </div>
@@ -469,8 +536,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/10/你不知道的-Javascript/" rel="prev" title="你不知道的 Javascript">
-                你不知道的 Javascript <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/11/关于-this/" rel="prev" title="关于 this ">
+                关于 this  <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -603,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、为什么可以实现前端路由"><span class="nav-number">1.</span> <span class="nav-text">一、为什么可以实现前端路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-hash-模式"><span class="nav-number">1.1.</span> <span class="nav-text">1. hash 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-history-模式"><span class="nav-number">1.2.</span> <span class="nav-text">2. history 模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、vue-的路由是怎么样的呢？"><span class="nav-number">2.</span> <span class="nav-text">二、vue 的路由是怎么样的呢？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#你不知道的-Javascript"><span class="nav-number">1.</span> <span class="nav-text">你不知道的 Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-作用域是什么（LHS-RHS-查询）"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 作用域是什么（LHS RHS 查询）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分-之-this-和对象原型——-第-3-章-对象"><span class="nav-number">1.2.</span> <span class="nav-text">第二部分 之 this 和对象原型—— 第 3 章 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-类型"><span class="nav-number">1.3.</span> <span class="nav-text">3.2 类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#划重点！-ES6-中刚才提到的键访问形式-obj-中可以进行计算"><span class="nav-number">1.3.1.</span> <span class="nav-text">划重点！ ES6 中刚才提到的键访问形式(obj[..]) 中可以进行计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-4-复制对象"><span class="nav-number">1.4.</span> <span class="nav-text">3.3.4 复制对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-5属性描述符"><span class="nav-number">1.4.1.</span> <span class="nav-text">3.3.5属性描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-6-不变性"><span class="nav-number">1.4.2.</span> <span class="nav-text">3.3.6 不变性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-9-Getter-和-Setter"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.3.9 Getter 和 Setter </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-10-存在性"><span class="nav-number">1.4.4.</span> <span class="nav-text">3.3.10 存在性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-遍历"><span class="nav-number">1.4.5.</span> <span class="nav-text">3.4 遍历</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
