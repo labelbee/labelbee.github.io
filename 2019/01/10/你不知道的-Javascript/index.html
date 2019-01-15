@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="zerlPark">
 <meta property="og:description" content="你不知道的 Javascript第一章 作用域是什么（LHS RHS 查询）作用域是一套规则，用与确认在何处（where),以及如何查找变量（标识符）。  如果查找的目的是对变量进行赋值，则会调用 LHS 查询。 如果目的是获取变量的值，则使用 RHS 查询  JavaScript 引擎首先会在代码执行之前对其进行编译，以var a = 2为例：  首先 var  a 在其作用域中声明新的变量。这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-10T13:09:08.517Z">
+<meta property="og:updated_time" content="2019-01-13T15:56:40.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你不知道的 Javascript">
 <meta name="twitter:description" content="你不知道的 Javascript第一章 作用域是什么（LHS RHS 查询）作用域是一套规则，用与确认在何处（where),以及如何查找变量（标识符）。  如果查找的目的是对变量进行赋值，则会调用 LHS 查询。 如果目的是获取变量的值，则使用 RHS 查询  JavaScript 引擎首先会在代码执行之前对其进行编译，以var a = 2为例：  首先 var  a 在其作用域中声明新的变量。这">
@@ -454,10 +454,10 @@
 <li>它会遍历一个或多个<strong>源对象</strong>中可枚举（enumerable）的自有键( owned key )</li>
 <li>使用 = 操作符赋值 到目标对象中。（由于是 = 操作符赋值，所以源对象属性的一些特性（比如 writable ） 不会复制到目标对象。</li>
 </ol>
-<h3 id="3-3-5属性描述符"><a href="#3-3-5属性描述符" class="headerlink" title="3.3.5属性描述符"></a><strong>3.3.5属性描述符</strong></h3><p>ES5 开始，所有属性都剧本了属性描述符</p>
+<h3 id="3-3-5属性描述符"><a href="#3-3-5属性描述符" class="headerlink" title="3.3.5属性描述符"></a><strong>3.3.5属性描述符</strong></h3><p>ES5 开始，所有属性都具有属性描述符</p>
 <p>writable  可写 、enumerable（可枚举） 和 configurable （可配置）</p>
 <ol>
-<li><p><strong>writable</strong>：决定事发后可以修改属性的值——如果强行更改属性值，非严格模式下会静默失败（silently failed)，严格模式下，会 TypeError</p>
+<li><p><strong>writable</strong>：决定事发后可以修改属性的值    ——如果强行更改属性值，非严格模式下会静默失败（silently failed)，严格模式下，会 TypeError</p>
 </li>
 <li><p><strong>configurable</strong>: 是否可以通过 <code>Object.defineProperty(..)</code>方法来修改属性描述符——如果设置为<code>false</code> 后，再继续进行修改，则产生一个<code>TypeError</code>错误（不管是否为严格模式）。注意：<code>configurable</code>修改成 <code>false</code> 是一个<strong>单项操作</strong>，<strong>无法撤销</strong>！！！</p>
 <p>有一个小小的例外： 即便属性是 configurable: false ，我们还是可以把 writable 的状态由 true 改为 false， 但是无法从 fasle 改为 true</p>
@@ -615,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -716,7 +716,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.2k字</span>
+  <span class="post-count">博客全站共10.9k字</span>
 </div>
         
 <div class="busuanzi-count">
