@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="一、State 组件使用方 通过 computed 形式  12345678const Counter = &amp;#123;    template: `&amp;lt;div&amp;gt;&amp;#123;&amp;#123; count &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;`,    computed:&amp;#123;        count()&amp;#123;            return store.stat">
+<meta name="description" content="Vuex  人称：状态管理模式 一、State 组件使用方法 通过 computed 形式  12345678const Counter = &amp;#123;    template: `&amp;lt;div&amp;gt;&amp;#123;&amp;#123; count &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;`,    computed:&amp;#123;        count()&amp;#123;">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vuex 用法记录">
 <meta property="og:url" content="http://Kerwin-L.github.com/2019/01/15/vuex用法记录/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="一、State 组件使用方 通过 computed 形式  12345678const Counter = &amp;#123;    template: `&amp;lt;div&amp;gt;&amp;#123;&amp;#123; count &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;`,    computed:&amp;#123;        count()&amp;#123;            return store.stat">
+<meta property="og:description" content="Vuex  人称：状态管理模式 一、State 组件使用方法 通过 computed 形式  12345678const Counter = &amp;#123;    template: `&amp;lt;div&amp;gt;&amp;#123;&amp;#123; count &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;`,    computed:&amp;#123;        count()&amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-15T07:56:08.695Z">
+<meta property="og:updated_time" content="2019-01-16T02:31:44.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuex 用法记录">
-<meta name="twitter:description" content="一、State 组件使用方 通过 computed 形式  12345678const Counter = &amp;#123;    template: `&amp;lt;div&amp;gt;&amp;#123;&amp;#123; count &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;`,    computed:&amp;#123;        count()&amp;#123;            return store.stat">
+<meta name="twitter:description" content="Vuex  人称：状态管理模式 一、State 组件使用方法 通过 computed 形式  12345678const Counter = &amp;#123;    template: `&amp;lt;div&amp;gt;&amp;#123;&amp;#123; count &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;`,    computed:&amp;#123;        count()&amp;#123;">
 
 
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  502 字
+                  614 字
                 </span>
               
 
@@ -423,7 +423,8 @@
       
 
       
-        <h2 id="一、State-组件使用方"><a href="#一、State-组件使用方" class="headerlink" title="一、State 组件使用方"></a>一、State 组件使用方</h2><ol>
+        <p>Vuex  人称：状态管理模式</p>
+<h2 id="一、State-组件使用方法"><a href="#一、State-组件使用方法" class="headerlink" title="一、State 组件使用方法"></a>一、State 组件使用方法</h2><ol>
 <li>通过 computed 形式</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Counter = &#123;</span><br><span class="line">    template: <span class="string">`&lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;`</span>,</span><br><span class="line">    computed:&#123;</span><br><span class="line">        count()&#123;</span><br><span class="line">            <span class="keyword">return</span> store.state.count; <span class="comment">//store 为 new Vuex.store(&#123;&#125;) 创建的对象</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -446,7 +447,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$store.getters.doneTodosCount <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <h3 id="通过方法访问"><a href="#通过方法访问" class="headerlink" title="通过方法访问"></a>通过方法访问</h3><p>可以通过 getters 返回一个函数，通过给函数传参等到想要的值</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getters:&#123;</span><br><span class="line">    <span class="comment">//..</span></span><br><span class="line">    getTodoById: <span class="function">(<span class="params">state</span>)=&gt;</span><span class="function">(<span class="params">id</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> state.todos.find(<span class="function"><span class="params">todo</span>=&gt;</span>todo.id === id);</span><br><span class="line">        <span class="comment">//find() 找到第一个符合条件的值并返回</span></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">store.getters.getTodoById(<span class="number">1</span>) <span class="comment">//[&#123;id: 1,name: 'laoluo',done: true&#125;]</span></span><br></pre></td></tr></table></figure>
-<h3 id="与上同有-mapGetters-属性"><a href="#与上同有-mapGetters-属性" class="headerlink" title="与上同有 mapGetters 属性"></a>与上同有 mapGetters 属性</h3>
+<h3 id="与上同有-mapGetters-属性"><a href="#与上同有-mapGetters-属性" class="headerlink" title="与上同有 mapGetters 属性"></a>与上同有 mapGetters 属性</h3><h3 id="后续："><a href="#后续：" class="headerlink" title="后续："></a>后续：</h3><p>双向绑定的计算属性</p>
+<p>本身如果使用vuex 并不能直接通过 <code>v-model</code> 直接进行绑定，因为本身 vuex 的修改是要经过 mutation 进行监控。</p>
+<p>所以可以通过一个双向绑定的计算属性进行设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model=<span class="string">"message"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//..</span></span><br><span class="line">computed:&#123;</span><br><span class="line">	message: &#123;</span><br><span class="line">		get()&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.$store.state.obj.message</span><br><span class="line">        &#125;,</span><br><span class="line">        set(value)&#123;</span><br><span class="line">			<span class="keyword">this</span>.$store.commint(<span class="string">'updateMessage'</span>,value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -616,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、State-组件使用方"><span class="nav-number">1.</span> <span class="nav-text">一、State 组件使用方</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-getters"><span class="nav-number">1.1.</span> <span class="nav-text">二、 getters</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过属性访问"><span class="nav-number">1.1.1.</span> <span class="nav-text">通过属性访问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过方法访问"><span class="nav-number">1.2.</span> <span class="nav-text">通过方法访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与上同有-mapGetters-属性"><span class="nav-number">1.3.</span> <span class="nav-text">与上同有 mapGetters 属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、State-组件使用方法"><span class="nav-number">1.</span> <span class="nav-text">一、State 组件使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-getters"><span class="nav-number">1.1.</span> <span class="nav-text">二、 getters</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过属性访问"><span class="nav-number">1.1.1.</span> <span class="nav-text">通过属性访问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过方法访问"><span class="nav-number">1.2.</span> <span class="nav-text">通过方法访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与上同有-mapGetters-属性"><span class="nav-number">1.3.</span> <span class="nav-text">与上同有 mapGetters 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续："><span class="nav-number">1.4.</span> <span class="nav-text">后续：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -662,7 +667,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.9k字</span>
+  <span class="post-count">博客全站共11.2k字</span>
 </div>
         
 <div class="busuanzi-count">
