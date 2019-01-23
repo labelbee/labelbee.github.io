@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;transform-function&amp;gt; 2D t">
+<meta name="description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 先从样式边变形开始，这可以增加样式的多样性 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;trans">
 <meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css3 动画">
 <meta property="og:url" content="http://Kerwin-L.github.com/2018/12/12/css/css3-动画/index.html">
 <meta property="og:site_name" content="zerlPark">
-<meta property="og:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;transform-function&amp;gt; 2D t">
+<meta property="og:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 先从样式边变形开始，这可以增加样式的多样性 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;trans">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-08T15:45:29.462Z">
+<meta property="og:updated_time" content="2019-01-23T03:06:49.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css3 动画">
-<meta name="twitter:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;transform-function&amp;gt; 2D t">
+<meta name="twitter:description" content="今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录 先从样式边变形开始，这可以增加样式的多样性 一、CSS3 变形transform 属性的的基本语法如下 transform: none | &amp;lt;trans">
 
 
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  564 字
+                  967 字
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -424,6 +424,7 @@
 
       
         <p>今天终于发现这个神奇的操作了，transition ，今天深入了解了下，只要在当前的样式中设置了 transition，未来如果对当前 dom 的样式进行更改，则会通过 transition 进行样式的过渡，非常的顺滑，下面就对方法进行记录</p>
+<p>先从样式边变形开始，这可以增加样式的多样性</p>
 <h4 id="一、CSS3-变形"><a href="#一、CSS3-变形" class="headerlink" title="一、CSS3 变形"></a>一、CSS3 变形</h4><p>transform 属性的的基本语法如下</p>
 <p><code>transform: none | &lt;transform-function&gt;</code></p>
 <h5 id="2D-transform-常用的-transform-function-的功能："><a href="#2D-transform-常用的-transform-function-的功能：" class="headerlink" title="2D transform 常用的 transform-function 的功能："></a>2D transform 常用的 transform-function 的功能：</h5><table>
@@ -537,6 +538,57 @@
 </tr>
 </tbody>
 </table>
+<h3 id="三、animation"><a href="#三、animation" class="headerlink" title="三、animation"></a>三、animation</h3><p><code>animation: &lt;animtion-name&gt;  &lt;animation-duration&gt; &lt;animation-timing-function&gt;&lt;animation-delay&gt;&lt;animation-iteration-count&gt;&lt;animation-direction&gt;&lt;animition-fill-code&gt;&lt;animation-play-state</code></p>
+<p>在每个动画定义中，<strong>顺序</strong>很重要：解析为<code>&lt;time&gt;</code>的第一个值会被分配给 <code>animation-duration</code>，第二个分配给 <code>animation-delay</code></p>
+<h2 id="initial-value：（初始值）"><a href="#initial-value：（初始值）" class="headerlink" title="initial value：（初始值）"></a>initial value：（初始值）</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">变量名</th>
+<th>值(第一个值都为初始值)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">animation-name</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-duration</td>
+<td>0s</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-timing-function</td>
+<td>ease</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-delay</td>
+<td>0s</td>
+</tr>
+<tr>
+<td style="text-align:center">animaiton-iteration-count(运行次数)</td>
+<td>1 次数（可为小数）/ infinite</td>
+</tr>
+<tr>
+<td style="text-align:center">animaiton-direction</td>
+<td>normal/reverse/alternate/alernate-reverse</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-fill-mode</td>
+<td>none  / forwards / backwords / both</td>
+</tr>
+<tr>
+<td style="text-align:center">animation-play-state</td>
+<td>running  / paused</td>
+</tr>
+</tbody>
+</table>
+<h4 id="特别解释：-animation-fill-mode"><a href="#特别解释：-animation-fill-mode" class="headerlink" title="特别解释： animation-fill-mode"></a>特别解释： animation-fill-mode</h4><p>首先，动画可以划分为 <strong>初始状态</strong>  <strong>等待期</strong>  <strong>动画执行期</strong>  <strong>完成期</strong>  四个阶段</p>
+<p>forwards 表示 等待期保持原始样式，完成期间保持最后一帧样式</p>
+<p>backwards 表示等待期保持第一帧样式，完成期跳转到<strong>初始样式</strong></p>
+<p>none 默认值，等待期和完成期都是 <strong>初始样式</strong></p>
+<p>both:  表示等待期 为第一帧样式， 完成期间保持最后一帧样式</p>
+<p><a href="https://segmentfault.com/q/1010000003867335" target="_blank" rel="noopener">这个回答的第一条的图很形象的描述</a></p>
+<h4 id="animation-play-state"><a href="#animation-play-state" class="headerlink" title="animation-play-state"></a>animation-play-state</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">保持动画的运行,当 hover 时运行，离开时暂停</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">下面是一个长条形在 hover 时转动 ，离开时自动暂停，hover 时从暂停位置继续开始</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">animation</span>: spin <span class="number">1s</span> linear infinite;</span><br><span class="line">    <span class="attribute">animation-play-state</span>: paused;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">animation-play-state</span>: running;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> spin&#123;</span><br><span class="line">    <span class="selector-tag">to</span>&#123;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.color</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">----</span> 下面为 <span class="selector-tag">HTML</span> <span class="selector-tag">----</span></span><br><span class="line">&lt;div class="color"&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -711,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、CSS3-变形"><span class="nav-number">1.</span> <span class="nav-text">一、CSS3 变形</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2D-transform-常用的-transform-function-的功能："><span class="nav-number">1.1.</span> <span class="nav-text">2D transform 常用的 transform-function 的功能：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3D-transform-常用的-transform-function-的功能"><span class="nav-number">1.2.</span> <span class="nav-text">3D transform 常用的 transform-function 的功能</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、CSS3-过渡-——-transition"><span class="nav-number"></span> <span class="nav-text">二、CSS3 过渡 —— transition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、过渡属性"><span class="nav-number">1.</span> <span class="nav-text">1、过渡属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、过渡动画函数"><span class="nav-number">2.</span> <span class="nav-text">3、过渡动画函数</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、CSS3-变形"><span class="nav-number">1.</span> <span class="nav-text">一、CSS3 变形</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2D-transform-常用的-transform-function-的功能："><span class="nav-number">1.1.</span> <span class="nav-text">2D transform 常用的 transform-function 的功能：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3D-transform-常用的-transform-function-的功能"><span class="nav-number">1.2.</span> <span class="nav-text">3D transform 常用的 transform-function 的功能</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、CSS3-过渡-——-transition"><span class="nav-number"></span> <span class="nav-text">二、CSS3 过渡 —— transition</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、过渡属性"><span class="nav-number">1.</span> <span class="nav-text">1、过渡属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、过渡动画函数"><span class="nav-number">2.</span> <span class="nav-text">3、过渡动画函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、animation"><span class="nav-number"></span> <span class="nav-text">三、animation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initial-value：（初始值）"><span class="nav-number"></span> <span class="nav-text">initial value：（初始值）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特别解释：-animation-fill-mode"><span class="nav-number">1.</span> <span class="nav-text">特别解释： animation-fill-mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-play-state"><span class="nav-number">2.</span> <span class="nav-text">animation-play-state</span></a></li></ol></li></div>
             
 
           </div>
@@ -757,7 +809,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.2k字</span>
+  <span class="post-count">博客全站共11.6k字</span>
 </div>
         
 <div class="busuanzi-count">
