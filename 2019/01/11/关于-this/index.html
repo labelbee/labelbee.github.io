@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="zerlPark">
 <meta property="og:description" content="this  全面解析this 在任何情况下都不属于词法作用域重点： this 是 运行时 进行绑定，不是编译时绑定，其上下文取决于函数调用时的各种条件 123456789101112131415function foo(num)&amp;#123;	console.log(&quot;foo &quot;+ num );      	//记录 foo 的调用次数    this.count ++ ;&amp;#125;foo.cou">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-11T07:28:54.517Z">
+<meta property="og:updated_time" content="2019-01-23T07:46:36.651Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 this ">
 <meta name="twitter:description" content="this  全面解析this 在任何情况下都不属于词法作用域重点： this 是 运行时 进行绑定，不是编译时绑定，其上下文取决于函数调用时的各种条件 123456789101112131415function foo(num)&amp;#123;	console.log(&quot;foo &quot;+ num );      	//记录 foo 的调用次数    this.count ++ ;&amp;#125;foo.cou">
@@ -447,7 +447,7 @@
 <h3 id="二、-绑定例外"><a href="#二、-绑定例外" class="headerlink" title="二、 绑定例外"></a>二、 绑定例外</h3><p>若不需要上下文的时候，显示绑定的第一个参数 设置为 <code>null</code> ,或者通过 <code>Object.create(null) 创建一个 DMZ(demilitarized zone 非军事区)不会包含 Object.prototype 的对象</code></p>
 <h3 id="2-1-间接引用"><a href="#2-1-间接引用" class="headerlink" title="2.1 间接引用"></a>2.1 间接引用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> o  = &#123;<span class="attr">a</span>: <span class="number">3</span> ,<span class="attr">foo</span>: foo&#125;;</span><br><span class="line"><span class="keyword">var</span> p = &#123;<span class="attr">a</span>: <span class="number">4</span>&#125;;</span><br><span class="line">o.foo() ; <span class="comment">//3</span></span><br><span class="line">(p.foo = o.foo)() <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
 <p>赋值表达式（p.foo = o.foo) 的返回值是目标函数的引用，因此调用位置是 foo() 而不是 p.foo() 或者 o.foo()。 所以这里是 默认绑定</p>
-<h3 id="三、特殊用法"><a href="#三、特殊用法" class="headerlink" title="三、特殊用法"></a>三、特殊用法</h3><p>箭筒函数——其函数中的指向为外层函数 的this</p>
+<h3 id="三、特殊用法"><a href="#三、特殊用法" class="headerlink" title="三、特殊用法"></a>三、特殊用法</h3><p>箭头函数——其函数中的指向为外层函数 的this</p>
 
       
     </div>
@@ -567,7 +567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -668,7 +668,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.6k字</span>
+  <span class="post-count">博客全站共11.9k字</span>
 </div>
         
 <div class="busuanzi-count">
