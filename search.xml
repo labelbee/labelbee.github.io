@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[不是不到，而是时候未到]]></title>
+    <url>%2F2019%2F01%2F25%2F%E4%B8%8D%E6%98%AF%E4%B8%8D%E5%88%B0%EF%BC%8C%E8%80%8C%E6%98%AF%E6%97%B6%E5%80%99%E6%9C%AA%E5%88%B0%2F</url>
+    <content type="text"><![CDATA[”学习是有滞后性的“，”任何东西从后往前看，都可以找到联系，从前往后看看不到学习的意义“，“不是不到，而是时候未到” 每每在坚持的时候，看到的都是一片迷茫，坚持下去就会好的。 坚持一天，没问题，两天，没问题吧，三天，可能就犹豫了。然后继续打鸡血，继续努力，继续消磨，周而复始。 宛如肩扛着承重的行囊，奋力的往前面踏上几步，然后因受不了重量而倒下，躺了躺，拍拍身上的尘，继续往前踏上几步，继续如此。 当望望手上的茧，便想：“这应该是每个人都要经历的吧”，而正当想到如此，才能继续坚持往前行。这可能就是我这类人的生活吧。 但是身上那种盼望美好还是没有消失，模模糊糊知道这对你好，坚持就罢了。 熬 熬 熬 但是谁又知道要熬过久呢？一个月？半年？一年？不知道。 但这不就正是生活吗？没有这种苦行僧的生活哪有最后得到的那种甜蜜？ 不过当你坚持过来的时候，得到你想要的，真实的情况你会异常的平静，因为这不就是你花费不知道多少多少时间得到的东西吗？嗯，终于来了。 哈哈哈哈哈 这可能就是写文章吧哈哈哈哈，真的是，画风真实搞笑，就 TM 去坚持就好了，虽然不用玩命的坚持，管他呢，坚持下去才会不一样。 最后就以乔布斯的话结尾吧，也就是开头一句话的后半部分 任何东西从后往前看，都可以找到联系，从前往后看看不到学习的意义。看似无意义，目的性没那么强的事在将来看都有意义的，只要你沉醉其中全心全意去做 ————史蒂夫·乔布斯]]></content>
+      <categories>
+        <category>认知</category>
+      </categories>
+      <tags>
+        <tag>认知</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[小记 inline 中的小坑]]></title>
     <url>%2F2019%2F01%2F23%2F%E5%B0%8F%E8%AE%B0-inline-%E4%B8%AD%E7%9A%84%E5%B0%8F%E5%9D%91%2F</url>
     <content type="text"><![CDATA[在开发项目的时候发现，img 合成的一系列图片之间都有小白条！！ 一、为什么会有小白条？img 是 inline-block 元素，由于基线的缘故，图片下方到buttom 会有一定的距离 二、 解决办法 设置 display: block; 将其父元素容器设置为 font-size: 0 (但 chrome 要另外设置为-webkit-text-size-adjust:none;，因为谷歌设置了默认字体的大小) vertical-align: middle/ top /bottom（仅能消除上下图片的小白条，左右并无效） 三、内联元素和内联块元素之间的小白条 因为他们标签之间有空格/换行，就会有间隔 四、解决办法 移除空格 font-size: 0 父元素设置 font-size: 0 , 若子元素需要展示,另外设置子元素的 font-size，但是 chrome 有默认最小字体 所以需要另外设置 -webkit-text-size-adjust:none;]]></content>
@@ -155,14 +166,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Javascript 循环集合]]></title>
-    <url>%2F2018%2F12%2F05%2Fjavascript%2Fjavascript%20%E5%BE%AA%E7%8E%AF%E9%9B%86%E5%90%88%2F</url>
-    <content type="text"><![CDATA[Javascript 循环集合在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法 一、foreach()12345var arr = [1,2,3,'lala'];arr.forEach(function(value)&#123; console.log(value);&#125;)//输出 1 2 3 lala 小缺点： 不能使用 break 语句进行终端，也不能用 return 返回到外层函数 二、for in12345678910var arr = [1,2,3,'lala'];arr.__proto__.name = 'laoluo'; //给 arr 的原型赋予属性namefor(let i in arr)&#123; console.log(i,arr[i]);&#125;// 0 1// 1 2// 2 3// 3 lala// name laoluo 上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1 = “21”，会对编码造成极大的不便 for-in 循环体除了遍历数组元素外，还会遍历自定义元素，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到 最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！ 所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此不适用于数组 三、for of 循环这是最简洁的循环数组的语法 避开了 for-in 的全部缺陷 与 forEach 不同的是，他可以正确的响应 break、continue、return 语句 for-of 循环支持数组循环，还支持字符串的循环 1234567var arr = [1,2,3,5,6];for(let val of arr)&#123; console.log(val) // 分别输出 1 2 3 5 6&#125;for(let val of "laoluo")&#123; console.log(val); //分别输出各个字符 l a o l u o&#125; 如果对象想使用 for of 可以通过定义对象的 Symbol.iterator 属性 12345678910111213141516171819202122232425262728 var selectedType = &#123; a: 1, b: 2&#125;Object.defineProperty(selectedType,Symbol.iterator,&#123; enumerable: false, writable: false, configurable: true, value: function()&#123; var o = this; var idx = 0; var ks = Object.keys(o); return&#123; next: function()&#123; return&#123; value: o[ks[idx++]], done: idx&gt;ks.length &#125; &#125; &#125; &#125; &#125;)for(var i of selectedType)&#123; console.log(i); &#125;// 1// 2 for-of 循环可以遍历其他集合（map， set）四、 Object.getOwnPropertyNames(obj) 遍历返回数组，包含自身对象的所有属性（不包含Symbol，但是包括不可枚举属性） 引用 https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop]]></content>
+    <title><![CDATA[942. DI String Match]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F942.%20DI%20String%20Match%2F</url>
+    <content type="text"><![CDATA[942. DI String Match Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1: If S[i] == &quot;I&quot;, then A[i] &lt; A[i+1] If S[i] == &quot;D&quot;, then A[i] &gt; A[i+1] Example 1: 12Input: &quot;IDID&quot;Output: [0,4,1,3,2] Example 2: 12Input: &quot;III&quot;Output: [0,1,2,3] Example 3: 12Input: &quot;DDI&quot;Output: [3,2,0,1] Note: 1 &lt;= S.length &lt;= 10000 S only contains characters &quot;I&quot; or &quot;D&quot;. 123456789101112131415161718/** * @param &#123;string&#125; S * @return &#123;number[]&#125; */var diStringMatch = function(S) &#123; var min = 0; var max = S.length; var s = S.split(""); var answer = s.map(function(item)&#123; if(item=="I")&#123; return min++; &#125;else if (item=="D")&#123; return max--; &#125; &#125;) answer.push(min); //因为最后只剩下一个数字 return answer;&#125;;]]></content>
       <categories>
-        <category>javascript</category>
+        <category>leetcode</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -188,17 +199,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[概念：浅拷贝-深拷贝]]></title>
-    <url>%2F2018%2F12%2F05%2Fjavascript%2F%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
-    <content type="text"><![CDATA[概念：浅拷贝-深拷贝 浅拷贝，对于第一层目标对象为基本数据类型的数据，直接赋值，而对于引用数据类型，就是直接赋存在于栈内存的堆内存地址 ,即【传址】，并没有开辟新的栈 深拷贝，则为深度的赋值，里面对象对应两个var 三、深拷贝1.对象浅拷贝：(1) Object.assign({},yourObj); (2) var newObj = {…yourObj}; 2.对象深拷贝(1) JSON.parse(JSON.stringify(yourObject)) 后面再继续记录更多的方法 https://segmentfault.com/a/1190000015042902]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[717. 1-bit and 2-bit Characters]]></title>
     <url>%2F2018%2F12%2F05%2Fleetcode%2F717.%201-bit%20and%202-bit%20Characters%2F</url>
     <content type="text"><![CDATA[717. 1-bit and 2-bit Characters We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11). Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero. Example 1: 12345Input:bits = [1, 0, 0]Output: TrueExplanation:The only way to decode it is two-bit character and one-bit character. So the last character is one-bit character. Example 2: 12345Input:bits = [1, 1, 1, 0]Output: FalseExplanation:The only way to decode it is two-bit character and two-bit character. So the last character is NOT one-bit character. Note: 1 &lt;= len(bits) &lt;= 1000. bits[i] is always 0 or 1. 解题思路: 由于只有三种编码方式 0 10 `11 所以只要遇到 1就会前进两格，当遇到0时则前进一格，令初始值为 i=0 如果最后一个为 0则倒数第二个数所积累的长度必然等于 length-1 123456789101112131415/** * @param &#123;number[]&#125; bits * @return &#123;boolean&#125; */var isOneBitCharacter = function(bits) &#123; var len = bits.length; var i = 0; while(i&lt;len-1)&#123; if(bits[i]=="1") i = i+2; else i++; &#125; return i == len-1&#125;;]]></content>
@@ -210,20 +210,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[CSS 背景图设置]]></title>
-    <url>%2F2018%2F12%2F05%2Fcss%2FCSS3%20%E8%83%8C%E6%99%AF%E5%9B%BE%E8%AE%BE%E7%BD%AE%2F</url>
-    <content type="text"><![CDATA[CSS3 背景图设置一、设置背景图background-image: url(&#39;/static/img/background.jpg&#39;); 二、设置背景图大小 三、设置其他属性集合1234background-repeat: repeat || repeat-x || repeat-y || no-repeat background-origin: content-box || padding-box || border-box;//规定背景图片的定位区域background-image: url(1.jpg),url(2.jpg);// 允许使用多个背景图片]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[942. DI String Match]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F942.%20DI%20String%20Match%2F</url>
-    <content type="text"><![CDATA[942. DI String Match Given a string S that only contains “I” (increase) or “D” (decrease), let N = S.length. Return any permutation A of [0, 1, ..., N] such that for all i = 0, ..., N-1: If S[i] == &quot;I&quot;, then A[i] &lt; A[i+1] If S[i] == &quot;D&quot;, then A[i] &gt; A[i+1] Example 1: 12Input: &quot;IDID&quot;Output: [0,4,1,3,2] Example 2: 12Input: &quot;III&quot;Output: [0,1,2,3] Example 3: 12Input: &quot;DDI&quot;Output: [3,2,0,1] Note: 1 &lt;= S.length &lt;= 10000 S only contains characters &quot;I&quot; or &quot;D&quot;. 123456789101112131415161718/** * @param &#123;string&#125; S * @return &#123;number[]&#125; */var diStringMatch = function(S) &#123; var min = 0; var max = S.length; var s = S.split(""); var answer = s.map(function(item)&#123; if(item=="I")&#123; return min++; &#125;else if (item=="D")&#123; return max--; &#125; &#125;) answer.push(min); //因为最后只剩下一个数字 return answer;&#125;;]]></content>
+    <title><![CDATA[53. Maximum Subarray（最大子串）——EASY]]></title>
+    <url>%2F2018%2F12%2F05%2Fleetcode%2F53.%20Maximum%20Subarray%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AD%90%E4%B8%B2%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6. Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle. 解题思路： 从前往后进行遍历，设置两个总和 maxSum 和 curSum 当加上当前值小于之前值时，则替换最大值为当前值。 其实简单来说： 从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值， 开始给 max 赋值 nums[0] . lastMax = 0; 然后不断的给 lastMax 赋值，如果大于 max 则进行替换 max，否则不变。 然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。 1234567891011121314151617var maxSubArray = function(nums) &#123; if(nums.length==0) return 0; var maxSum = nums[0], curSum = nums[0]; for(var i=1;i&lt;nums.length;i++)&#123; if(nums[i]&gt;curSum+nums[i])&#123; curSum = nums[i]; &#125;else&#123; curSum += nums[i]; &#125; if(curSum&gt;maxSum)&#123; maxSum = curSum; &#125; &#125; return maxSum;&#125;;console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); 另外一种写法 1234567891011121314var maxSubArray = function(nums) &#123; var max = nums[0]; var lastMax = 0; for(let i=0;i&lt;nums.length;i++)&#123; lastMax += nums[i]; if(lastMax&gt;max)&#123; max = lastMax; &#125; if(lastMax&lt;0)&#123; lastMax = 0; &#125; &#125; return max;&#125;]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
@@ -232,9 +221,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[比较运算符]]></title>
-    <url>%2F2018%2F12%2F05%2Fjavascript%2F%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
-    <content type="text"><![CDATA[比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符 unicode 编码值比较 123&apos;a&apos;&lt; &apos;b&quot; //true&apos;abcdd&apos;&lt;&apos;abcda&apos; //false&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true 详细记录 https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/]]></content>
+    <title><![CDATA[概念：浅拷贝-深拷贝]]></title>
+    <url>%2F2018%2F12%2F05%2Fjavascript%2F%E6%A6%82%E5%BF%B5%EF%BC%9A%E6%B5%85%E6%8B%B7%E8%B4%9D-%E6%B7%B1%E6%8B%B7%E8%B4%9D%2F</url>
+    <content type="text"><![CDATA[概念：浅拷贝-深拷贝 浅拷贝，对于第一层目标对象为基本数据类型的数据，直接赋值，而对于引用数据类型，就是直接赋存在于栈内存的堆内存地址 ,即【传址】，并没有开辟新的栈 深拷贝，则为深度的赋值，里面对象对应两个var 三、深拷贝1.对象浅拷贝：(1) Object.assign({},yourObj); (2) var newObj = {…yourObj}; 2.对象深拷贝(1) JSON.parse(JSON.stringify(yourObject)) 后面再继续记录更多的方法 https://segmentfault.com/a/1190000015042902]]></content>
       <categories>
         <category>javascript</category>
       </categories>
@@ -254,14 +243,36 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[53. Maximum Subarray（最大子串）——EASY]]></title>
-    <url>%2F2018%2F12%2F05%2Fleetcode%2F53.%20Maximum%20Subarray%EF%BC%88%E6%9C%80%E5%A4%A7%E5%AD%90%E4%B8%B2%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[53. Maximum Subarray（最大子串）——EASYGiven an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example: 123Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6. Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle. 解题思路： 从前往后进行遍历，设置两个总和 maxSum 和 curSum 当加上当前值小于之前值时，则替换最大值为当前值。 其实简单来说： 从前往后遍历，需要两个变量，一个max 存储最大值，一个 lastMax 存储当前最大值， 开始给 max 赋值 nums[0] . lastMax = 0; 然后不断的给 lastMax 赋值，如果大于 max 则进行替换 max，否则不变。 然后保证每次循环检验 lastMax 是否小于 0 ，如果小于0，则说明前面数并没起到作用，所以抛弃，lastMax 从0 开始。 1234567891011121314151617var maxSubArray = function(nums) &#123; if(nums.length==0) return 0; var maxSum = nums[0], curSum = nums[0]; for(var i=1;i&lt;nums.length;i++)&#123; if(nums[i]&gt;curSum+nums[i])&#123; curSum = nums[i]; &#125;else&#123; curSum += nums[i]; &#125; if(curSum&gt;maxSum)&#123; maxSum = curSum; &#125; &#125; return maxSum;&#125;;console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); 另外一种写法 1234567891011121314var maxSubArray = function(nums) &#123; var max = nums[0]; var lastMax = 0; for(let i=0;i&lt;nums.length;i++)&#123; lastMax += nums[i]; if(lastMax&gt;max)&#123; max = lastMax; &#125; if(lastMax&lt;0)&#123; lastMax = 0; &#125; &#125; return max;&#125;]]></content>
+    <title><![CDATA[Javascript 循环集合]]></title>
+    <url>%2F2018%2F12%2F05%2Fjavascript%2Fjavascript%20%E5%BE%AA%E7%8E%AF%E9%9B%86%E5%90%88%2F</url>
+    <content type="text"><![CDATA[Javascript 循环集合在使用数组的时候经常用到循环，为了避免用最为简单的循环方法，现在整理下各种新型循环的方法 一、foreach()12345var arr = [1,2,3,'lala'];arr.forEach(function(value)&#123; console.log(value);&#125;)//输出 1 2 3 lala 小缺点： 不能使用 break 语句进行终端，也不能用 return 返回到外层函数 二、for in12345678910var arr = [1,2,3,'lala'];arr.__proto__.name = 'laoluo'; //给 arr 的原型赋予属性namefor(let i in arr)&#123; console.log(i,arr[i]);&#125;// 0 1// 1 2// 2 3// 3 lala// name laoluo 上述代码中，赋给 i 的值并不是数字，而是字符串 ”0“、”1“、”2”、“3” ，此时很可能无意中对其进行字符串操作。例如 “2” + 1 = “21”，会对编码造成极大的不便 for-in 循环体除了遍历数组元素外，还会遍历自定义元素，如果数组中存在可枚举的属性 arr.name ,循环会将额外循环一次，遍历到名’name’的索引。就连数组的原型链上的属性也能被访问到 最令人震惊的是，这段代码可能按随机顺序遍历数组元素！！ 所以，for-in 是为普通对象进行设计的，可以遍历到对象的字符串类型的键值，因此不适用于数组 三、for of 循环这是最简洁的循环数组的语法 避开了 for-in 的全部缺陷 与 forEach 不同的是，他可以正确的响应 break、continue、return 语句 for-of 循环支持数组循环，还支持字符串的循环 1234567var arr = [1,2,3,5,6];for(let val of arr)&#123; console.log(val) // 分别输出 1 2 3 5 6&#125;for(let val of "laoluo")&#123; console.log(val); //分别输出各个字符 l a o l u o&#125; 如果对象想使用 for of 可以通过定义对象的 Symbol.iterator 属性 12345678910111213141516171819202122232425262728 var selectedType = &#123; a: 1, b: 2&#125;Object.defineProperty(selectedType,Symbol.iterator,&#123; enumerable: false, writable: false, configurable: true, value: function()&#123; var o = this; var idx = 0; var ks = Object.keys(o); return&#123; next: function()&#123; return&#123; value: o[ks[idx++]], done: idx&gt;ks.length &#125; &#125; &#125; &#125; &#125;)for(var i of selectedType)&#123; console.log(i); &#125;// 1// 2 for-of 循环可以遍历其他集合（map， set）四、 Object.getOwnPropertyNames(obj) 遍历返回数组，包含自身对象的所有属性（不包含Symbol，但是包括不可枚举属性） 引用 https://www.infoq.cn/article/es6-in-depth-iterators-and-the-for-of-loop]]></content>
       <categories>
-        <category>leetcode</category>
+        <category>javascript</category>
       </categories>
       <tags>
-        <tag>leetcode</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[比较运算符]]></title>
+    <url>%2F2018%2F12%2F05%2Fjavascript%2F%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%2F</url>
+    <content type="text"><![CDATA[比较运算符 数字 跟 字符串 比较， 会将字符串转换成数字进行比较 字符串 和 字符串 比较，会比较对应位置上的字符 unicode 编码值比较 123&apos;a&apos;&lt; &apos;b&quot; //true&apos;abcdd&apos;&lt;&apos;abcda&apos; //false&apos;2018-02-23&apos;&lt;&apos;2018-11-11&apos; //true 详细记录 https://www.jeffjade.com/2015/08/28/2015-09-02-js-string-compare/]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS 背景图设置]]></title>
+    <url>%2F2018%2F12%2F05%2Fcss%2FCSS3%20%E8%83%8C%E6%99%AF%E5%9B%BE%E8%AE%BE%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[CSS3 背景图设置一、设置背景图background-image: url(&#39;/static/img/background.jpg&#39;); 二、设置背景图大小 三、设置其他属性集合1234background-repeat: repeat || repeat-x || repeat-y || no-repeat background-origin: content-box || padding-box || border-box;//规定背景图片的定位区域background-image: url(1.jpg),url(2.jpg);// 允许使用多个背景图片]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
